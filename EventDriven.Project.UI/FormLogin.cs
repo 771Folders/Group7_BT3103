@@ -25,14 +25,14 @@ namespace EventDriven.Project.UI
         {
             try
             {
-                   UserModel matchingUser = userController.ValidateUser(txtUsername.Text, txtPassword.Text);
-                   if (matchingUser != null)
-                   {
-                       this.DialogResult = DialogResult.OK;
-                       this.Close(); ;
-                   }
-                   else throw new Exception("Invalid Credentials");
-                
+                UserModel matchingUser = userController.ValidateUser(txtUsername.Text, txtPassword.Text);
+                if (matchingUser != null)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close(); ;
+                }
+                else throw new Exception("Invalid Credentials");
+
                 //UserModel matchingUser = new UserModel();
                 //using (SqlConnection Hotel = new SqlConnection(CONNECTIONSTRING))
                 //{
@@ -59,6 +59,11 @@ namespace EventDriven.Project.UI
             {
                 MessageBox.Show(EX.Message);
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
