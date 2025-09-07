@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EventDriven.Project.Businesslogic")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a33932eae1ecb7fb4704b0148081e0439ea38f2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+68721753ecc07d5e7abd786e75348433e4dad06c")]
 [assembly: System.Reflection.AssemblyProductAttribute("EventDriven.Project.Businesslogic")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EventDriven.Project.Businesslogic")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

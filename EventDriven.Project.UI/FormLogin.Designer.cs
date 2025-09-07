@@ -42,6 +42,7 @@
             // lblPassword
             // 
             lblPassword.AutoSize = true;
+            lblPassword.BackColor = Color.FromArgb(0, 69, 69, 69);
             lblPassword.Font = new Font("Palatino Linotype", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPassword.ForeColor = Color.White;
             lblPassword.Location = new Point(50, 315);
@@ -58,6 +59,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(489, 61);
             txtPassword.TabIndex = 5;
+            txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsername
             // 
@@ -83,6 +85,7 @@
             // lblFname
             // 
             lblFname.AutoSize = true;
+            lblFname.BackColor = Color.FromArgb(0, 69, 69, 69);
             lblFname.Font = new Font("Palatino Linotype", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblFname.ForeColor = Color.White;
             lblFname.Location = new Point(50, 176);
@@ -106,6 +109,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.FromArgb(0, 69, 69, 69);
             label1.Font = new Font("Palatino Linotype", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
             label1.Location = new Point(74, 58);
@@ -116,7 +120,8 @@
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ControlDarkDark;
+            panel1.BackColor = Color.FromArgb(128, 69, 69, 69);
+            panel1.BorderStyle = BorderStyle.Fixed3D;
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnCancel);
             panel1.Controls.Add(lblFname);
@@ -128,7 +133,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(611, 629);
             panel1.TabIndex = 17;
-            panel1.Paint += panel1_Paint;
             // 
             // FormLogin
             // 
@@ -137,6 +141,7 @@
             BackgroundImage = Properties.Resources.loginBG;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1482, 853);
+            ControlBox = false;
             Controls.Add(panel1);
             DoubleBuffered = true;
             Margin = new Padding(3, 4, 3, 4);

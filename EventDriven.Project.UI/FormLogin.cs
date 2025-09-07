@@ -8,7 +8,7 @@ namespace EventDriven.Project.UI
 
         private UserController userController;
 
-       public FormLogin()
+        public FormLogin()
         {
             InitializeComponent();
             userController = new UserController();
@@ -36,11 +36,6 @@ namespace EventDriven.Project.UI
             {
                 MessageBox.Show(EX.Message);
             }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
