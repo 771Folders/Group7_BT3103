@@ -20,12 +20,13 @@ namespace EventDriven.Project.Businesslogic.Controller
             return new List<UserModel> { new UserModel() };
         }
 
-        public UserModel ValidateUser( string Username, string Password)
+        public UserModel ValidateUser(string Username, string Password)
         {
             try
             {
                 if (string.IsNullOrEmpty(Password) || string.IsNullOrEmpty(Username))
                 {
+                    Console.WriteLine("Failed");
                     throw new Exception("Password/Username cannot be empty.");
                 }
                 else

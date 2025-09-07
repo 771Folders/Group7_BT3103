@@ -16,5 +16,12 @@ namespace EventDriven.Project.UI
         {
             InitializeComponent();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
+        }
     }
 }

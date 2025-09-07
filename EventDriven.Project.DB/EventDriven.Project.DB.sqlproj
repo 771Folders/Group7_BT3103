@@ -76,5 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\Script.PostDeployment1.sql" />
+    <None Include="dbo\Scripts\UserScript.sql" />
   </ItemGroup>
 </Project>

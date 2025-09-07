@@ -5,15 +5,6 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
-
--- Insert records into User table
-INSERT INTO [dbo].[User]
-(
-[Username], 
-[Password])
-VALUES('admin','admin')
-
-
 -- Insert records into Client table
 INSERT INTO [dbo].[Client] (Firstname, Lastname, MobileNumber, Gender, Address, Birthdate)
 VALUES 

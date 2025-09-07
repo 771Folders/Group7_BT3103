@@ -32,6 +32,11 @@
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
+            button5 = new Button();
+            button4 = new Button();
+            button3 = new Button();
+            button2 = new Button();
+            button1 = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
@@ -44,11 +49,6 @@
             label7 = new Label();
             label8 = new Label();
             label9 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -89,6 +89,58 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(399, 773);
             panel2.TabIndex = 1;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(123, 714);
+            button5.Name = "button5";
+            button5.Size = new Size(147, 46);
+            button5.TabIndex = 4;
+            button5.Text = "LogOut";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // button4
+            // 
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Location = new Point(46, 336);
+            button4.Name = "button4";
+            button4.Size = new Size(285, 66);
+            button4.TabIndex = 3;
+            button4.Text = "Treatment/ Billing Breakdown";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Location = new Point(46, 241);
+            button3.Name = "button3";
+            button3.Size = new Size(285, 66);
+            button3.TabIndex = 2;
+            button3.Text = "Patient Information\r\nMaintenance";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Location = new Point(46, 144);
+            button2.Name = "button2";
+            button2.Size = new Size(285, 66);
+            button2.TabIndex = 1;
+            button2.Text = "Admission";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(46, 52);
+            button1.Name = "button1";
+            button1.Size = new Size(285, 66);
+            button1.TabIndex = 0;
+            button1.Text = "Dashboard";
+            button1.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -222,63 +274,13 @@
             label9.Text = "94\r\nAvailable";
             label9.TextAlign = ContentAlignment.TopCenter;
             // 
-            // button1
-            // 
-            button1.Location = new Point(46, 52);
-            button1.Name = "button1";
-            button1.Size = new Size(285, 66);
-            button1.TabIndex = 0;
-            button1.Text = "Dashboard";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(46, 144);
-            button2.Name = "button2";
-            button2.Size = new Size(285, 66);
-            button2.TabIndex = 1;
-            button2.Text = "Admission";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(46, 241);
-            button3.Name = "button3";
-            button3.Size = new Size(285, 66);
-            button3.TabIndex = 2;
-            button3.Text = "Patient Information\r\nMaintenance";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Location = new Point(46, 336);
-            button4.Name = "button4";
-            button4.Size = new Size(285, 66);
-            button4.TabIndex = 3;
-            button4.Text = "Treatment/ Billing Breakdown";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(123, 714);
-            button5.Name = "button5";
-            button5.Size = new Size(147, 46);
-            button5.TabIndex = 4;
-            button5.Text = "LogOut";
-            button5.UseVisualStyleBackColor = true;
-            // 
             // FormDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSeaGreen;
             ClientSize = new Size(1482, 853);
+            ControlBox = false;
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -293,7 +295,10 @@
             Controls.Add(pictureBox1);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormDashboard";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormDashboard";
             panel1.ResumeLayout(false);
