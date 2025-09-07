@@ -63,9 +63,9 @@ namespace EventDriven.Project.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap hotel {
+        internal static System.Drawing.Bitmap loginBG {
             get {
-                object obj = ResourceManager.GetObject("hotel", resourceCulture);
+                object obj = ResourceManager.GetObject("loginBG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
