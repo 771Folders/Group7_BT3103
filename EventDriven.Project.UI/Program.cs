@@ -16,7 +16,7 @@ namespace EventDriven.Project.UI
             {
                 if (loginForm.ShowDialog() == DialogResult.OK)
                 {
-                    Application.Run(new FormMain());
+                    Application.Run(new FormDashboard());
                 }
                 else
                 {

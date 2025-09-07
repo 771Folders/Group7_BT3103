@@ -10,9 +10,8 @@
 
 namespace EventDriven.Project.UI.Properties {
     using System;
-    using System.Drawing;
-
-
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -32,9 +31,7 @@ namespace EventDriven.Project.UI.Properties {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-
-        public static Image Screenshot_2025_09_03_230316 { get; internal set; }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -66,9 +63,9 @@ namespace EventDriven.Project.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap hotel {
+        internal static System.Drawing.Bitmap loginBG {
             get {
-                object obj = ResourceManager.GetObject("hotel", resourceCulture);
+                object obj = ResourceManager.GetObject("loginBG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
