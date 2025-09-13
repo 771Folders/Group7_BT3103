@@ -6,6 +6,7 @@ namespace EventDriven.Project.UI
     public partial class FormLogin : Form
     {
 
+        public static UserModel LoggedUser;
         private UserController userController;
 
         public FormLogin()
@@ -27,8 +28,10 @@ namespace EventDriven.Project.UI
                 UserModel matchingUser = userController.ValidateUser(txtUsername.Text, txtPassword.Text);
                 if (matchingUser != null)
                 {
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                    LoggedUser = matchingUser;
+                    Hide();
+                    FormDashboard formDashboard = new FormDashboard();
+                    formDashboard.ShowDialog();
                 }
                 else throw new Exception("Invalid Credentials");
             }

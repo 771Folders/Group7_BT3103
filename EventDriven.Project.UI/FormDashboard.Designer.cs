@@ -32,11 +32,12 @@
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
-            button5 = new Button();
-            button4 = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            button1 = new Button();
             button3 = new Button();
             button2 = new Button();
-            button1 = new Button();
+            button4 = new Button();
+            button5 = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
@@ -51,6 +52,7 @@
             label9 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -79,45 +81,42 @@
             // panel2
             // 
             panel2.BackColor = Color.Teal;
+            panel2.Controls.Add(flowLayoutPanel1);
             panel2.Controls.Add(button5);
-            panel2.Controls.Add(button4);
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(button1);
             panel2.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             panel2.Location = new Point(0, 81);
             panel2.Name = "panel2";
             panel2.Size = new Size(399, 773);
             panel2.TabIndex = 1;
             // 
-            // button5
+            // flowLayoutPanel1
             // 
-            button5.Location = new Point(123, 714);
-            button5.Name = "button5";
-            button5.Size = new Size(147, 46);
-            button5.TabIndex = 4;
-            button5.Text = "LogOut";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Controls.Add(button3);
+            flowLayoutPanel1.Controls.Add(button2);
+            flowLayoutPanel1.Controls.Add(button4);
+            flowLayoutPanel1.Location = new Point(12, 17);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(367, 691);
+            flowLayoutPanel1.TabIndex = 14;
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
-            // button4
+            // button1
             // 
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Location = new Point(46, 336);
-            button4.Name = "button4";
-            button4.Size = new Size(285, 66);
-            button4.TabIndex = 3;
-            button4.Text = "Treatment/ Billing Breakdown";
-            button4.UseVisualStyleBackColor = true;
+            button1.Location = new Point(3, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(364, 121);
+            button1.TabIndex = 0;
+            button1.Text = "Dashboard";
+            button1.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(46, 241);
+            button3.Location = new Point(3, 130);
             button3.Name = "button3";
-            button3.Size = new Size(285, 66);
+            button3.Size = new Size(364, 121);
             button3.TabIndex = 2;
             button3.Text = "Patient Information\r\nMaintenance";
             button3.UseVisualStyleBackColor = true;
@@ -126,21 +125,33 @@
             // 
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(46, 144);
+            button2.Location = new Point(3, 257);
             button2.Name = "button2";
-            button2.Size = new Size(285, 66);
+            button2.Size = new Size(364, 121);
             button2.TabIndex = 1;
             button2.Text = "Admission";
             button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // button4
             // 
-            button1.Location = new Point(46, 52);
-            button1.Name = "button1";
-            button1.Size = new Size(285, 66);
-            button1.TabIndex = 0;
-            button1.Text = "Dashboard";
-            button1.UseVisualStyleBackColor = true;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Location = new Point(3, 384);
+            button4.Name = "button4";
+            button4.Size = new Size(364, 121);
+            button4.TabIndex = 3;
+            button4.Text = "Treatment/ Billing Breakdown";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(123, 714);
+            button5.Name = "button5";
+            button5.Size = new Size(147, 46);
+            button5.TabIndex = 4;
+            button5.Text = "Log Out";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // pictureBox1
             // 
@@ -301,9 +312,11 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormDashboard";
+            Load += FormDashboard_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -334,5 +347,6 @@
         private Button button4;
         private Button button3;
         private Button button2;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
