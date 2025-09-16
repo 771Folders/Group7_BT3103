@@ -1,9 +1,9 @@
 CREATE TABLE [dbo].[Patients] (
     [PatientID] INT IDENTITY(1,1) PRIMARY KEY,
-    [FirstName] VARCHAR(50) NOT NULL,
-    [LastName] VARCHAR(50) NOT NULL,
-    [DateOfBirth] DATE NOT NULL,
-    [Gender] VARCHAR(50) NOT NULL,
+    [FirstName] VARCHAR(50) NULL,
+    [LastName] VARCHAR(50) NULL,
+    [DateOfBirth] DATE NULL,
+    [Gender] VARCHAR(50) NULL,
     [Phone] VARCHAR(15),
     [Address] VARCHAR(100),
     [Email] VARCHAR(50),
