@@ -18,7 +18,7 @@ namespace EventDriven.Project.UI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

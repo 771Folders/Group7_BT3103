@@ -65,18 +65,18 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\User.sql" />
-    <Build Include="dbo\Tables\Client.sql" />
-    <Build Include="dbo\Tables\Account.sql" />
-    <Build Include="dbo\StoredProcedure\GetClientAccountDetails.sql" />
-    <Build Include="dbo\StoredProcedure\GetClientAccountDetailsById.sql" />
-    <Build Include="dbo\StoredProcedure\CreateClientAccount.sql" />
-    <Build Include="dbo\StoredProcedure\UpdateClientAccount.sql" />
-    <Build Include="dbo\StoredProcedure\DeleteClientAccount.sql" />
     <Build Include="dbo\Tables\Patients.sql" />
     <Build Include="dbo\StoredProcedure\ValidateUser.sql" />
+    <Build Include="dbo\StoredProcedure\GetAllPatients.sql" />
+    <Build Include="dbo\StoredProcedure\GetPatientByID.sql" />
+    <Build Include="dbo\StoredProcedure\GetPatientByFirstName.sql" />
+    <Build Include="dbo\StoredProcedure\GetPatientByLastName.sql" />
+    <Build Include="dbo\StoredProcedure\AddPatient.sql" />
+    <Build Include="dbo\StoredProcedure\EditPatient.sql" />
+    <Build Include="dbo\StoredProcedure\DeletePatient.sql" />
+    <Build Include="dbo\StoredProcedure\GetPatientByMiddleName.sql" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="dbo\Scripts\Script.PostDeployment1.sql" />
     <None Include="dbo\Scripts\UserScript.sql" />
   </ItemGroup>
 </Project>
