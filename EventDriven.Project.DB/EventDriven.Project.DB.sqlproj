@@ -78,5 +78,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\UserScript.sql" />
+    <None Include="dbo\Scripts\PatientRecord_1.sql" />
   </ItemGroup>
 </Project>
