@@ -10,32 +10,31 @@ namespace EventDriven.Project.Businesslogic.Repository
 
          public UserModel ValidateUser(string Username, string Password)//Form1 Validate User
         {
-            
             try
             {
                 UserModel matchingUser = new UserModel();
                 using (SqlConnection Hospital = new SqlConnection(CONNECTIONSTRING))
                 {
                     Hospital.Open();
-                    string query = "SELECT * FROM dbo.[User] WHERE Username = '" + Username + "' AND Password = '" + Password + "'";
-                    SqlCommand command = new SqlCommand(query, Hospital);
-                    
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
-                    DataTable table = new DataTable();
-                    adapter.Fill(table);
-                    if (table.Rows.Count >= 1)
+                    using (SqlCommand command = new SqlCommand("dbo.ValidateUser", Hospital))
                     {
-                        matchingUser = new UserModel
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@Username", Username);
+                        command.Parameters.AddWithValue("@Password", Password);
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            Username = Username,
-                            Password = Password,
-                            Role = (string)table.Rows[0]["Role"]
-                        };
-                        return matchingUser;
-                        
-
-                    }                   
+                            if (reader.Read())
+                            {
+                                matchingUser = new UserModel
+                                {
+                                    Username = Username,
+                                    Password = Password,
+                                    Role = (string)reader["Role"]
+                                };
+                                return matchingUser;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -44,7 +43,6 @@ namespace EventDriven.Project.Businesslogic.Repository
                 Console.WriteLine(EX.Message);
             }
             return null;
-
         }
         public UserModel getUserByUserId(string UserIdParam)
         {

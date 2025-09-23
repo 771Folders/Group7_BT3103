@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -65,8 +65,19 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\User.sql" />
+    <Build Include="dbo\Tables\Patients.sql" />
+    <Build Include="dbo\StoredProcedure\ValidateUser.sql" />
+    <Build Include="dbo\StoredProcedure\GetAllPatients.sql" />
+    <Build Include="dbo\StoredProcedure\GetPatientByID.sql" />
+    <Build Include="dbo\StoredProcedure\GetPatientByFirstName.sql" />
+    <Build Include="dbo\StoredProcedure\GetPatientByLastName.sql" />
+    <Build Include="dbo\StoredProcedure\AddPatient.sql" />
+    <Build Include="dbo\StoredProcedure\EditPatient.sql" />
+    <Build Include="dbo\StoredProcedure\DeletePatient.sql" />
+    <Build Include="dbo\StoredProcedure\GetPatientByMiddleName.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\UserScript.sql" />
+    <None Include="dbo\Scripts\PatientRecord_1.sql" />
   </ItemGroup>
 </Project>

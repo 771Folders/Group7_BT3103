@@ -138,7 +138,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.loginBG;
+            BackgroundImage = Image.FromFile("../../../Resources/loginBG.png");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1482, 853);
             ControlBox = false;
