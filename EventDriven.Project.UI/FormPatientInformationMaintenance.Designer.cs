@@ -219,7 +219,6 @@
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Controls.Add(panel2);
-            Name = "FormPatientInformationMaintenance";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormPatients.cs";
             panel2.ResumeLayout(false);
