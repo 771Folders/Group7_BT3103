@@ -14,10 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\EventDriven.Project.Businesslogic\EventDriven.Project.Businesslogic.csproj" />
     <ProjectReference Include="..\EventDriven.Project.Model\EventDriven.Project.Model.csproj" />
   </ItemGroup>
