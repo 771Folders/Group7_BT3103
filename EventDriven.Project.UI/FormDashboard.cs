@@ -29,31 +29,26 @@ namespace EventDriven.Project.UI
             switch (FormLogin.LoggedUser.Role)
             {
                 case "Admin":
-                    button1.Visible = true;
                     button2.Visible = true;
                     button3.Visible = true;
                     button4.Visible = true;
                     break;
                 case "Doctor":
-                    button1.Visible = true;
                     button2.Visible = false;
                     button3.Visible = true;
                     button4.Visible = false;
                     break;
                 case "Nurse":
-                    button1.Visible = true;
                     button2.Visible = false;
                     button3.Visible = true;
                     button4.Visible = false;
                     break;
                 case "Cashier":
-                    button1.Visible = true;
                     button2.Visible = false;
                     button3.Visible = false;
                     button4.Visible = true;
                     break;
                 case "Receptionist":
-                    button1.Visible = true;
                     button2.Visible = true;
                     button3.Visible = false;
                     button4.Visible = false;
@@ -73,21 +68,6 @@ namespace EventDriven.Project.UI
             Hide();
             FormAdmission formAdmission = new FormAdmission();
             formAdmission.ShowDialog();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint_2(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
