@@ -1,4 +1,15 @@
-﻿INSERT INTO Patient (FirstName, LastName, MiddleName, DateOfBirth, Gender, Phone, Address, Email, EmergencyContact) VALUES
+﻿/*
+Post-Deployment Script Template							
+--------------------------------------------------------------------------------------
+ This file contains SQL statements that will be appended to the build script.		
+ Use SQLCMD syntax to include a file in the post-deployment script.			
+ Example:      :r .\myfile.sql								
+ Use SQLCMD syntax to reference a variable in the post-deployment script.		
+ Example:      :setvar TableName MyTable							
+               SELECT * FROM [$(TableName)]					
+--------------------------------------------------------------------------------------
+*/
+INSERT INTO [dbo].[Patients] (FirstName, LastName, MiddleName, DateOfBirth, Gender, Phone, Address, Email, EmergencyContact) VALUES
 ('Liam', 'Turner', 'R.', '1970-05-15', 'Male', '123-456-7890', '123 Oak St, Cityville, CA', 'liam.t@email.com', 'Sarah Turner'),
 ('Olivia', 'Carter', 'M.', '1957-08-20', 'Female', '234-567-8901', '456 Pine Ave, Townsville, CA', 'olivia.c@email.com', 'James Carter'),
 ('Noah', 'Williams', 'A.', '1983-02-10', 'Male', '345-678-9012', '789 Elm Blvd, Villageton, CA', 'noah.w@email.com', 'Emily Williams'),

@@ -24,11 +24,6 @@ namespace EventDriven.Project.UI
             formLogin.Show();
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void FormDashboard_Load(object sender, EventArgs e)
         {
             switch (FormLogin.LoggedUser.Role)
@@ -64,6 +59,35 @@ namespace EventDriven.Project.UI
                     button4.Visible = false;
                     break;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Hide();
+            FormPatientInformationMaintenance formPatientInformationMaintenance = new FormPatientInformationMaintenance();
+            formPatientInformationMaintenance.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            FormAdmission formAdmission = new FormAdmission();
+            formAdmission.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint_2(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

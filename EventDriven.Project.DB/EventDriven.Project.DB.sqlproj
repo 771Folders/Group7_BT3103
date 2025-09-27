@@ -78,6 +78,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\UserScript.sql" />
-    <None Include="dbo\Scripts\PatientRecord_1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="dbo\Scripts\PatientScript.sql" />
   </ItemGroup>
 </Project>

@@ -32,18 +32,12 @@
             panel2 = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             button1 = new Button();
-            button2 = new Button();
             button3 = new Button();
+            button2 = new Button();
             button4 = new Button();
             panel1 = new Panel();
             label2 = new Label();
             dataGridView1 = new DataGridView();
-            Name = new DataGridViewTextBoxColumn();
-            Room = new DataGridViewTextBoxColumn();
-            Age = new DataGridViewTextBoxColumn();
-            Sex = new DataGridViewTextBoxColumn();
-            Diagnosis = new DataGridViewTextBoxColumn();
-            Admitted = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -58,6 +52,7 @@
             button5.TabIndex = 4;
             button5.Text = "LogOut";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // panel2
             // 
@@ -73,8 +68,8 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Controls.Add(button2);
             flowLayoutPanel1.Controls.Add(button3);
+            flowLayoutPanel1.Controls.Add(button2);
             flowLayoutPanel1.Controls.Add(button4);
             flowLayoutPanel1.Location = new Point(21, 107);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -95,6 +90,20 @@
             button1.TabIndex = 0;
             button1.Text = "Dashboard";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button3
+            // 
+            button3.FlatAppearance.BorderSize = 0;
+            button3.Font = new Font("Microsoft JhengHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.Image = Properties.Resources._1000065901;
+            button3.ImageAlign = ContentAlignment.MiddleLeft;
+            button3.Location = new Point(3, 121);
+            button3.Name = "button3";
+            button3.Size = new Size(347, 112);
+            button3.TabIndex = 2;
+            button3.Text = "Patient Information\r\nMaintenance";
+            button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -103,25 +112,13 @@
             button2.Font = new Font("Microsoft JhengHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.Image = Properties.Resources._1000065902;
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(3, 121);
+            button2.Location = new Point(3, 239);
             button2.Name = "button2";
             button2.Size = new Size(347, 112);
             button2.TabIndex = 1;
             button2.Text = "Admission";
             button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.FlatAppearance.BorderSize = 0;
-            button3.Font = new Font("Microsoft JhengHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Image = Properties.Resources._1000065901;
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(3, 239);
-            button3.Name = "button3";
-            button3.Size = new Size(347, 112);
-            button3.TabIndex = 2;
-            button3.Text = "Patient Information\r\nMaintenance";
-            button3.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button4
             // 
@@ -160,55 +157,13 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Name, Room, Age, Sex, Diagnosis, Admitted });
             dataGridView1.Location = new Point(445, 173);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(1417, 811);
             dataGridView1.TabIndex = 16;
-            // 
-            // Name
-            // 
-            Name.HeaderText = "Name";
-            Name.MinimumWidth = 6;
-            Name.Name = "Name";
-            Name.Width = 125;
-            // 
-            // Room
-            // 
-            Room.HeaderText = "Room";
-            Room.MinimumWidth = 6;
-            Room.Name = "Room";
-            Room.Width = 125;
-            // 
-            // Age
-            // 
-            Age.HeaderText = "Age";
-            Age.MinimumWidth = 6;
-            Age.Name = "Age";
-            Age.Width = 125;
-            // 
-            // Sex
-            // 
-            Sex.HeaderText = "Sex";
-            Sex.MinimumWidth = 6;
-            Sex.Name = "Sex";
-            Sex.Width = 125;
-            // 
-            // Diagnosis
-            // 
-            Diagnosis.HeaderText = "Diagnosis";
-            Diagnosis.MinimumWidth = 6;
-            Diagnosis.Name = "Diagnosis";
-            Diagnosis.Width = 125;
-            // 
-            // Admitted
-            // 
-            Admitted.HeaderText = "Admitted";
-            Admitted.MinimumWidth = 6;
-            Admitted.Name = "Admitted";
-            Admitted.Width = 125;
             // 
             // FormPatientInformationMaintenance
             // 
@@ -219,8 +174,12 @@
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "FormPatientInformationMaintenance";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormPatients.cs";
+            WindowState = FormWindowState.Maximized;
+            Load += FormPatientInformationMaintenance_Load;
             panel2.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
@@ -240,11 +199,5 @@
         private Button button4;
         private DataGridView dataGridView1;
         private Label label2;
-        private DataGridViewTextBoxColumn Name;
-        private DataGridViewTextBoxColumn Room;
-        private DataGridViewTextBoxColumn Age;
-        private DataGridViewTextBoxColumn Sex;
-        private DataGridViewTextBoxColumn Diagnosis;
-        private DataGridViewTextBoxColumn Admitted;
     }
 }

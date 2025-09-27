@@ -33,8 +33,8 @@
             panel2 = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             button1 = new Button();
-            button2 = new Button();
             button3 = new Button();
+            button2 = new Button();
             button4 = new Button();
             button5 = new Button();
             pictureBox1 = new PictureBox();
@@ -120,8 +120,8 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Controls.Add(button2);
             flowLayoutPanel1.Controls.Add(button3);
+            flowLayoutPanel1.Controls.Add(button2);
             flowLayoutPanel1.Controls.Add(button4);
             flowLayoutPanel1.Location = new Point(21, 107);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -130,7 +130,9 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.Teal;
             button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Microsoft JhengHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Black;
             button1.Image = Properties.Resources._1000065903;
@@ -140,21 +142,8 @@
             button1.Size = new Size(347, 112);
             button1.TabIndex = 0;
             button1.Text = "Dashboard";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Microsoft JhengHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Image = Properties.Resources._1000065902;
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(3, 121);
-            button2.Name = "button2";
-            button2.Size = new Size(347, 112);
-            button2.TabIndex = 1;
-            button2.Text = "Admission";
-            button2.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button3
             // 
@@ -163,12 +152,28 @@
             button3.Font = new Font("Microsoft JhengHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.Image = Properties.Resources._1000065901;
             button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(3, 239);
+            button3.Location = new Point(3, 121);
             button3.Name = "button3";
             button3.Size = new Size(347, 112);
             button3.TabIndex = 2;
             button3.Text = "Patient Information\r\nMaintenance";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.White;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Microsoft JhengHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Image = Properties.Resources._1000065902;
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(3, 239);
+            button2.Name = "button2";
+            button2.Size = new Size(347, 112);
+            button2.TabIndex = 1;
+            button2.Text = "Admission";
+            button2.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
@@ -192,6 +197,7 @@
             button5.TabIndex = 4;
             button5.Text = "LogOut";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // pictureBox1
             // 
@@ -602,6 +608,7 @@
             button7.TabIndex = 59;
             button7.Text = "ADMIT";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // FormAdmission
             // 

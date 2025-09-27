@@ -36,7 +36,11 @@
             btnCancel = new Button();
             label1 = new Label();
             panel1 = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
             panel1.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // lblPassword
@@ -45,7 +49,8 @@
             lblPassword.BackColor = Color.FromArgb(0, 69, 69, 69);
             lblPassword.Font = new Font("Palatino Linotype", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPassword.ForeColor = Color.White;
-            lblPassword.Location = new Point(50, 315);
+            lblPassword.Location = new Point(3, 208);
+            lblPassword.Margin = new Padding(3, 10, 3, 0);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new Size(164, 46);
             lblPassword.TabIndex = 4;
@@ -54,7 +59,7 @@
             // txtPassword
             // 
             txtPassword.Font = new Font("Segoe UI", 24F);
-            txtPassword.Location = new Point(53, 365);
+            txtPassword.Location = new Point(3, 258);
             txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(489, 61);
@@ -64,7 +69,7 @@
             // txtUsername
             // 
             txtUsername.Font = new Font("Segoe UI", 24F);
-            txtUsername.Location = new Point(53, 226);
+            txtUsername.Location = new Point(3, 133);
             txtUsername.Margin = new Padding(3, 4, 3, 4);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(489, 61);
@@ -73,8 +78,8 @@
             // btnLogin
             // 
             btnLogin.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLogin.Location = new Point(53, 496);
-            btnLogin.Margin = new Padding(3, 4, 3, 4);
+            btnLogin.Location = new Point(3, 4);
+            btnLogin.Margin = new Padding(3, 4, 35, 4);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(239, 59);
             btnLogin.TabIndex = 15;
@@ -88,7 +93,8 @@
             lblFname.BackColor = Color.FromArgb(0, 69, 69, 69);
             lblFname.Font = new Font("Palatino Linotype", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblFname.ForeColor = Color.White;
-            lblFname.Location = new Point(50, 176);
+            lblFname.Location = new Point(3, 83);
+            lblFname.Margin = new Padding(3, 20, 3, 0);
             lblFname.Name = "lblFname";
             lblFname.Size = new Size(171, 46);
             lblFname.TabIndex = 2;
@@ -96,13 +102,14 @@
             // 
             // btnCancel
             // 
+            btnCancel.Anchor = AnchorStyles.Right;
             btnCancel.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancel.Location = new Point(333, 496);
+            btnCancel.Location = new Point(280, 4);
             btnCancel.Margin = new Padding(3, 4, 3, 4);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(209, 59);
             btnCancel.TabIndex = 16;
-            btnCancel.Text = "Cancel";
+            btnCancel.Text = "Exit";
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
             // 
@@ -112,7 +119,7 @@
             label1.BackColor = Color.FromArgb(0, 69, 69, 69);
             label1.Font = new Font("Palatino Linotype", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(74, 58);
+            label1.Location = new Point(3, 0);
             label1.Name = "label1";
             label1.Size = new Size(468, 63);
             label1.TabIndex = 17;
@@ -120,38 +127,69 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel1.BackColor = Color.FromArgb(128, 69, 69, 69);
-            panel1.BorderStyle = BorderStyle.Fixed3D;
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(btnCancel);
-            panel1.Controls.Add(lblFname);
-            panel1.Controls.Add(btnLogin);
-            panel1.Controls.Add(txtUsername);
-            panel1.Controls.Add(txtPassword);
-            panel1.Controls.Add(lblPassword);
-            panel1.Location = new Point(816, 92);
+            panel1.BackgroundImageLayout = ImageLayout.None;
+            panel1.Controls.Add(flowLayoutPanel1);
+            panel1.Location = new Point(1254, 92);
             panel1.Name = "panel1";
-            panel1.Size = new Size(611, 629);
+            panel1.Size = new Size(611, 856);
             panel1.TabIndex = 17;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanel1.AutoSize = true;
+            flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            flowLayoutPanel1.BackColor = Color.FromArgb(0, 0, 0, 0);
+            flowLayoutPanel1.Controls.Add(label1);
+            flowLayoutPanel1.Controls.Add(lblFname);
+            flowLayoutPanel1.Controls.Add(txtUsername);
+            flowLayoutPanel1.Controls.Add(lblPassword);
+            flowLayoutPanel1.Controls.Add(txtPassword);
+            flowLayoutPanel1.Controls.Add(flowLayoutPanel2);
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.Location = new Point(60, 200);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(523, 431);
+            flowLayoutPanel1.TabIndex = 18;
+            flowLayoutPanel1.WrapContents = false;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Controls.Add(btnLogin);
+            flowLayoutPanel2.Controls.Add(btnCancel);
+            flowLayoutPanel2.Location = new Point(3, 353);
+            flowLayoutPanel2.Margin = new Padding(3, 30, 3, 3);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(517, 75);
+            flowLayoutPanel2.TabIndex = 17;
+            flowLayoutPanel2.WrapContents = false;
             // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Image.FromFile("../../../Resources/loginBG.png");
+            BackgroundImage = Properties.Resources.loginBG;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1482, 853);
+            ClientSize = new Size(1920, 1080);
             ControlBox = false;
             Controls.Add(panel1);
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FormLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
+            WindowState = FormWindowState.Maximized;
+            Load += FormLogin_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
+            flowLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -165,5 +203,7 @@
         private Button btnCancel;
         private Label label1;
         private Panel panel1;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
