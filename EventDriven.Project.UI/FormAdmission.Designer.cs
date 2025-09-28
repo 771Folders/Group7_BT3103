@@ -77,6 +77,10 @@
             dateTimePicker3 = new DateTimePicker();
             button6 = new Button();
             button7 = new Button();
+            textBox12 = new TextBox();
+            label22 = new Label();
+            textBox14 = new TextBox();
+            label23 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -282,7 +286,7 @@
             textBox4.Location = new Point(435, 382);
             textBox4.Multiline = true;
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(601, 51);
+            textBox4.Size = new Size(366, 51);
             textBox4.TabIndex = 27;
             // 
             // label7
@@ -292,14 +296,14 @@
             label7.ForeColor = Color.White;
             label7.Location = new Point(435, 343);
             label7.Name = "label7";
-            label7.Size = new Size(200, 36);
+            label7.Size = new Size(160, 36);
             label7.TabIndex = 26;
-            label7.Text = "Patient Name:";
+            label7.Text = "Last Name:";
             // 
             // textBox5
             // 
             textBox5.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox5.Location = new Point(1086, 382);
+            textBox5.Location = new Point(1508, 382);
             textBox5.Multiline = true;
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(374, 51);
@@ -311,7 +315,7 @@
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.Transparent;
-            label8.Location = new Point(1086, 343);
+            label8.Location = new Point(1508, 343);
             label8.Name = "label8";
             label8.Size = new Size(223, 36);
             label8.TabIndex = 28;
@@ -320,7 +324,7 @@
             // textBox6
             // 
             textBox6.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox6.Location = new Point(1508, 382);
+            textBox6.Location = new Point(1508, 504);
             textBox6.Multiline = true;
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(374, 51);
@@ -331,7 +335,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(1508, 343);
+            label9.Location = new Point(1508, 465);
             label9.Name = "label9";
             label9.Size = new Size(91, 36);
             label9.TabIndex = 30;
@@ -603,12 +607,56 @@
             button7.Text = "ADMIT";
             button7.UseVisualStyleBackColor = true;
             // 
+            // textBox12
+            // 
+            textBox12.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox12.Location = new Point(826, 382);
+            textBox12.Multiline = true;
+            textBox12.Name = "textBox12";
+            textBox12.Size = new Size(366, 51);
+            textBox12.TabIndex = 61;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label22.ForeColor = Color.White;
+            label22.Location = new Point(826, 343);
+            label22.Name = "label22";
+            label22.Size = new Size(163, 36);
+            label22.TabIndex = 60;
+            label22.Text = "First Name:";
+            // 
+            // textBox14
+            // 
+            textBox14.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox14.Location = new Point(1219, 382);
+            textBox14.Multiline = true;
+            textBox14.Name = "textBox14";
+            textBox14.Size = new Size(259, 51);
+            textBox14.TabIndex = 63;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label23.ForeColor = Color.White;
+            label23.Location = new Point(1219, 343);
+            label23.Name = "label23";
+            label23.Size = new Size(201, 36);
+            label23.TabIndex = 62;
+            label23.Text = "Middle Name:";
+            // 
             // FormAdmission
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSeaGreen;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(textBox14);
+            Controls.Add(label23);
+            Controls.Add(textBox12);
+            Controls.Add(label22);
             Controls.Add(button7);
             Controls.Add(button6);
             Controls.Add(dateTimePicker3);
@@ -714,5 +762,9 @@
         private DateTimePicker dateTimePicker3;
         private Button button6;
         private Button button7;
+        private TextBox textBox12;
+        private Label label22;
+        private TextBox textBox14;
+        private Label label23;
     }
 }
