@@ -1,5 +1,5 @@
 CREATE TABLE [dbo].[Patients] (
-    [PatientID] INT IDENTITY(1,1) PRIMARY KEY,
+    [PatientID] INT IDENTITY(1001,1) PRIMARY KEY,
     [FirstName] VARCHAR(50),
     [LastName] VARCHAR(50),
     [MiddleName] VARCHAR(50),

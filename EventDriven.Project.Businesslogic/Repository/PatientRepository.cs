@@ -112,7 +112,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     DateOfBirth = (DateTime)reader["DateOfBirth"],
                                     Gender = (string)reader["Gender"],
                                     Address = (string)reader["Address"],
-                                    Phone = (long)reader["Phone"],
+                                    Phone = (string)reader["Phone"],
                                     Email = (string)reader["Email"],
                                     EmergencyContact = (string)reader["EmergencyContact"],
                                     DateRegistered = (DateTime)reader["DateRegistered"]
@@ -156,7 +156,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     DateOfBirth = (DateTime)reader["DateOfBirth"],
                                     Gender = (string)reader["Gender"],
                                     Address = (string)reader["Address"],
-                                    Phone = (long)reader["Phone"],
+                                    Phone = (string)reader["Phone"],
                                     Email = (string)reader["Email"],
                                     EmergencyContact = (string)reader["EmergencyContact"],
                                     DateRegistered = (DateTime)reader["DateRegistered"]
@@ -200,7 +200,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     DateOfBirth = (DateTime)reader["DateOfBirth"],
                                     Gender = (string)reader["Gender"],
                                     Address = (string)reader["Address"],
-                                    Phone = (long)reader["Phone"],
+                                    Phone = (string)reader["Phone"],
                                     Email = (string)reader["Email"],
                                     EmergencyContact = (string)reader["EmergencyContact"],
                                     DateRegistered = (DateTime)reader["DateRegistered"]
@@ -244,7 +244,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     DateOfBirth = (DateTime)reader["DateOfBirth"],
                                     Gender = (string)reader["Gender"],
                                     Address = (string)reader["Address"],
-                                    Phone = (long)reader["Phone"],
+                                    Phone = (string)reader["Phone"],
                                     Email = (string)reader["Email"],
                                     EmergencyContact = (string)reader["EmergencyContact"],
                                     DateRegistered = (DateTime)reader["DateRegistered"]
@@ -278,22 +278,21 @@ namespace EventDriven.Project.Businesslogic.Repository
                         {
                             while (reader.Read())
                             {
-                                patients.Add(new PatientModel()
-                                {
-                                    PatientID = (int)reader["PatientID"],
-                                    LastName = (string)reader["LastName"],
-                                    FirstName = (string)reader["FirstName"],
-                                    MiddleName = (string)reader["MiddleName"],
-                                    DateOfBirth = (DateTime)reader["DateOfBirth"],
-                                    Gender = (string)reader["Gender"],
-                                    Address = (string)reader["Address"],
-                                    Phone = (long)reader["Phone"],
-                                    Email = (string)reader["Email"],
-                                    EmergencyContact = (string)reader["EmergencyContact"],
-                                    DateRegistered = (DateTime)reader["DateRegistered"]
-                                });
-                                return patients;
+                                PatientModel patient = new PatientModel();
+                                patient.PatientID = (int)reader["PatientID"];
+                                patient.LastName = (string)reader["LastName"];
+                                patient.FirstName = (string)reader["FirstName"];
+                                patient.MiddleName = (string)reader["MiddleName"];
+                                patient.DateOfBirth = (DateTime)reader["DateOfBirth"];
+                                patient.Gender = (string)reader["Gender"];
+                                patient.Address = (string)reader["Address"];
+                                patient.Phone = (string)reader["Phone"];
+                                patient.Email = (string)reader["Email"];
+                                patient.EmergencyContact = (string)reader["EmergencyContact"];
+                                patient.DateRegistered = (DateTime)reader["DateRegistered"];
+                                patients.Add(patient);
                             }
+                            return patients;
                         }
                     }
                 }

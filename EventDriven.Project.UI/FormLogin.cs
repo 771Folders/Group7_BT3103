@@ -40,5 +40,10 @@ namespace EventDriven.Project.UI
                 MessageBox.Show(EX.Message);
             }
         }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            LoggedUser = null;
+        }
     }
 }
