@@ -1,14 +1,18 @@
 ﻿using EventDriven.Project.Businesslogic.Controller;
+using EventDriven.Project.Model;
 
 namespace EventDriven.Project.UI
 {
     public partial class FormPatientInformationMaintenance : Form
     {
         PatientController patientController;
+        public static string action = "Add";
+        public static int selectedPatientID = 0;
         public FormPatientInformationMaintenance()
         {
             InitializeComponent();
             patientController = new PatientController();
+            action = "Add";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -21,6 +25,7 @@ namespace EventDriven.Project.UI
         private void button2_Click(object sender, EventArgs e)
         {
             Hide();
+            action = "Add";
             FormAdmission formAdmission = new FormAdmission();
             formAdmission.ShowDialog();
         }
@@ -70,6 +75,7 @@ namespace EventDriven.Project.UI
         private void addBtn_Click(object sender, EventArgs e)
         {
             Hide();
+            action = "Add";
             FormAdmission formAdmission = new FormAdmission();
             formAdmission.ShowDialog();
         }
@@ -78,7 +84,8 @@ namespace EventDriven.Project.UI
         {
             if (patientController.SearchPatients(txtSearch.Text) != null)
             {
-                dataGridView1.DataSource = patientController.SearchPatients(txtSearch.Text);
+                List<PatientModel> patients = patientController.SearchPatients(txtSearch.Text);
+                dataGridView1.DataSource = patients;
             }
             else
             {
@@ -110,6 +117,27 @@ namespace EventDriven.Project.UI
         private void refreshBtn_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                DataGridViewRow row = dataGridView1.CurrentRow;
+                int selected = Convert.ToInt32(row.Cells["PatientID"].Value);
+                selectedPatientID = selected;
+            }
+            Hide();
+            action = "Edit";
+            FormAdmission formAdmission = new FormAdmission();
+            formAdmission.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FormDashboard formDashboard = new FormDashboard();
+            formDashboard.ShowDialog();
+            Hide();
         }
     }
 }

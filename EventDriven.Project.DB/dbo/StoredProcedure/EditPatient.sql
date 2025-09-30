@@ -9,6 +9,7 @@
 	@Address VARCHAR(100),
 	@Email VARCHAR(50),
 	@EmergencyContact VARCHAR(50),
+	@EmergencyContactPhone VARCHAR(15),
 	@DateRegistered DATETIME = NULL
 AS
 	UPDATE [dbo].[Patients]
@@ -22,5 +23,6 @@ AS
 		Address = @Address,
 		Email = @Email,
 		EmergencyContact = @EmergencyContact,
+		EmergencyContactPhone = @EmergencyContactPhone,
 		DateRegistered = ISNULL(@DateRegistered, DateRegistered)
 	WHERE PatientID = @PatientID
