@@ -105,6 +105,7 @@
             button1.TabIndex = 0;
             button1.Text = "Dashboard";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_1;
             // 
             // button3
             // 
@@ -273,6 +274,7 @@
             editBtn.TabIndex = 2;
             editBtn.Text = "Edit";
             editBtn.UseVisualStyleBackColor = true;
+            editBtn.Click += editBtn_Click;
             // 
             // addBtn
             // 

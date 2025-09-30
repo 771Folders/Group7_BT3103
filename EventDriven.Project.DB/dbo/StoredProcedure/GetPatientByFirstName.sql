@@ -2,4 +2,4 @@
 	@FirstName VARCHAR(50)
 AS
 	SELECT * FROM [dbo].[Patients] 
-	WHERE FirstName = @FirstName
+	WHERE FirstName LIKE '%' + @FirstName + '%'

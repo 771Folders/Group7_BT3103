@@ -37,6 +37,7 @@
             label1 = new Label();
             panel1 = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            checkBox1 = new CheckBox();
             flowLayoutPanel2 = new FlowLayoutPanel();
             panel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -63,8 +64,9 @@
             txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(489, 61);
-            txtPassword.TabIndex = 5;
+            txtPassword.TabIndex = 2;
             txtPassword.UseSystemPasswordChar = true;
+            txtPassword.WordWrap = false;
             // 
             // txtUsername
             // 
@@ -73,7 +75,7 @@
             txtUsername.Margin = new Padding(3, 4, 3, 4);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(489, 61);
-            txtUsername.TabIndex = 3;
+            txtUsername.TabIndex = 1;
             // 
             // btnLogin
             // 
@@ -82,7 +84,7 @@
             btnLogin.Margin = new Padding(3, 4, 35, 4);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(239, 59);
-            btnLogin.TabIndex = 15;
+            btnLogin.TabIndex = 4;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += btnLogin_Click;
@@ -108,7 +110,7 @@
             btnCancel.Margin = new Padding(3, 4, 3, 4);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(209, 59);
-            btnCancel.TabIndex = 16;
+            btnCancel.TabIndex = 5;
             btnCancel.Text = "Exit";
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
@@ -147,19 +149,34 @@
             flowLayoutPanel1.Controls.Add(txtUsername);
             flowLayoutPanel1.Controls.Add(lblPassword);
             flowLayoutPanel1.Controls.Add(txtPassword);
+            flowLayoutPanel1.Controls.Add(checkBox1);
             flowLayoutPanel1.Controls.Add(flowLayoutPanel2);
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(60, 200);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(523, 431);
+            flowLayoutPanel1.Size = new Size(523, 466);
             flowLayoutPanel1.TabIndex = 18;
             flowLayoutPanel1.WrapContents = false;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.BackColor = Color.Transparent;
+            checkBox1.Font = new Font("Microsoft JhengHei UI", 12F);
+            checkBox1.ForeColor = Color.White;
+            checkBox1.Location = new Point(3, 326);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(181, 29);
+            checkBox1.TabIndex = 3;
+            checkBox1.Text = "Show Password";
+            checkBox1.UseVisualStyleBackColor = false;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.Controls.Add(btnLogin);
             flowLayoutPanel2.Controls.Add(btnCancel);
-            flowLayoutPanel2.Location = new Point(3, 353);
+            flowLayoutPanel2.Location = new Point(3, 388);
             flowLayoutPanel2.Margin = new Padding(3, 30, 3, 3);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(517, 75);
@@ -170,7 +187,6 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.loginBG;
             BackgroundImage = Properties.Resources.Untitled_design__2_;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1920, 1080);
@@ -206,5 +222,6 @@
         private Panel panel1;
         private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flowLayoutPanel1;
+        private CheckBox checkBox1;
     }
 }

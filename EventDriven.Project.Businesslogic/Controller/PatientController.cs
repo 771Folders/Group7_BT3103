@@ -69,5 +69,10 @@ namespace EventDriven.Project.Businesslogic.Controller
             }
             return null;
         }
+
+        public int GetNextPatientID()
+        {
+            return patientRepo.GetNextPatientID();
+        }
     }
 }

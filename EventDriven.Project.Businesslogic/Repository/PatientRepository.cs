@@ -27,6 +27,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                     command.Parameters.AddWithValue("@Phone", patient.Phone);
                     command.Parameters.AddWithValue("@Email", patient.Email);
                     command.Parameters.AddWithValue("@EmergencyContact", patient.EmergencyContact);
+                    command.Parameters.AddWithValue("@EmergencyContactPhone", patient.EmergencyContactPhone);
                     command.Parameters.AddWithValue("@DateRegistered", patient.DateRegistered);
                     command.ExecuteNonQuery();
                 }
@@ -57,6 +58,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                     command.Parameters.AddWithValue("@Phone", patient.Phone);
                     command.Parameters.AddWithValue("@Email", patient.Email);
                     command.Parameters.AddWithValue("@EmergencyContact", patient.EmergencyContact);
+                    command.Parameters.AddWithValue("@EmergencyContactPhone", patient.EmergencyContactPhone);
                     command.Parameters.AddWithValue("@DateRegistered", patient.DateRegistered);
                     command.ExecuteNonQuery();
                 }
@@ -115,6 +117,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     Phone = (string)reader["Phone"],
                                     Email = (string)reader["Email"],
                                     EmergencyContact = (string)reader["EmergencyContact"],
+                                    EmergencyContactPhone = (string)reader["EmergencyContactPhone"],
                                     DateRegistered = (DateTime)reader["DateRegistered"]
                                 };
                                 return patient;
@@ -159,10 +162,11 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     Phone = (string)reader["Phone"],
                                     Email = (string)reader["Email"],
                                     EmergencyContact = (string)reader["EmergencyContact"],
+                                    EmergencyContactPhone = (string)reader["EmergencyContactPhone"],
                                     DateRegistered = (DateTime)reader["DateRegistered"]
                                 });
-                                return patient;
                             }
+                            return patient;
                         }
                     }
                 }
@@ -203,10 +207,11 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     Phone = (string)reader["Phone"],
                                     Email = (string)reader["Email"],
                                     EmergencyContact = (string)reader["EmergencyContact"],
+                                    EmergencyContactPhone = (string)reader["EmergencyContactPhone"],
                                     DateRegistered = (DateTime)reader["DateRegistered"]
                                 });
-                                return patient;
                             }
+                            return patient;
                         }
                     }
                 }
@@ -247,10 +252,11 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     Phone = (string)reader["Phone"],
                                     Email = (string)reader["Email"],
                                     EmergencyContact = (string)reader["EmergencyContact"],
+                                    EmergencyContactPhone = (string)reader["EmergencyContactPhone"],
                                     DateRegistered = (DateTime)reader["DateRegistered"]
                                 });
-                                return patient;
                             }
+                            return patient;
                         }
                     }
                 }
@@ -289,6 +295,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                                 patient.Phone = (string)reader["Phone"];
                                 patient.Email = (string)reader["Email"];
                                 patient.EmergencyContact = (string)reader["EmergencyContact"];
+                                patient.EmergencyContactPhone = (string)reader["EmergencyContactPhone"];
                                 patient.DateRegistered = (DateTime)reader["DateRegistered"];
                                 patients.Add(patient);
                             }
@@ -303,6 +310,33 @@ namespace EventDriven.Project.Businesslogic.Repository
                 Debug.WriteLine(ex.Message);
             }
             return null;
+        }
+
+        public int GetNextPatientID()
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
+                {
+                    con.Open();
+                    using (SqlCommand command = new SqlCommand("dbo.GetNextPatientID", con))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                return Convert.ToInt32(reader["NextPatientID"]);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return -1;
         }
     }
 }

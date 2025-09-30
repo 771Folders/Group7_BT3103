@@ -9,5 +9,6 @@ CREATE TABLE [dbo].[Patients] (
     [Address] VARCHAR(100),
     [Email] VARCHAR(50),
     [EmergencyContact] VARCHAR(50),
+    [EmergencyContactPhone] VARCHAR(15),
     [DateRegistered] DATETIME NOT NULL DEFAULT GETDATE()
 );

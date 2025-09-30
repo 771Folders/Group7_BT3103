@@ -1,4 +1,6 @@
-﻿namespace EventDriven.Project.UI
+﻿using EventDriven.Project.UI.CustomControls;
+
+namespace EventDriven.Project.UI
 {
     partial class FormAdmission
     {
@@ -30,246 +32,191 @@
         {
             panel1 = new Panel();
             label2 = new Label();
-            panel2 = new Panel();
+            panel2 = new CustomPanel();
+            button5 = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             button1 = new Button();
             button3 = new Button();
             button2 = new Button();
             button4 = new Button();
-            button5 = new Button();
-            pictureBox1 = new PictureBox();
-            label1 = new Label();
-            textBox1 = new TextBox();
-            label3 = new Label();
-            label4 = new Label();
-            textBox2 = new TextBox();
             label5 = new Label();
             label6 = new Label();
-            textBox4 = new TextBox();
+            txtLastName = new TextBox();
             label7 = new Label();
-            textBox5 = new TextBox();
+            txtPhone = new TextBox();
             label8 = new Label();
-            textBox6 = new TextBox();
+            txtEmail = new TextBox();
             label9 = new Label();
             label10 = new Label();
             label11 = new Label();
-            comboBox1 = new ComboBox();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
-            textBox3 = new TextBox();
-            label12 = new Label();
-            textBox7 = new TextBox();
+            drpdownGender = new ComboBox();
+            dateDOB = new DateTimePicker();
+            txtGuardian = new TextBox();
             label13 = new Label();
-            textBox8 = new TextBox();
+            txtAddress = new TextBox();
             label14 = new Label();
-            textBox9 = new TextBox();
+            txtGuardianPhone = new TextBox();
             label15 = new Label();
-            textBox10 = new TextBox();
-            label16 = new Label();
-            textBox11 = new TextBox();
-            label17 = new Label();
             label18 = new Label();
             label20 = new Label();
-            checkBox1 = new CheckBox();
-            label19 = new Label();
-            textBox13 = new TextBox();
+            checkboxTandC = new CheckBox();
             label21 = new Label();
-            dateTimePicker3 = new DateTimePicker();
-            button6 = new Button();
-            button7 = new Button();
-            textBox12 = new TextBox();
+            dateAdmissionDate = new DateTimePicker();
+            btnReset = new Button();
+            btnSubmit = new Button();
+            txtFirstName = new TextBox();
             label22 = new Label();
-            textBox14 = new TextBox();
+            txtMiddleName = new TextBox();
             label23 = new Label();
+            panel3 = new Panel();
+            btnAddDoctor = new Button();
+            txtPatientID = new TextBox();
+            label3 = new Label();
+            panel4 = new Panel();
+            label1 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel3.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
             panel1.Controls.Add(label2);
-            panel1.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            panel1.Location = new Point(-3, 0);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1909, 114);
-            panel1.TabIndex = 15;
-            panel1.Paint += panel1_Paint;
+            panel1.Size = new Size(1902, 60);
+            panel1.TabIndex = 0;
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Top;
-            label2.AutoSize = true;
-            label2.Font = new Font("Palatino Linotype", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(668, 17);
+            label2.Dock = DockStyle.Fill;
+            label2.Font = new Font("Palatino Linotype", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(0, 0);
             label2.Name = "label2";
-            label2.Size = new Size(573, 81);
-            label2.TabIndex = 1;
+            label2.Size = new Size(1902, 60);
+            label2.TabIndex = 0;
             label2.Text = "TrinityCare Medica";
-            label2.TextAlign = ContentAlignment.TopCenter;
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
-            panel2.BackColor = Color.Teal;
-            panel2.Controls.Add(flowLayoutPanel1);
+            panel2.BorderColor = Color.Black;
+            panel2.BorderRadius = 0;
+            panel2.BorderThickness = 0;
+            panel2.ColorBottom = Color.MediumTurquoise;
+            panel2.ColorTop = Color.White;
             panel2.Controls.Add(button5);
-            panel2.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            panel2.Location = new Point(-3, 111);
+            panel2.Controls.Add(flowLayoutPanel1);
+            panel2.Dock = DockStyle.Left;
+            panel2.Font = new Font("Microsoft JhengHei UI", 9F);
+            panel2.Location = new Point(0, 60);
             panel2.Name = "panel2";
-            panel2.Size = new Size(399, 922);
-            panel2.TabIndex = 16;
+            panel2.Size = new Size(394, 973);
+            panel2.TabIndex = 2;
+            // 
+            // button5
+            // 
+            button5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            button5.Font = new Font("Microsoft JhengHei UI", 14F);
+            button5.Location = new Point(112, 877);
+            button5.Name = "button5";
+            button5.Size = new Size(146, 46);
+            button5.TabIndex = 5;
+            button5.Text = "Logout";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanel1.BackColor = Color.Transparent;
             flowLayoutPanel1.Controls.Add(button1);
             flowLayoutPanel1.Controls.Add(button3);
             flowLayoutPanel1.Controls.Add(button2);
             flowLayoutPanel1.Controls.Add(button4);
-            flowLayoutPanel1.Location = new Point(21, 107);
+            flowLayoutPanel1.Location = new Point(12, 42);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(350, 587);
-            flowLayoutPanel1.TabIndex = 6;
+            flowLayoutPanel1.Size = new Size(368, 587);
+            flowLayoutPanel1.TabIndex = 14;
             // 
             // button1
             // 
-            button1.BackColor = Color.Teal;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Microsoft JhengHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Black;
+            button1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            button1.BackColor = Color.Transparent;
+            button1.BackgroundImageLayout = ImageLayout.None;
+            button1.FlatAppearance.BorderColor = Color.White;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Font = new Font("Microsoft JhengHei UI", 14F, FontStyle.Bold);
             button1.Image = Properties.Resources._1000065903;
             button1.ImageAlign = ContentAlignment.MiddleLeft;
             button1.Location = new Point(3, 3);
             button1.Name = "button1";
-            button1.Size = new Size(347, 112);
-            button1.TabIndex = 0;
+            button1.Size = new Size(364, 121);
+            button1.TabIndex = 1;
             button1.Text = "Dashboard";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            button1.Click += button1_Click_1;
             // 
             // button3
             // 
+            button3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            button3.BackColor = Color.Transparent;
             button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Microsoft JhengHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.FlatStyle = FlatStyle.Popup;
+            button3.Font = new Font("Microsoft JhengHei UI", 14F);
             button3.Image = Properties.Resources._1000065901;
             button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(3, 121);
+            button3.Location = new Point(3, 130);
             button3.Name = "button3";
-            button3.Size = new Size(347, 112);
+            button3.Size = new Size(364, 121);
             button3.TabIndex = 2;
             button3.Text = "Patient Information\r\nMaintenance";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click_1;
             // 
             // button2
             // 
+            button2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button2.BackColor = Color.White;
             button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Microsoft JhengHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.FlatStyle = FlatStyle.Popup;
+            button2.Font = new Font("Microsoft JhengHei UI", 14F);
             button2.Image = Properties.Resources._1000065902;
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(3, 239);
+            button2.Location = new Point(3, 257);
             button2.Name = "button2";
-            button2.Size = new Size(347, 112);
-            button2.TabIndex = 1;
+            button2.Size = new Size(364, 121);
+            button2.TabIndex = 3;
             button2.Text = "Admission";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button4
             // 
+            button4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Microsoft JhengHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.FlatStyle = FlatStyle.Popup;
+            button4.Font = new Font("Microsoft JhengHei UI", 14F);
             button4.Image = Properties.Resources._1000065900;
             button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(3, 357);
+            button4.Location = new Point(3, 384);
             button4.Name = "button4";
-            button4.Size = new Size(347, 112);
-            button4.TabIndex = 3;
-            button4.Text = "Treatment/ Billing Breakdown";
+            button4.Size = new Size(364, 121);
+            button4.TabIndex = 4;
+            button4.Text = "     Treatment/ Billing Breakdown";
+            button4.TextImageRelation = TextImageRelation.ImageBeforeText;
             button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(126, 864);
-            button5.Name = "button5";
-            button5.Size = new Size(147, 46);
-            button5.TabIndex = 4;
-            button5.Text = "LogOut";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.Untitled_design__1__removebg_preview;
-            pictureBox1.Location = new Point(826, 225);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(652, 561);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 17;
-            pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(435, 153);
-            label1.Name = "label1";
-            label1.Size = new Size(212, 36);
-            label1.TabIndex = 18;
-            label1.Text = "Doctors Name:";
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(435, 192);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(601, 51);
-            textBox1.TabIndex = 19;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(1086, 153);
-            label3.Name = "label3";
-            label3.Size = new Size(228, 36);
-            label3.TabIndex = 20;
-            label3.Text = "Admission Date:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(1508, 153);
-            label4.Name = "label4";
-            label4.Size = new Size(271, 36);
-            label4.TabIndex = 21;
-            label4.Text = "Planned Procedure:";
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(1508, 192);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(374, 51);
-            textBox2.TabIndex = 22;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(435, 275);
+            label5.Location = new Point(29, 158);
             label5.Name = "label5";
             label5.Size = new Size(303, 38);
             label5.TabIndex = 24;
@@ -280,40 +227,41 @@
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.LightGray;
-            label6.Location = new Point(734, 264);
+            label6.Location = new Point(328, 147);
             label6.Name = "label6";
             label6.Size = new Size(1161, 38);
             label6.TabIndex = 25;
             label6.Text = "________________________________________________________________________________________";
             // 
-            // textBox4
+            // txtLastName
             // 
-            textBox4.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox4.Location = new Point(435, 382);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(366, 51);
-            textBox4.TabIndex = 27;
+            txtLastName.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtLastName.Location = new Point(29, 265);
+            txtLastName.Name = "txtLastName";
+            txtLastName.Size = new Size(390, 43);
+            txtLastName.TabIndex = 6;
+            txtLastName.WordWrap = false;
             // 
             // label7
             // 
             label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
             label7.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(435, 343);
+            label7.Location = new Point(29, 226);
             label7.Name = "label7";
             label7.Size = new Size(160, 36);
             label7.TabIndex = 26;
             label7.Text = "Last Name:";
             // 
-            // textBox5
+            // txtPhone
             // 
-            textBox5.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox5.Location = new Point(1508, 382);
-            textBox5.Multiline = true;
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(374, 51);
-            textBox5.TabIndex = 29;
+            txtPhone.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPhone.Location = new Point(626, 388);
+            txtPhone.Multiline = true;
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(374, 43);
+            txtPhone.TabIndex = 12;
             // 
             // label8
             // 
@@ -321,27 +269,28 @@
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.Transparent;
-            label8.Location = new Point(1508, 343);
+            label8.Location = new Point(626, 349);
             label8.Name = "label8";
             label8.Size = new Size(223, 36);
             label8.TabIndex = 28;
             label8.Text = "Phone Number:";
             // 
-            // textBox6
+            // txtEmail
             // 
-            textBox6.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox6.Location = new Point(1508, 504);
-            textBox6.Multiline = true;
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(374, 51);
-            textBox6.TabIndex = 31;
+            txtEmail.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtEmail.Location = new Point(1014, 389);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(447, 43);
+            txtEmail.TabIndex = 13;
+            txtEmail.WordWrap = false;
             // 
             // label9
             // 
             label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
             label9.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(1508, 465);
+            label9.Location = new Point(1014, 338);
             label9.Name = "label9";
             label9.Size = new Size(91, 36);
             label9.TabIndex = 30;
@@ -350,9 +299,10 @@
             // label10
             // 
             label10.AutoSize = true;
+            label10.BackColor = Color.Transparent;
             label10.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.White;
-            label10.Location = new Point(435, 463);
+            label10.Location = new Point(29, 346);
             label10.Name = "label10";
             label10.Size = new Size(185, 36);
             label10.TabIndex = 32;
@@ -361,111 +311,87 @@
             // label11
             // 
             label11.AutoSize = true;
+            label11.BackColor = Color.Transparent;
             label11.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label11.ForeColor = Color.White;
-            label11.Location = new Point(751, 467);
+            label11.Location = new Point(328, 348);
             label11.Name = "label11";
             label11.Size = new Size(119, 36);
             label11.TabIndex = 34;
             label11.Text = "Gender:";
             // 
-            // comboBox1
+            // drpdownGender
             // 
-            comboBox1.AllowDrop = true;
-            comboBox1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.ItemHeight = 41;
-            comboBox1.Items.AddRange(new object[] { "Female", "Male" });
-            comboBox1.Location = new Point(751, 506);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(285, 49);
-            comboBox1.TabIndex = 35;
+            drpdownGender.AllowDrop = true;
+            drpdownGender.DropDownStyle = ComboBoxStyle.DropDownList;
+            drpdownGender.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            drpdownGender.FormattingEnabled = true;
+            drpdownGender.ItemHeight = 37;
+            drpdownGender.Items.AddRange(new object[] { "Male", "Female", "Other", "Prefer not to say" });
+            drpdownGender.Location = new Point(328, 387);
+            drpdownGender.Name = "drpdownGender";
+            drpdownGender.Size = new Size(285, 45);
+            drpdownGender.TabIndex = 11;
             // 
-            // dateTimePicker1
+            // dateDOB
             // 
-            dateTimePicker1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePicker1.Location = new Point(435, 504);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(284, 47);
-            dateTimePicker1.TabIndex = 36;
+            dateDOB.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dateDOB.Format = DateTimePickerFormat.Short;
+            dateDOB.Location = new Point(29, 387);
+            dateDOB.Name = "dateDOB";
+            dateDOB.Size = new Size(284, 43);
+            dateDOB.TabIndex = 10;
             // 
-            // dateTimePicker2
+            // txtGuardian
             // 
-            dateTimePicker2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePicker2.Location = new Point(1086, 192);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(374, 47);
-            dateTimePicker2.TabIndex = 37;
-            // 
-            // textBox3
-            // 
-            textBox3.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(1086, 506);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(374, 51);
-            textBox3.TabIndex = 39;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.BackColor = Color.Transparent;
-            label12.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.ForeColor = Color.Transparent;
-            label12.Location = new Point(1086, 467);
-            label12.Name = "label12";
-            label12.Size = new Size(200, 36);
-            label12.TabIndex = 38;
-            label12.Text = "Marital Status:";
-            // 
-            // textBox7
-            // 
-            textBox7.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox7.Location = new Point(435, 632);
-            textBox7.Multiline = true;
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(601, 51);
-            textBox7.TabIndex = 41;
+            txtGuardian.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtGuardian.Location = new Point(29, 616);
+            txtGuardian.Name = "txtGuardian";
+            txtGuardian.Size = new Size(601, 43);
+            txtGuardian.TabIndex = 15;
+            txtGuardian.WordWrap = false;
             // 
             // label13
             // 
             label13.AutoSize = true;
+            label13.BackColor = Color.Transparent;
             label13.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label13.ForeColor = Color.White;
-            label13.Location = new Point(435, 593);
+            label13.Location = new Point(29, 577);
             label13.Name = "label13";
             label13.Size = new Size(345, 36);
             label13.TabIndex = 40;
             label13.Text = "Guardian/ Parents Name:";
             // 
-            // textBox8
+            // txtAddress
             // 
-            textBox8.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox8.Location = new Point(435, 735);
-            textBox8.Multiline = true;
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(601, 51);
-            textBox8.TabIndex = 43;
+            txtAddress.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtAddress.Location = new Point(29, 504);
+            txtAddress.Name = "txtAddress";
+            txtAddress.Size = new Size(1432, 43);
+            txtAddress.TabIndex = 14;
+            txtAddress.WordWrap = false;
             // 
             // label14
             // 
             label14.AutoSize = true;
+            label14.BackColor = Color.Transparent;
             label14.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label14.ForeColor = Color.White;
-            label14.Location = new Point(435, 696);
+            label14.Location = new Point(29, 465);
             label14.Name = "label14";
             label14.Size = new Size(128, 36);
             label14.TabIndex = 42;
             label14.Text = "Address:";
             // 
-            // textBox9
+            // txtGuardianPhone
             // 
-            textBox9.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox9.Location = new Point(1086, 632);
-            textBox9.Multiline = true;
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(374, 51);
-            textBox9.TabIndex = 45;
+            txtGuardianPhone.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtGuardianPhone.Location = new Point(667, 616);
+            txtGuardianPhone.Multiline = true;
+            txtGuardianPhone.Name = "txtGuardianPhone";
+            txtGuardianPhone.Size = new Size(374, 43);
+            txtGuardianPhone.TabIndex = 16;
             // 
             // label15
             // 
@@ -473,59 +399,18 @@
             label15.BackColor = Color.Transparent;
             label15.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label15.ForeColor = Color.Transparent;
-            label15.Location = new Point(1086, 593);
+            label15.Location = new Point(667, 577);
             label15.Name = "label15";
-            label15.Size = new Size(223, 36);
+            label15.Size = new Size(370, 36);
             label15.TabIndex = 44;
-            label15.Text = "Phone Number:";
-            // 
-            // textBox10
-            // 
-            textBox10.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox10.Location = new Point(1086, 735);
-            textBox10.Multiline = true;
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(374, 51);
-            textBox10.TabIndex = 47;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.BackColor = Color.Transparent;
-            label16.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label16.ForeColor = Color.Transparent;
-            label16.Location = new Point(1086, 696);
-            label16.Name = "label16";
-            label16.Size = new Size(66, 36);
-            label16.TabIndex = 46;
-            label16.Text = "City";
-            // 
-            // textBox11
-            // 
-            textBox11.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox11.Location = new Point(1508, 632);
-            textBox11.Multiline = true;
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(374, 51);
-            textBox11.TabIndex = 49;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label17.ForeColor = Color.White;
-            label17.Location = new Point(1508, 593);
-            label17.Name = "label17";
-            label17.Size = new Size(318, 36);
-            label17.TabIndex = 48;
-            label17.Text = "Relationship to Patient:";
+            label15.Text = "Guardian's Phone Number:";
             // 
             // label18
             // 
             label18.AutoSize = true;
             label18.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label18.ForeColor = Color.LightGray;
-            label18.Location = new Point(622, 811);
+            label18.Location = new Point(216, 694);
             label18.Name = "label18";
             label18.Size = new Size(1265, 38);
             label18.TabIndex = 53;
@@ -536,192 +421,233 @@
             label20.AutoSize = true;
             label20.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label20.ForeColor = Color.White;
-            label20.Location = new Point(435, 823);
+            label20.Location = new Point(29, 706);
             label20.Name = "label20";
             label20.Size = new Size(181, 38);
             label20.TabIndex = 52;
             label20.Text = "Agreement";
             // 
-            // checkBox1
+            // checkboxTandC
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox1.ForeColor = Color.White;
-            checkBox1.Location = new Point(454, 902);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(460, 40);
-            checkBox1.TabIndex = 54;
-            checkBox1.Text = "I agree to terms and conditions*";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label19.ForeColor = Color.White;
-            label19.Location = new Point(1508, 696);
-            label19.Name = "label19";
-            label19.Size = new Size(219, 36);
-            label19.TabIndex = 50;
-            label19.Text = "Postal zip Code";
-            // 
-            // textBox13
-            // 
-            textBox13.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox13.Location = new Point(1508, 735);
-            textBox13.Multiline = true;
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(374, 51);
-            textBox13.TabIndex = 51;
+            checkboxTandC.AutoSize = true;
+            checkboxTandC.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            checkboxTandC.ForeColor = Color.White;
+            checkboxTandC.Location = new Point(48, 785);
+            checkboxTandC.Name = "checkboxTandC";
+            checkboxTandC.Size = new Size(460, 40);
+            checkboxTandC.TabIndex = 18;
+            checkboxTandC.Text = "I agree to terms and conditions*";
+            checkboxTandC.UseVisualStyleBackColor = true;
             // 
             // label21
             // 
             label21.AutoSize = true;
             label21.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label21.ForeColor = Color.White;
-            label21.Location = new Point(1508, 863);
+            label21.Location = new Point(1102, 746);
             label21.Name = "label21";
-            label21.Size = new Size(77, 36);
+            label21.Size = new Size(228, 36);
             label21.TabIndex = 55;
-            label21.Text = "Date";
+            label21.Text = "Admission Date:";
             // 
-            // dateTimePicker3
+            // dateAdmissionDate
             // 
-            dateTimePicker3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePicker3.Location = new Point(1508, 902);
-            dateTimePicker3.Name = "dateTimePicker3";
-            dateTimePicker3.Size = new Size(374, 47);
-            dateTimePicker3.TabIndex = 57;
+            dateAdmissionDate.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dateAdmissionDate.Format = DateTimePickerFormat.Short;
+            dateAdmissionDate.Location = new Point(1102, 785);
+            dateAdmissionDate.Name = "dateAdmissionDate";
+            dateAdmissionDate.Size = new Size(374, 47);
+            dateAdmissionDate.TabIndex = 19;
             // 
-            // button6
+            // btnReset
             // 
-            button6.Font = new Font("Tahoma", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button6.Location = new Point(1508, 967);
-            button6.Name = "button6";
-            button6.Size = new Size(175, 54);
-            button6.TabIndex = 58;
-            button6.Text = "RESET";
-            button6.UseVisualStyleBackColor = true;
+            btnReset.Font = new Font("Tahoma", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnReset.Location = new Point(1102, 850);
+            btnReset.Name = "btnReset";
+            btnReset.Size = new Size(175, 54);
+            btnReset.TabIndex = 20;
+            btnReset.Text = "RESET";
+            btnReset.UseVisualStyleBackColor = true;
+            btnReset.Click += button6_Click;
             // 
-            // button7
+            // btnSubmit
             // 
-            button7.Font = new Font("Tahoma", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button7.Location = new Point(1707, 967);
-            button7.Name = "button7";
-            button7.Size = new Size(175, 54);
-            button7.TabIndex = 59;
-            button7.Text = "ADMIT";
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
+            btnSubmit.Font = new Font("Tahoma", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSubmit.Location = new Point(1301, 850);
+            btnSubmit.Name = "btnSubmit";
+            btnSubmit.Size = new Size(175, 54);
+            btnSubmit.TabIndex = 21;
+            btnSubmit.Text = "ADMIT";
+            btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += button7_Click;
             // 
-            // textBox12
+            // txtFirstName
             // 
-            textBox12.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox12.Location = new Point(826, 382);
-            textBox12.Multiline = true;
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(366, 51);
-            textBox12.TabIndex = 61;
+            txtFirstName.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtFirstName.Location = new Point(439, 265);
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.Size = new Size(390, 43);
+            txtFirstName.TabIndex = 7;
+            txtFirstName.WordWrap = false;
             // 
             // label22
             // 
             label22.AutoSize = true;
+            label22.BackColor = Color.Transparent;
             label22.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label22.ForeColor = Color.White;
-            label22.Location = new Point(826, 343);
+            label22.Location = new Point(439, 226);
             label22.Name = "label22";
             label22.Size = new Size(163, 36);
             label22.TabIndex = 60;
             label22.Text = "First Name:";
             // 
-            // textBox14
+            // txtMiddleName
             // 
-            textBox14.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox14.Location = new Point(1219, 382);
-            textBox14.Multiline = true;
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(259, 51);
-            textBox14.TabIndex = 63;
+            txtMiddleName.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtMiddleName.Location = new Point(850, 265);
+            txtMiddleName.Name = "txtMiddleName";
+            txtMiddleName.Size = new Size(390, 43);
+            txtMiddleName.TabIndex = 8;
+            txtMiddleName.WordWrap = false;
             // 
             // label23
             // 
             label23.AutoSize = true;
+            label23.BackColor = Color.Transparent;
             label23.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label23.ForeColor = Color.White;
-            label23.Location = new Point(1219, 343);
+            label23.Location = new Point(850, 226);
             label23.Name = "label23";
             label23.Size = new Size(201, 36);
             label23.TabIndex = 62;
             label23.Text = "Middle Name:";
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.LightSeaGreen;
+            panel3.BackgroundImage = Properties.Resources.Untitled_design__1__removebg_preview;
+            panel3.BackgroundImageLayout = ImageLayout.Center;
+            panel3.Controls.Add(btnAddDoctor);
+            panel3.Controls.Add(txtPatientID);
+            panel3.Controls.Add(label3);
+            panel3.Controls.Add(panel4);
+            panel3.Controls.Add(txtMiddleName);
+            panel3.Controls.Add(label18);
+            panel3.Controls.Add(label23);
+            panel3.Controls.Add(txtFirstName);
+            panel3.Controls.Add(label22);
+            panel3.Controls.Add(btnSubmit);
+            panel3.Controls.Add(btnReset);
+            panel3.Controls.Add(dateAdmissionDate);
+            panel3.Controls.Add(label21);
+            panel3.Controls.Add(label5);
+            panel3.Controls.Add(checkboxTandC);
+            panel3.Controls.Add(label6);
+            panel3.Controls.Add(label7);
+            panel3.Controls.Add(label20);
+            panel3.Controls.Add(txtLastName);
+            panel3.Controls.Add(label8);
+            panel3.Controls.Add(txtPhone);
+            panel3.Controls.Add(label9);
+            panel3.Controls.Add(txtEmail);
+            panel3.Controls.Add(label10);
+            panel3.Controls.Add(label11);
+            panel3.Controls.Add(txtGuardianPhone);
+            panel3.Controls.Add(drpdownGender);
+            panel3.Controls.Add(label15);
+            panel3.Controls.Add(dateDOB);
+            panel3.Controls.Add(txtAddress);
+            panel3.Controls.Add(label14);
+            panel3.Controls.Add(txtGuardian);
+            panel3.Controls.Add(label13);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(394, 60);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1508, 973);
+            panel3.TabIndex = 64;
+            // 
+            // btnAddDoctor
+            // 
+            btnAddDoctor.Font = new Font("Tahoma", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAddDoctor.Location = new Point(1085, 611);
+            btnAddDoctor.Name = "btnAddDoctor";
+            btnAddDoctor.Size = new Size(376, 54);
+            btnAddDoctor.TabIndex = 17;
+            btnAddDoctor.Text = "Assign Doctors/Nurses";
+            btnAddDoctor.UseVisualStyleBackColor = true;
+            // 
+            // txtPatientID
+            // 
+            txtPatientID.BackColor = SystemColors.Window;
+            txtPatientID.Enabled = false;
+            txtPatientID.Font = new Font("Segoe UI", 16.2F);
+            txtPatientID.Location = new Point(1272, 265);
+            txtPatientID.Name = "txtPatientID";
+            txtPatientID.ReadOnly = true;
+            txtPatientID.Size = new Size(189, 43);
+            txtPatientID.TabIndex = 9;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Microsoft JhengHei UI", 16.2F);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(1272, 227);
+            label3.Name = "label3";
+            label3.Size = new Size(149, 36);
+            label3.TabIndex = 65;
+            label3.Text = "Patient ID:";
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.Teal;
+            panel4.Controls.Add(label1);
+            panel4.Location = new Point(29, 76);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1452, 68);
+            panel4.TabIndex = 64;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft JhengHei UI", 22F);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(13, 11);
+            label1.Name = "label1";
+            label1.Size = new Size(203, 47);
+            label1.TabIndex = 0;
+            label1.Text = "Admission";
+            // 
             // FormAdmission
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightSeaGreen;
+            BackColor = Color.White;
             ClientSize = new Size(1902, 1033);
-            Controls.Add(textBox14);
-            Controls.Add(label23);
-            Controls.Add(textBox12);
-            Controls.Add(label22);
-            Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(dateTimePicker3);
-            Controls.Add(label21);
-            Controls.Add(checkBox1);
-            Controls.Add(label18);
-            Controls.Add(label20);
-            Controls.Add(textBox13);
-            Controls.Add(label19);
-            Controls.Add(textBox11);
-            Controls.Add(label17);
-            Controls.Add(textBox10);
-            Controls.Add(label16);
-            Controls.Add(textBox9);
-            Controls.Add(label15);
-            Controls.Add(textBox8);
-            Controls.Add(label14);
-            Controls.Add(textBox7);
-            Controls.Add(label13);
-            Controls.Add(textBox3);
-            Controls.Add(label12);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(comboBox1);
-            Controls.Add(label11);
-            Controls.Add(label10);
-            Controls.Add(textBox6);
-            Controls.Add(label9);
-            Controls.Add(textBox5);
-            Controls.Add(label8);
-            Controls.Add(textBox4);
-            Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(textBox2);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(textBox1);
-            Controls.Add(label1);
-            Controls.Add(panel1);
+            Controls.Add(panel3);
             Controls.Add(panel2);
-            Controls.Add(pictureBox1);
+            Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FormAdmission";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormAdmission";
+            WindowState = FormWindowState.Maximized;
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private Panel panel1;
-        private Panel panel2;
+        private CustomPanel panel2;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button button1;
         private Button button2;
@@ -729,49 +655,40 @@
         private Button button4;
         private Button button5;
         private Label label2;
-        private PictureBox pictureBox1;
-        private Label label1;
-        private TextBox textBox1;
-        private Label label3;
-        private Label label4;
-        private TextBox textBox2;
         private Label label5;
         private Label label6;
-        private TextBox textBox4;
+        private TextBox txtLastName;
         private Label label7;
-        private TextBox textBox5;
+        private TextBox txtPhone;
         private Label label8;
-        private TextBox textBox6;
+        private TextBox txtEmail;
         private Label label9;
         private Label label10;
         private Label label11;
-        private ComboBox comboBox1;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
-        private TextBox textBox3;
-        private Label label12;
-        private TextBox textBox7;
+        private ComboBox drpdownGender;
+        private DateTimePicker dateDOB;
+        private TextBox txtGuardian;
         private Label label13;
-        private TextBox textBox8;
+        private TextBox txtAddress;
         private Label label14;
-        private TextBox textBox9;
+        private TextBox txtGuardianPhone;
         private Label label15;
-        private TextBox textBox10;
-        private Label label16;
-        private TextBox textBox11;
-        private Label label17;
         private Label label18;
         private Label label20;
-        private CheckBox checkBox1;
-        private Label label19;
-        private TextBox textBox13;
+        private CheckBox checkboxTandC;
         private Label label21;
-        private DateTimePicker dateTimePicker3;
-        private Button button6;
-        private Button button7;
-        private TextBox textBox12;
+        private DateTimePicker dateAdmissionDate;
+        private Button btnReset;
+        private Button btnSubmit;
+        private TextBox txtFirstName;
         private Label label22;
-        private TextBox textBox14;
+        private TextBox txtMiddleName;
         private Label label23;
+        private Panel panel3;
+        private Panel panel4;
+        private Label label1;
+        private Label label3;
+        private TextBox txtPatientID;
+        private Button btnAddDoctor;
     }
 }
