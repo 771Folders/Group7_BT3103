@@ -1,14 +1,12 @@
 ﻿using EventDriven.Project.Businesslogic.Repository;
 using EventDriven.Project.Model;
-using System;
-using System.Collections.Generic;
 
 namespace EventDriven.Project.Businesslogic.Controller
 {
     public class UserController
     {
         private UserRepository userRepo;
-        
+
 
         public UserController()
         {
@@ -38,7 +36,7 @@ namespace EventDriven.Project.Businesslogic.Controller
             {
                 Console.WriteLine(ex.Message);
             }
-            return userRepo.ValidateUser(Username,Password);
+            return userRepo.ValidateUser(Username, Password);
         }
     }
 }

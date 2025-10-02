@@ -1,6 +1,5 @@
-﻿using EventDriven.Project.Model;
-using EventDriven.Project.Businesslogic.Repository;
-using System.Diagnostics;
+﻿using EventDriven.Project.Businesslogic.Repository;
+using EventDriven.Project.Model;
 
 namespace EventDriven.Project.Businesslogic.Controller
 {
@@ -40,34 +39,7 @@ namespace EventDriven.Project.Businesslogic.Controller
 
         public List<PatientModel> SearchPatients(string searchTerm)
         {
-            try
-            {
-                if (patientRepo.GetPatientByFirstName(searchTerm) != null)
-                {
-                    return patientRepo.GetPatientByFirstName(searchTerm);
-                }
-                else if (patientRepo.GetPatientByLastName(searchTerm) != null)
-                {
-                    return patientRepo.GetPatientByLastName(searchTerm);
-                }
-                else if (patientRepo.GetPatientByMiddleName(searchTerm) != null)
-                {
-                    return patientRepo.GetPatientByMiddleName(searchTerm);
-                }
-                else if (patientRepo.GetPatientByID(Convert.ToInt32(searchTerm)) != null)
-                {
-                    return new List<PatientModel> { patientRepo.GetPatientByID(Convert.ToInt32(searchTerm)) };
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-            }
-            return null;
+            return patientRepo.SearchPatient(searchTerm);
         }
 
         public int GetNextPatientID()

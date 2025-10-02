@@ -134,141 +134,6 @@ namespace EventDriven.Project.Businesslogic.Repository
             return null;
         }
 
-        public List<PatientModel> GetPatientByFirstName(string FirstName)
-        {
-            try
-            {
-                List<PatientModel> patient = new List<PatientModel>();
-                using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
-                {
-                    con.Open();
-                    using (SqlCommand command = new SqlCommand("dbo.GetPatientByFirstName", con))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@FirstName", FirstName);
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                patient.Add(new PatientModel()
-                                {
-                                    PatientID = (int)reader["PatientID"],
-                                    LastName = (string)reader["LastName"],
-                                    FirstName = (string)reader["FirstName"],
-                                    MiddleName = (string)reader["MiddleName"],
-                                    DateOfBirth = (DateTime)reader["DateOfBirth"],
-                                    Gender = (string)reader["Gender"],
-                                    Address = (string)reader["Address"],
-                                    Phone = (string)reader["Phone"],
-                                    Email = (string)reader["Email"],
-                                    EmergencyContact = (string)reader["EmergencyContact"],
-                                    EmergencyContactPhone = (string)reader["EmergencyContactPhone"],
-                                    DateRegistered = (DateTime)reader["DateRegistered"]
-                                });
-                            }
-                            return patient;
-                        }
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
-            return null;
-        }
-
-        public List<PatientModel> GetPatientByLastName(string LastName)
-        {
-            try
-            {
-                List<PatientModel> patient = new List<PatientModel>();
-                using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
-                {
-                    con.Open();
-                    using (SqlCommand command = new SqlCommand("dbo.GetPatientByLastName", con))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@LastName", LastName);
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                patient.Add(new PatientModel()
-                                {
-                                    PatientID = (int)reader["PatientID"],
-                                    LastName = (string)reader["LastName"],
-                                    FirstName = (string)reader["FirstName"],
-                                    MiddleName = (string)reader["MiddleName"],
-                                    DateOfBirth = (DateTime)reader["DateOfBirth"],
-                                    Gender = (string)reader["Gender"],
-                                    Address = (string)reader["Address"],
-                                    Phone = (string)reader["Phone"],
-                                    Email = (string)reader["Email"],
-                                    EmergencyContact = (string)reader["EmergencyContact"],
-                                    EmergencyContactPhone = (string)reader["EmergencyContactPhone"],
-                                    DateRegistered = (DateTime)reader["DateRegistered"]
-                                });
-                            }
-                            return patient;
-                        }
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
-            return null;
-        }
-
-        public List<PatientModel> GetPatientByMiddleName(string MiddleName)
-        {
-            try
-            {
-                List<PatientModel> patient = new List<PatientModel>();
-                using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
-                {
-                    con.Open();
-                    using (SqlCommand command = new SqlCommand("dbo.GetPatientByMiddleName", con))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@MiddleName", MiddleName);
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                patient.Add(new PatientModel()
-                                {
-                                    PatientID = (int)reader["PatientID"],
-                                    LastName = (string)reader["LastName"],
-                                    FirstName = (string)reader["FirstName"],
-                                    MiddleName = (string)reader["MiddleName"],
-                                    DateOfBirth = (DateTime)reader["DateOfBirth"],
-                                    Gender = (string)reader["Gender"],
-                                    Address = (string)reader["Address"],
-                                    Phone = (string)reader["Phone"],
-                                    Email = (string)reader["Email"],
-                                    EmergencyContact = (string)reader["EmergencyContact"],
-                                    EmergencyContactPhone = (string)reader["EmergencyContactPhone"],
-                                    DateRegistered = (DateTime)reader["DateRegistered"]
-                                });
-                            }
-                            return patient;
-                        }
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
-            return null;
-        }
-
         public List<PatientModel> GetAllPatients()
         {
             try
@@ -337,6 +202,50 @@ namespace EventDriven.Project.Businesslogic.Repository
                 Debug.WriteLine(ex.Message);
             }
             return -1;
+        }
+
+
+        public List<PatientModel> SearchPatient(string searchTerm)
+        {
+            try
+            {
+                List<PatientModel> patients = new List<PatientModel>();
+                using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
+                {
+                    con.Open();
+                    using (SqlCommand command = new SqlCommand("dbo.SearchPatient", con))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@SearchTerm", searchTerm);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                PatientModel patient = new PatientModel();
+                                patient.PatientID = (int)reader["PatientID"];
+                                patient.LastName = (string)reader["LastName"];
+                                patient.FirstName = (string)reader["FirstName"];
+                                patient.MiddleName = (string)reader["MiddleName"];
+                                patient.DateOfBirth = (DateTime)reader["DateOfBirth"];
+                                patient.Gender = (string)reader["Gender"];
+                                patient.Address = (string)reader["Address"];
+                                patient.Phone = (string)reader["Phone"];
+                                patient.Email = (string)reader["Email"];
+                                patient.EmergencyContact = (string)reader["EmergencyContact"];
+                                patient.EmergencyContactPhone = (string)reader["EmergencyContactPhone"];
+                                patient.DateRegistered = (DateTime)reader["DateRegistered"];
+                                patients.Add(patient);
+                            }
+                            return patients;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return null;
         }
     }
 }

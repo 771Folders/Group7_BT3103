@@ -150,7 +150,7 @@ namespace EventDriven.Project.UI
             button1.BackgroundImageLayout = ImageLayout.None;
             button1.FlatAppearance.BorderColor = Color.White;
             button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Microsoft JhengHei UI", 14F, FontStyle.Bold);
+            button1.Font = new Font("Microsoft JhengHei UI", 14F);
             button1.Image = Properties.Resources._1000065903;
             button1.ImageAlign = ContentAlignment.MiddleLeft;
             button1.Location = new Point(3, 3);
