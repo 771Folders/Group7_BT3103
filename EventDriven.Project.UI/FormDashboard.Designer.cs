@@ -46,7 +46,7 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            label7 = new Label();
+            lblPatientCount = new Label();
             label8 = new Label();
             label9 = new Label();
             panel3 = new Panel();
@@ -54,7 +54,7 @@
             panel5 = new Panel();
             panel6 = new Panel();
             panel7 = new TableLayoutPanel();
-            customPanel1 = new CustomControls.CustomPanel();
+            customPanel1 = new EventDriven.Project.UI.CustomControls.CustomPanel();
             panel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -110,7 +110,7 @@
             button1.BackgroundImageLayout = ImageLayout.None;
             button1.FlatAppearance.BorderColor = Color.White;
             button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Microsoft JhengHei UI", 14F, FontStyle.Bold);
+            button1.Font = new Font("Microsoft JhengHei UI", 14F);
             button1.Image = Properties.Resources._1000065903;
             button1.ImageAlign = ContentAlignment.MiddleLeft;
             button1.Location = new Point(3, 3);
@@ -190,6 +190,8 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
+            pictureBox1.MouseEnter += pictureBox1_MouseEnter;
+            pictureBox1.MouseLeave += pictureBox1_MouseLeave;
             // 
             // pictureBox2
             // 
@@ -201,6 +203,8 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 3;
             pictureBox2.TabStop = false;
+            pictureBox2.MouseEnter += pictureBox2_MouseEnter;
+            pictureBox2.MouseLeave += pictureBox2_MouseLeave;
             // 
             // pictureBox3
             // 
@@ -212,6 +216,9 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 4;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
+            pictureBox3.MouseEnter += pictureBox3_MouseEnter;
+            pictureBox3.MouseLeave += pictureBox3_MouseLeave;
             // 
             // pictureBox4
             // 
@@ -223,6 +230,8 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 5;
             pictureBox4.TabStop = false;
+            pictureBox4.MouseEnter += pictureBox4_MouseEnter;
+            pictureBox4.MouseLeave += pictureBox4_MouseLeave;
             // 
             // label2
             // 
@@ -284,17 +293,17 @@
             label6.Text = "Patient/s";
             label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label7
+            // lblPatientCount
             // 
-            label7.BackColor = Color.White;
-            label7.Dock = DockStyle.Bottom;
-            label7.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(0, 338);
-            label7.Name = "label7";
-            label7.Size = new Size(663, 72);
-            label7.TabIndex = 11;
-            label7.Text = "50\r\nAdmitted";
-            label7.TextAlign = ContentAlignment.MiddleCenter;
+            lblPatientCount.BackColor = Color.White;
+            lblPatientCount.Dock = DockStyle.Bottom;
+            lblPatientCount.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPatientCount.Location = new Point(0, 338);
+            lblPatientCount.Name = "lblPatientCount";
+            lblPatientCount.Size = new Size(663, 72);
+            lblPatientCount.TabIndex = 11;
+            lblPatientCount.Text = "50\r\nAdmitted";
+            lblPatientCount.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label8
             // 
@@ -329,6 +338,7 @@
             panel3.Controls.Add(label2);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(pictureBox1);
+            panel3.Cursor = Cursors.Hand;
             panel3.Location = new Point(50, 50);
             panel3.Margin = new Padding(50);
             panel3.Name = "panel3";
@@ -342,8 +352,9 @@
             panel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel4.BackColor = Color.White;
             panel4.Controls.Add(label6);
-            panel4.Controls.Add(label7);
+            panel4.Controls.Add(lblPatientCount);
             panel4.Controls.Add(pictureBox3);
+            panel4.Cursor = Cursors.Hand;
             panel4.Location = new Point(50, 560);
             panel4.Margin = new Padding(50);
             panel4.Name = "panel4";
@@ -358,6 +369,7 @@
             panel5.Controls.Add(label8);
             panel5.Controls.Add(label9);
             panel5.Controls.Add(pictureBox4);
+            panel5.Cursor = Cursors.Hand;
             panel5.Location = new Point(813, 560);
             panel5.Margin = new Padding(50);
             panel5.Name = "panel5";
@@ -372,6 +384,7 @@
             panel6.Controls.Add(label4);
             panel6.Controls.Add(label5);
             panel6.Controls.Add(pictureBox2);
+            panel6.Cursor = Cursors.Hand;
             panel6.Location = new Point(813, 50);
             panel6.Margin = new Padding(50);
             panel6.Name = "panel6";
@@ -463,7 +476,7 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private Label label7;
+        private Label lblPatientCount;
         private Label label8;
         private Label label9;
         private Button button5;

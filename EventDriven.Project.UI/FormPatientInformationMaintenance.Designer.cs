@@ -36,7 +36,7 @@
             button2 = new Button();
             button4 = new Button();
             button5 = new Button();
-            customPanel1 = new CustomControls.CustomPanel();
+            customPanel1 = new EventDriven.Project.UI.CustomControls.CustomPanel();
             panel2 = new Panel();
             panel3 = new Panel();
             refreshBtn = new Button();
@@ -96,7 +96,7 @@
             button1.BackgroundImageLayout = ImageLayout.None;
             button1.FlatAppearance.BorderColor = Color.White;
             button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Microsoft JhengHei UI", 14F, FontStyle.Bold);
+            button1.Font = new Font("Microsoft JhengHei UI", 14F);
             button1.Image = Properties.Resources._1000065903;
             button1.ImageAlign = ContentAlignment.MiddleLeft;
             button1.Location = new Point(3, 3);

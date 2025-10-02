@@ -136,6 +136,7 @@ namespace EventDriven.Project.UI
                     {
                         patientController.AddPatient(patient);
                         MessageBox.Show("Patient admitted successfully.");
+
                         ResetBtn();
                     }
                     else
@@ -197,6 +198,7 @@ namespace EventDriven.Project.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
+            FormPatientInformationMaintenance.action = "Add";
             Hide();
             FormAdmission formAdmission = new FormAdmission();
             formAdmission.ShowDialog();

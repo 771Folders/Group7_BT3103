@@ -1,15 +1,4 @@
-﻿/*
-Post-Deployment Script Template							
---------------------------------------------------------------------------------------
- This file contains SQL statements that will be appended to the build script.		
- Use SQLCMD syntax to include a file in the post-deployment script.			
- Example:      :r .\myfile.sql								
- Use SQLCMD syntax to reference a variable in the post-deployment script.		
- Example:      :setvar TableName MyTable							
-               SELECT * FROM [$(TableName)]					
---------------------------------------------------------------------------------------
-*/
-INSERT INTO [dbo].[Patients] 
+﻿INSERT INTO [dbo].[Patients] 
 (FirstName, LastName, MiddleName, DateOfBirth, Gender, Phone, Address, Email, EmergencyContact, EmergencyContactPhone) VALUES
 ('Liam', 'Turner', 'Robert', '1970-05-15', 'Male', '123-456-7890', '123 Oak St, Cityville, CA', 'liam.t@email.com', 'Sarah Turner', '321-654-0987'),
 ('Olivia', 'Carter', 'Marie', '1957-08-20', 'Female', '234-567-8901', '456 Pine Ave, Townsville, CA', 'olivia.c@email.com', 'James Carter', '432-765-1098'),

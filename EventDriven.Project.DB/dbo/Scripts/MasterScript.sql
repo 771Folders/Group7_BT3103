@@ -10,5 +10,5 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
-:r .\Scripts\UserScript.sql
-:r .\Scripts\PatientScript.sql
+:r .\UserScript.sql
+:r .\PatientScript.sql
