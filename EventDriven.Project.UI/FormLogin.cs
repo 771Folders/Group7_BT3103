@@ -30,8 +30,8 @@ namespace EventDriven.Project.UI
                 {
                     LoggedUser = matchingUser;
                     Hide();
-                    FormDashboard formDashboard = new FormDashboard();
-                    formDashboard.ShowDialog();
+                    FormMain formMain = new FormMain();
+                    formMain.ShowDialog();
                 }
                 else throw new Exception("Invalid Credentials");
             }
