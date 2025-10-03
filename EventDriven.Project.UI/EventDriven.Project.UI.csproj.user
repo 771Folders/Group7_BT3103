@@ -7,17 +7,20 @@
     <Compile Update="CustomControls\CustomPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="FormDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormPatientInformationMaintenance.cs">
+    <Compile Update="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormAdmission.cs">
-      <SubType>Form</SubType>
+    <Compile Update="UserControls\Admission.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\PatientInformationMaintenance.cs">
+      <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
