@@ -12,9 +12,35 @@ namespace EventDriven.Project.UI
         public FormLogin()
         {
             InitializeComponent();
+            #region Double Buffering
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+              ControlStyles.UserPaint |
+              ControlStyles.OptimizedDoubleBuffer, true);
+            UpdateStyles();
+            typeof(Panel).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.SetProperty |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic,
+                null,
+                panel1,
+                new object[] { true });
+            typeof(FlowLayoutPanel).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.SetProperty |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic,
+                null,
+                flowLayoutPanel1, // <- replace with your actual name
+                new object[] { true });
+            typeof(FlowLayoutPanel).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.SetProperty |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic,
+                null,
+                flowLayoutPanel2, // <- second one
+                new object[] { true });
+            #endregion
             userController = new UserController();
         }
-
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

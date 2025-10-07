@@ -5,10 +5,12 @@ namespace EventDriven.Project.UI.UserControls
 {
     public partial class Admission : UserControl
     {
+        #region Local Variables
         PatientController patientController;
         String action;
         public event EventHandler GoToDashboard;
         public event EventHandler GoToPatientInfo;
+        #endregion
         public Admission()
         {
             InitializeComponent();
@@ -24,20 +26,20 @@ namespace EventDriven.Project.UI.UserControls
             {
                 labelTitle.Text = "Patient Admission";
                 btnSubmit.Text = "ADMIT";
+                btnReset.Text = "RESET";
                 checkboxTandC.Visible = true;
                 label20.Visible = true;
                 label18.Visible = true;
-                btnReset.Visible = true;
             }
             else if (action == "Edit")
             {
                 FillFields();
                 labelTitle.Text = "Edit Patient Information";
                 btnSubmit.Text = "SAVE";
+                btnReset.Text = "CANCEL";
                 checkboxTandC.Visible = false;
                 label20.Visible = false;
                 label18.Visible = false;
-                btnReset.Visible = false;
             }
         }
 
@@ -60,19 +62,35 @@ namespace EventDriven.Project.UI.UserControls
 
         private void Reset()
         {
-            lblID.Text = patientController.GetNextPatientID().ToString();
-            txtLastName.Clear();
-            txtFirstName.Clear();
-            txtMiddleName.Clear();
-            dateBirth.Value = DateTime.Today;
-            drpdownGender.SelectedIndex = -1;
-            txtPhone.Clear();
-            txtEmail.Clear();
-            txtGuardian.Clear();
-            txtGuardianPhone.Clear();
-            txtAddress.Clear();
-            checkboxTandC.Checked = false;
-            dateAdmissionDate.Value = DateTime.Today;
+            if (action.Equals("Edit"))
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel the changes?", "Cancel Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    GoToPatientInfo?.Invoke(this, EventArgs.Empty);
+                    return;
+                }
+            }
+            else if (action.Equals("Add"))
+            {
+                lblID.Text = patientController.GetNextPatientID().ToString();
+                txtLastName.Clear();
+                txtFirstName.Clear();
+                txtMiddleName.Clear();
+                dateBirth.Value = DateTime.Today;
+                drpdownGender.SelectedIndex = -1;
+                txtPhone.Clear();
+                txtEmail.Clear();
+                txtGuardian.Clear();
+                txtGuardianPhone.Clear();
+                txtAddress.Clear();
+                checkboxTandC.Checked = false;
+                dateAdmissionDate.Value = DateTime.Today;
+            }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)

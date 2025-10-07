@@ -43,6 +43,9 @@
             flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             SuspendLayout();
+            panel1.Visible = false;
+            flowLayoutPanel1.Visible = false;
+            flowLayoutPanel2.Visible = false;
             // 
             // lblPassword
             // 
@@ -208,6 +211,9 @@
             flowLayoutPanel1.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
+            panel1.Visible = true;
+            flowLayoutPanel1.Visible = true;
+            flowLayoutPanel2.Visible = true;
         }
 
         #endregion

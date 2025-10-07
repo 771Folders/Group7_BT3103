@@ -42,6 +42,10 @@
             flowPanelSideBar.SuspendLayout();
             panelAppTitle.SuspendLayout();
             SuspendLayout();
+            flowPanelSideBar.Visible = false;
+            panelAppTitle.Visible = false;
+            panelMain.Visible = false;
+            panelSideBar.Visible = false;
             // 
             // panelSideBar
             // 
@@ -183,6 +187,10 @@
             flowPanelSideBar.ResumeLayout(false);
             panelAppTitle.ResumeLayout(false);
             ResumeLayout(false);
+            flowPanelSideBar.Visible = true;
+            panelSideBar.Visible = true;
+            panelAppTitle.Visible = true;
+            panelMain.Visible = true;
         }
 
         #endregion

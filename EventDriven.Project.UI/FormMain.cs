@@ -1,14 +1,51 @@
-﻿using EventDriven.Project.UI.UserControls;
+﻿using System.Windows.Forms;
+using EventDriven.Project.UI.UserControls;
 
 namespace EventDriven.Project.UI
 {
     public partial class FormMain : Form
     {
+        #region Global Variables
         public static string admissionAction = "Add";
         public static int selectedPatientID = 0;
+        #endregion
         public FormMain()
         {
             InitializeComponent();
+            #region Double Buffering
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+              ControlStyles.UserPaint |
+              ControlStyles.OptimizedDoubleBuffer, true);
+            UpdateStyles();
+            typeof(Panel).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.SetProperty |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic,
+                null,
+                panelMain,
+                new object[] { true });
+            typeof(Panel).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.SetProperty |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic,
+                null,
+                panelAppTitle,
+                new object[] { true });
+            typeof(Panel).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.SetProperty |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic,
+                null,
+                panelSideBar,
+                new object[] { true });
+            typeof(FlowLayoutPanel).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.SetProperty |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic,
+                null,
+                flowPanelSideBar, // <- second one
+                new object[] { true });
+            #endregion
             ShowControl(new Dashboard());
             CheckLoggedUser();
         }
@@ -94,7 +131,6 @@ namespace EventDriven.Project.UI
         {
             throw new NotImplementedException();
         }
-
         #region Sidebar Button Events
         private void btnDashboard_Click(object sender, EventArgs e)
         {
@@ -108,6 +144,7 @@ namespace EventDriven.Project.UI
 
         private void btnAdmission_Click(object sender, EventArgs e)
         {
+            admissionAction = "Add";
             ShowControl(new Admission());
         }
 
