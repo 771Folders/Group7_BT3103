@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dataPatients = new DataGridView();
             panel1 = new Panel();
             btnToggleSelect = new Button();
@@ -42,6 +42,7 @@
             flowPatientInfoButtons = new FlowLayoutPanel();
             btnDischarge = new Button();
             btnBilling = new Button();
+            btnView = new Button();
             ((System.ComponentModel.ISupportInitialize)dataPatients).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnRefresh).BeginInit();
@@ -55,14 +56,14 @@
             dataPatients.AllowUserToResizeRows = false;
             dataPatients.Anchor = AnchorStyles.None;
             dataPatients.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Control;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataPatients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataPatients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataPatients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataPatients.EditMode = DataGridViewEditMode.EditOnEnter;
             dataPatients.EnableHeadersVisualStyles = false;
@@ -149,7 +150,7 @@
             // btnAdd
             // 
             btnAdd.Font = new Font("Microsoft JhengHei UI", 14F);
-            btnAdd.Location = new Point(378, 3);
+            btnAdd.Location = new Point(565, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(180, 60);
             btnAdd.TabIndex = 2;
@@ -160,7 +161,7 @@
             // btnDelete
             // 
             btnDelete.Font = new Font("Microsoft JhengHei UI", 14F);
-            btnDelete.Location = new Point(750, 3);
+            btnDelete.Location = new Point(937, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(180, 60);
             btnDelete.TabIndex = 3;
@@ -171,7 +172,7 @@
             // btnEdit
             // 
             btnEdit.Font = new Font("Microsoft JhengHei UI", 14F);
-            btnEdit.Location = new Point(564, 3);
+            btnEdit.Location = new Point(751, 3);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(180, 60);
             btnEdit.TabIndex = 4;
@@ -185,18 +186,19 @@
             flowPatientInfoButtons.Controls.Add(btnDelete);
             flowPatientInfoButtons.Controls.Add(btnEdit);
             flowPatientInfoButtons.Controls.Add(btnAdd);
+            flowPatientInfoButtons.Controls.Add(btnView);
             flowPatientInfoButtons.Controls.Add(btnDischarge);
             flowPatientInfoButtons.Controls.Add(btnBilling);
             flowPatientInfoButtons.FlowDirection = FlowDirection.RightToLeft;
-            flowPatientInfoButtons.Location = new Point(527, 898);
+            flowPatientInfoButtons.Location = new Point(340, 898);
             flowPatientInfoButtons.Name = "flowPatientInfoButtons";
-            flowPatientInfoButtons.Size = new Size(933, 69);
+            flowPatientInfoButtons.Size = new Size(1120, 69);
             flowPatientInfoButtons.TabIndex = 5;
             // 
             // btnDischarge
             // 
             btnDischarge.Font = new Font("Microsoft JhengHei UI", 14F);
-            btnDischarge.Location = new Point(192, 3);
+            btnDischarge.Location = new Point(193, 3);
             btnDischarge.Name = "btnDischarge";
             btnDischarge.Size = new Size(180, 60);
             btnDischarge.TabIndex = 5;
@@ -207,13 +209,24 @@
             // btnBilling
             // 
             btnBilling.Font = new Font("Microsoft JhengHei UI", 14F);
-            btnBilling.Location = new Point(6, 3);
+            btnBilling.Location = new Point(7, 3);
             btnBilling.Name = "btnBilling";
             btnBilling.Size = new Size(180, 60);
             btnBilling.TabIndex = 6;
             btnBilling.Text = "Billing";
             btnBilling.UseVisualStyleBackColor = true;
             btnBilling.Click += btnBilling_Click;
+            // 
+            // btnView
+            // 
+            btnView.Font = new Font("Microsoft JhengHei UI", 14F);
+            btnView.Location = new Point(379, 3);
+            btnView.Name = "btnView";
+            btnView.Size = new Size(180, 60);
+            btnView.TabIndex = 7;
+            btnView.Text = "View";
+            btnView.UseVisualStyleBackColor = true;
+            btnView.Click += btnView_Click;
             // 
             // PatientInformationMaintenance
             // 
@@ -248,5 +261,6 @@
         private Button btnToggleSelect;
         private Button btnDischarge;
         private Button btnBilling;
+        private Button btnView;
     }
 }

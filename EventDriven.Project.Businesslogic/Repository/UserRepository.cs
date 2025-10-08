@@ -6,7 +6,7 @@ namespace EventDriven.Project.Businesslogic.Repository
 {
     internal class UserRepository
     {
-        private string CONNECTIONSTRING = "Data Source=KOUTAIBA;Initial Catalog=Hospital;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+        private string CONNECTIONSTRING = ConnectionString.GetConnectionString();
         public UserModel ValidateUser(string Username, string Password)
         {
             try

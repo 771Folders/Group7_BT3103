@@ -47,11 +47,13 @@ namespace EventDriven.Project.UI.UserControls
                     dataPatients.CellDoubleClick -= dataPatients_CellDoubleClick;
                     btnBilling.Visible = false;
                     btnDischarge.Visible = false;
+                    btnView.Visible = false;
                     break;
                 case "Cashier":
                     btnAdd.Visible = false;
                     btnEdit.Visible = false;
                     btnDelete.Visible = false;
+                    btnView.Visible = false;
                     break;
             }
         }
@@ -97,19 +99,7 @@ namespace EventDriven.Project.UI.UserControls
         }
         private void dataPatients_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                if (e.RowIndex < 0) return;
-                if (dataPatients.CurrentRow == null) return;
-
-                int selected = Convert.ToInt32(dataPatients.CurrentRow.Cells["PatientID"].Value);
-                FormMain.selectedPatientID = selected;
-                GoToPatientRecord?.Invoke(this, EventArgs.Empty);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            btnView.PerformClick();
         }
         private void dataPatients_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -367,6 +357,23 @@ namespace EventDriven.Project.UI.UserControls
         private void btnDischarge_Click(object sender, EventArgs e)
         {
             GoToDischarge?.Invoke(this, EventArgs.Empty);
+        }
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataPatients.CurrentCell.RowIndex < 0) return;
+                if (dataPatients.CurrentRow == null) 
+                    MessageBox.Show("Please select a patient.");
+
+                int selected = Convert.ToInt32(dataPatients.CurrentRow.Cells["PatientID"].Value);
+                FormMain.selectedPatientID = selected;
+                GoToPatientRecord?.Invoke(this, EventArgs.Empty);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
     }

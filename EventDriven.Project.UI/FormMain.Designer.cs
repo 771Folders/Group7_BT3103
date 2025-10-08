@@ -87,6 +87,7 @@
             flowPanelSideBar.Controls.Add(btnRooms);
             flowPanelSideBar.Controls.Add(btnBilling);
             flowPanelSideBar.Controls.Add(btnDischarge);
+            flowPanelSideBar.FlowDirection = FlowDirection.TopDown;
             flowPanelSideBar.Location = new Point(27, 30);
             flowPanelSideBar.Name = "flowPanelSideBar";
             flowPanelSideBar.Size = new Size(346, 872);
@@ -135,7 +136,6 @@
             // btnStaff
             // 
             btnStaff.FlatStyle = FlatStyle.Popup;
-            btnStaff.Image = Properties.Resources._1000065900;
             btnStaff.ImageAlign = ContentAlignment.MiddleLeft;
             btnStaff.Location = new Point(3, 354);
             btnStaff.Name = "btnStaff";
@@ -149,7 +149,6 @@
             // btnRooms
             // 
             btnRooms.FlatStyle = FlatStyle.Popup;
-            btnRooms.Image = Properties.Resources._1000065900;
             btnRooms.ImageAlign = ContentAlignment.MiddleLeft;
             btnRooms.Location = new Point(3, 471);
             btnRooms.Name = "btnRooms";
@@ -175,7 +174,6 @@
             // btnDischarge
             // 
             btnDischarge.FlatStyle = FlatStyle.Popup;
-            btnDischarge.Image = Properties.Resources._1000065900;
             btnDischarge.ImageAlign = ContentAlignment.MiddleLeft;
             btnDischarge.Location = new Point(3, 705);
             btnDischarge.Name = "btnDischarge";
