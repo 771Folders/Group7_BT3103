@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[ValidateUser]
+﻿CREATE PROCEDURE ValidateUser
 	@Username NVARCHAR(30),
 	@Password NVARCHAR(30)
 
@@ -7,7 +7,7 @@ AS
 	SELECT
 		*
 	FROM
-		dbo.[User]
+		[User]
 	WHERE
 		Username = @Username AND Password = @Password
 	END

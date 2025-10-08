@@ -1,4 +1,4 @@
-CREATE TABLE [dbo].[Patients] (
+CREATE TABLE Patients (
     [PatientID] INT IDENTITY(1001,1) PRIMARY KEY,
     [FirstName] VARCHAR(50),
     [LastName] VARCHAR(50),

@@ -7,8 +7,7 @@ namespace EventDriven.Project.Businesslogic.Repository
     internal class UserRepository
     {
         private string CONNECTIONSTRING = "Data Source=KOUTAIBA;Initial Catalog=Hospital;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
-
-         public UserModel ValidateUser(string Username, string Password)//Form1 Validate User
+        public UserModel ValidateUser(string Username, string Password)
         {
             try
             {
@@ -16,7 +15,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                 using (SqlConnection Hospital = new SqlConnection(CONNECTIONSTRING))
                 {
                     Hospital.Open();
-                    using (SqlCommand command = new SqlCommand("dbo.ValidateUser", Hospital))
+                    using (SqlCommand command = new SqlCommand("ValidateUser", Hospital))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@Username", Username);
@@ -44,50 +43,5 @@ namespace EventDriven.Project.Businesslogic.Repository
             }
             return null;
         }
-        public UserModel getUserByUserId(string UserIdParam)
-        {
-            try { 
-            UserModel matchingUser = new UserModel();
-            using (SqlConnection myConnection = new SqlConnection(CONNECTIONSTRING))
-            {
-                string oString = "SELECT * FROM User WHERE Id = @userId";
-                using (SqlCommand oCmd = new SqlCommand(oString, myConnection))
-                {
-                    oCmd.Parameters.AddWithValue("@UserId", UserIdParam);
-                    myConnection.Open();
-                    using (SqlDataReader oReader = oCmd.ExecuteReader())
-                    {
-                        while (oReader.Read())
-                        {
-
-                            matchingUser.Id = (int)oReader["Id"];
-                            matchingUser.Username = oReader["Username"].ToString();
-                            matchingUser.Password = oReader["Password"].ToString();
-                        }
-                        myConnection.Close();
-
-                    }
-                }
-                
-            }
-            
-                if (matchingUser.Id == 0)
-                {
-                    throw new Exception("User does not exist");
-                }
-
-                return matchingUser;
-            }
-            
-            catch (Exception ex)
-            {
-                
-                throw new Exception("An error occurred: " + ex.Message);
-            }
-        }
-
-       
     }
 }
-        
-    

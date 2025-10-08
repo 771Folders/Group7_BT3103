@@ -30,7 +30,7 @@
         {
             btnAddDoctor = new Button();
             label3 = new Label();
-            panel4 = new Panel();
+            panel1 = new Panel();
             labelTitle = new Label();
             txtMiddleName = new TextBox();
             label18 = new Label();
@@ -62,7 +62,9 @@
             txtLastName = new TextBox();
             txtPhone = new TextBox();
             lblID = new Label();
-            panel4.SuspendLayout();
+            btnAddRoom = new Button();
+            label1 = new Label();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // btnAddDoctor
@@ -70,9 +72,9 @@
             btnAddDoctor.Font = new Font("Tahoma", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAddDoctor.Location = new Point(1115, 666);
             btnAddDoctor.Name = "btnAddDoctor";
-            btnAddDoctor.Size = new Size(340, 54);
+            btnAddDoctor.Size = new Size(214, 54);
             btnAddDoctor.TabIndex = 77;
-            btnAddDoctor.Text = "Assign Doctors/Nurses";
+            btnAddDoctor.Text = "Doctors/Nurses";
             btnAddDoctor.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -87,14 +89,14 @@
             label3.TabIndex = 98;
             label3.Text = "Patient ID:";
             // 
-            // panel4
+            // panel1
             // 
-            panel4.BackColor = Color.Teal;
-            panel4.Controls.Add(labelTitle);
-            panel4.Location = new Point(60, 50);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(1400, 60);
-            panel4.TabIndex = 97;
+            panel1.BackColor = Color.Teal;
+            panel1.Controls.Add(labelTitle);
+            panel1.Location = new Point(60, 50);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1400, 60);
+            panel1.TabIndex = 97;
             // 
             // labelTitle
             // 
@@ -166,7 +168,7 @@
             btnSubmit.Location = new Point(1280, 898);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(175, 54);
-            btnSubmit.TabIndex = 81;
+            btnSubmit.TabIndex = 82;
             btnSubmit.Text = "ADMIT";
             btnSubmit.UseVisualStyleBackColor = true;
             btnSubmit.Click += btnSubmit_Click;
@@ -177,7 +179,7 @@
             btnReset.Location = new Point(1081, 898);
             btnReset.Name = "btnReset";
             btnReset.Size = new Size(175, 54);
-            btnReset.TabIndex = 80;
+            btnReset.TabIndex = 81;
             btnReset.Text = "RESET";
             btnReset.UseVisualStyleBackColor = true;
             btnReset.Click += btnReset_Click;
@@ -190,7 +192,7 @@
             dateAdmissionDate.Location = new Point(1081, 833);
             dateAdmissionDate.Name = "dateAdmissionDate";
             dateAdmissionDate.Size = new Size(374, 47);
-            dateAdmissionDate.TabIndex = 79;
+            dateAdmissionDate.TabIndex = 80;
             // 
             // label21
             // 
@@ -222,9 +224,10 @@
             checkboxTandC.Location = new Point(79, 840);
             checkboxTandC.Name = "checkboxTandC";
             checkboxTandC.Size = new Size(460, 40);
-            checkboxTandC.TabIndex = 78;
+            checkboxTandC.TabIndex = 79;
             checkboxTandC.Text = "I agree to terms and conditions*";
             checkboxTandC.UseVisualStyleBackColor = true;
+            checkboxTandC.KeyPress += checkboxTandC_KeyPress;
             // 
             // label6
             // 
@@ -265,7 +268,7 @@
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.Transparent;
+            label8.ForeColor = Color.White;
             label8.Location = new Point(655, 412);
             label8.Name = "label8";
             label8.Size = new Size(223, 36);
@@ -344,7 +347,7 @@
             label15.AutoSize = true;
             label15.BackColor = Color.Transparent;
             label15.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label15.ForeColor = Color.Transparent;
+            label15.ForeColor = Color.White;
             label15.Location = new Point(701, 632);
             label15.Name = "label15";
             label15.Size = new Size(370, 36);
@@ -431,6 +434,27 @@
             lblID.TabIndex = 99;
             lblID.Text = "1000";
             // 
+            // btnAddRoom
+            // 
+            btnAddRoom.Font = new Font("Tahoma", 16.2F);
+            btnAddRoom.Location = new Point(1337, 665);
+            btnAddRoom.Name = "btnAddRoom";
+            btnAddRoom.Size = new Size(116, 55);
+            btnAddRoom.TabIndex = 78;
+            btnAddRoom.Text = "Room";
+            btnAddRoom.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft JhengHei UI", 16.2F);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(1115, 627);
+            label1.Name = "label1";
+            label1.Size = new Size(108, 36);
+            label1.TabIndex = 100;
+            label1.Text = "Assign:";
+            // 
             // Admission
             // 
             AutoScaleDimensions = new SizeF(14F, 29F);
@@ -438,10 +462,12 @@
             BackColor = Color.LightSeaGreen;
             BackgroundImage = Properties.Resources.Untitled_design__1__removebg_preview;
             BackgroundImageLayout = ImageLayout.Center;
+            Controls.Add(label1);
+            Controls.Add(btnAddRoom);
             Controls.Add(lblID);
             Controls.Add(btnAddDoctor);
             Controls.Add(label3);
-            Controls.Add(panel4);
+            Controls.Add(panel1);
             Controls.Add(txtMiddleName);
             Controls.Add(label18);
             Controls.Add(label23);
@@ -476,8 +502,8 @@
             Margin = new Padding(5);
             Name = "Admission";
             Size = new Size(1520, 1000);
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -486,7 +512,7 @@
 
         private Button btnAddDoctor;
         private Label label3;
-        private Panel panel4;
+        private Panel panel1;
         private Label labelTitle;
         private TextBox txtMiddleName;
         private Label label18;
@@ -518,5 +544,7 @@
         private TextBox txtLastName;
         private TextBox txtPhone;
         private Label lblID;
+        private Button btnAddRoom;
+        private Label label1;
     }
 }

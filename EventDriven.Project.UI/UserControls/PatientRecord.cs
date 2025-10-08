@@ -6,7 +6,6 @@
         {
             InitializeComponent();
         }
-
         private void PatientRecord_Load(object sender, EventArgs e)
         {
             // Load patient record details here

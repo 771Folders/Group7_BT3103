@@ -43,9 +43,6 @@
             flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             SuspendLayout();
-            panel1.Visible = false;
-            flowLayoutPanel1.Visible = false;
-            flowLayoutPanel2.Visible = false;
             // 
             // lblPassword
             // 
@@ -70,6 +67,7 @@
             txtPassword.TabIndex = 2;
             txtPassword.UseSystemPasswordChar = true;
             txtPassword.WordWrap = false;
+            txtPassword.KeyPress += txtPassword_KeyPress;
             // 
             // txtUsername
             // 
@@ -174,6 +172,7 @@
             checkBox1.Text = "Show Password";
             checkBox1.UseVisualStyleBackColor = false;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            checkBox1.KeyPress += checkBox1_KeyPress;
             // 
             // flowLayoutPanel2
             // 
@@ -211,9 +210,6 @@
             flowLayoutPanel1.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
-            panel1.Visible = true;
-            flowLayoutPanel1.Visible = true;
-            flowLayoutPanel2.Visible = true;
         }
 
         #endregion

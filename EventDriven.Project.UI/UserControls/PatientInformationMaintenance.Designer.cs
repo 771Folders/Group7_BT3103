@@ -40,6 +40,8 @@
             btnDelete = new Button();
             btnEdit = new Button();
             flowPatientInfoButtons = new FlowLayoutPanel();
+            btnDischarge = new Button();
+            btnBilling = new Button();
             ((System.ComponentModel.ISupportInitialize)dataPatients).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnRefresh).BeginInit();
@@ -147,7 +149,7 @@
             // btnAdd
             // 
             btnAdd.Font = new Font("Microsoft JhengHei UI", 14F);
-            btnAdd.Location = new Point(5, 3);
+            btnAdd.Location = new Point(378, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(180, 60);
             btnAdd.TabIndex = 2;
@@ -158,7 +160,7 @@
             // btnDelete
             // 
             btnDelete.Font = new Font("Microsoft JhengHei UI", 14F);
-            btnDelete.Location = new Point(377, 3);
+            btnDelete.Location = new Point(750, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(180, 60);
             btnDelete.TabIndex = 3;
@@ -169,7 +171,7 @@
             // btnEdit
             // 
             btnEdit.Font = new Font("Microsoft JhengHei UI", 14F);
-            btnEdit.Location = new Point(191, 3);
+            btnEdit.Location = new Point(564, 3);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(180, 60);
             btnEdit.TabIndex = 4;
@@ -183,11 +185,35 @@
             flowPatientInfoButtons.Controls.Add(btnDelete);
             flowPatientInfoButtons.Controls.Add(btnEdit);
             flowPatientInfoButtons.Controls.Add(btnAdd);
+            flowPatientInfoButtons.Controls.Add(btnDischarge);
+            flowPatientInfoButtons.Controls.Add(btnBilling);
             flowPatientInfoButtons.FlowDirection = FlowDirection.RightToLeft;
-            flowPatientInfoButtons.Location = new Point(900, 898);
+            flowPatientInfoButtons.Location = new Point(527, 898);
             flowPatientInfoButtons.Name = "flowPatientInfoButtons";
-            flowPatientInfoButtons.Size = new Size(560, 69);
+            flowPatientInfoButtons.Size = new Size(933, 69);
             flowPatientInfoButtons.TabIndex = 5;
+            // 
+            // btnDischarge
+            // 
+            btnDischarge.Font = new Font("Microsoft JhengHei UI", 14F);
+            btnDischarge.Location = new Point(192, 3);
+            btnDischarge.Name = "btnDischarge";
+            btnDischarge.Size = new Size(180, 60);
+            btnDischarge.TabIndex = 5;
+            btnDischarge.Text = "Discharge";
+            btnDischarge.UseVisualStyleBackColor = true;
+            btnDischarge.Click += btnDischarge_Click;
+            // 
+            // btnBilling
+            // 
+            btnBilling.Font = new Font("Microsoft JhengHei UI", 14F);
+            btnBilling.Location = new Point(6, 3);
+            btnBilling.Name = "btnBilling";
+            btnBilling.Size = new Size(180, 60);
+            btnBilling.TabIndex = 6;
+            btnBilling.Text = "Billing";
+            btnBilling.UseVisualStyleBackColor = true;
+            btnBilling.Click += btnBilling_Click;
             // 
             // PatientInformationMaintenance
             // 
@@ -199,7 +225,6 @@
             Controls.Add(flowPatientInfoButtons);
             Name = "PatientInformationMaintenance";
             Size = new Size(1520, 1000);
-            Load += PatientInformationMaintenance_Load;
             ((System.ComponentModel.ISupportInitialize)dataPatients).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -221,5 +246,7 @@
         private Button btnEdit;
         private FlowLayoutPanel flowPatientInfoButtons;
         private Button btnToggleSelect;
+        private Button btnDischarge;
+        private Button btnBilling;
     }
 }

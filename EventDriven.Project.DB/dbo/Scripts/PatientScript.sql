@@ -1,4 +1,4 @@
-﻿INSERT INTO [dbo].[Patients] 
+﻿INSERT INTO Patients 
 (FirstName, LastName, MiddleName, DateOfBirth, Gender, Phone, Address, Email, EmergencyContact, EmergencyContactPhone) VALUES
 ('Liam', 'Turner', 'Robert', '1970-05-15', 'Male', '123-456-7890', '123 Oak St, Cityville, CA', 'liam.t@email.com', 'Sarah Turner', '321-654-0987'),
 ('Olivia', 'Carter', 'Marie', '1957-08-20', 'Female', '234-567-8901', '456 Pine Ave, Townsville, CA', 'olivia.c@email.com', 'James Carter', '432-765-1098'),

@@ -19,7 +19,6 @@ namespace EventDriven.Project.UI.UserControls
             lblID.Text = patientController.GetNextPatientID().ToString();
             CheckAction();
         }
-
         private void CheckAction()
         {
             if (action == "Add")
@@ -42,7 +41,6 @@ namespace EventDriven.Project.UI.UserControls
                 label18.Visible = false;
             }
         }
-
         private void FillFields()
         {
             PatientModel patient = patientController.GetPatientByID(FormMain.selectedPatientID);
@@ -59,7 +57,6 @@ namespace EventDriven.Project.UI.UserControls
             txtGuardianPhone.Text = patient.EmergencyContactPhone;
             dateAdmissionDate.Value = patient.DateRegistered;
         }
-
         private void Reset()
         {
             if (action.Equals("Edit"))
@@ -92,7 +89,6 @@ namespace EventDriven.Project.UI.UserControls
                 dateAdmissionDate.Value = DateTime.Today;
             }
         }
-
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -141,6 +137,13 @@ namespace EventDriven.Project.UI.UserControls
         private void btnReset_Click(object sender, EventArgs e)
         {
             Reset();
+        }
+        private void checkboxTandC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                checkboxTandC.Checked = !checkboxTandC.Checked;
+            }
         }
     }
 }

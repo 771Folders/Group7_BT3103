@@ -15,7 +15,6 @@ namespace EventDriven.Project.UI
             ShowControl(new Dashboard());
             CheckLoggedUser();
         }
-
         private void DoubleBuffering()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint |
@@ -51,51 +50,65 @@ namespace EventDriven.Project.UI
                 flowPanelSideBar, // <- second one
                 new object[] { true });
         }
-
         private void CheckLoggedUser()
         {
             switch (FormLogin.LoggedUser.Role)
             {
                 case "Admin":
                     btnAdmission.Visible = true;
-                    btnPatientInfo.Visible = true;
+                    btnStaff.Visible = true;
+                    btnRooms.Visible = true;
                     btnBilling.Visible = true;
+                    btnDischarge.Visible = true;
                     break;
                 case "Doctor":
                     btnAdmission.Visible = false;
-                    btnPatientInfo.Visible = true;
+                    btnStaff.Visible = true;
+                    btnRooms.Visible = true;
                     btnBilling.Visible = false;
+                    btnDischarge.Visible = false;
                     break;
                 case "Nurse":
                     btnAdmission.Visible = false;
-                    btnPatientInfo.Visible = true;
+                    btnStaff.Visible = true;
+                    btnRooms.Visible = true;
                     btnBilling.Visible = false;
+                    btnDischarge.Visible = false;
                     break;
                 case "Receptionist":
                     btnAdmission.Visible = true;
-                    btnPatientInfo.Visible = true;
+                    btnStaff.Visible = true;
+                    btnRooms.Visible = true;
                     btnBilling.Visible = false;
+                    btnDischarge.Visible = false;
                     break;
                 case "Cashier":
                     btnAdmission.Visible = false;
-                    btnPatientInfo.Visible = false;
+                    btnStaff.Visible = false;
+                    btnRooms.Visible = false;
                     btnBilling.Visible = true;
+                    btnDischarge.Visible = true;
                     break;
             }
         }
-        
         private void ShowControl(UserControl control)
         {
             btnDashboard.BackColor = Color.Transparent;
             btnPatientInfo.BackColor = Color.Transparent;
             btnAdmission.BackColor = Color.Transparent;
+            btnStaff.BackColor = Color.Transparent;
+            btnRooms.BackColor = Color.Transparent;
+            btnPatientInfo.BackColor = Color.Transparent;
             btnBilling.BackColor = Color.Transparent;
+            btnDischarge.BackColor = Color.Transparent;
             control.Dock = DockStyle.Fill;
 
             if (control is Dashboard dashboard)
             {
                 btnDashboard.BackColor = Color.White;
                 dashboard.GoToPatients += (s, e) => ShowControl(new PatientInformationMaintenance());
+                dashboard.GoToStaff += (s, e) => ShowControl(new StaffList());
+                dashboard.GoToRooms += (s, e) => ShowControl(new Rooms());
             }
             else if (control is PatientInformationMaintenance pim)
             {
@@ -112,6 +125,8 @@ namespace EventDriven.Project.UI
                     ShowControl(new Admission());
                 };
                 pim.GoToPatientRecord += (s, e) => ShowControl(new PatientRecord());
+                pim.GoToDischarge += (s, e) => ShowControl(new Discharge());
+                pim.GoToBilling += (s, e) => ShowControl(new Billing());
             }
             else if (control is Admission admission)
             {
@@ -128,7 +143,23 @@ namespace EventDriven.Project.UI
             }
             else if (control is PatientRecord patientRecord)
             {
-
+                btnPatientInfo.BackColor = Color.White;
+            }
+            else if (control is Billing billing)
+            {
+                btnBilling.BackColor = Color.White;
+            }
+            else if (control is StaffList staffList)
+            {
+                btnStaff.BackColor = Color.White;
+            }
+            else if (control is Rooms rooms)
+            {
+                btnRooms.BackColor = Color.White;
+            }
+            else if (control is Discharge discharge)
+            {
+                btnDischarge.BackColor = Color.White;
             }
 
             panelMain.Controls.Clear();
@@ -149,6 +180,26 @@ namespace EventDriven.Project.UI
         {
             admissionAction = "Add";
             ShowControl(new Admission());
+        }
+
+        private void btnBilling_Click(object sender, EventArgs e)
+        {
+            ShowControl(new Billing());
+        }
+
+        private void btnStaff_Click(object sender, EventArgs e)
+        {
+            ShowControl(new StaffList());
+        }
+
+        private void btnRooms_Click(object sender, EventArgs e)
+        {
+            ShowControl(new Rooms());
+        }
+
+        private void btnDischarge_Click(object sender, EventArgs e)
+        {
+            ShowControl(new Discharge());
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

@@ -34,7 +34,10 @@
             btnDashboard = new Button();
             btnPatientInfo = new Button();
             btnAdmission = new Button();
+            btnStaff = new Button();
+            btnRooms = new Button();
             btnBilling = new Button();
+            btnDischarge = new Button();
             panelAppTitle = new Panel();
             labelAppTitle = new Label();
             panelMain = new Panel();
@@ -42,10 +45,6 @@
             flowPanelSideBar.SuspendLayout();
             panelAppTitle.SuspendLayout();
             SuspendLayout();
-            flowPanelSideBar.Visible = false;
-            panelAppTitle.Visible = false;
-            panelMain.Visible = false;
-            panelSideBar.Visible = false;
             // 
             // panelSideBar
             // 
@@ -84,10 +83,13 @@
             flowPanelSideBar.Controls.Add(btnDashboard);
             flowPanelSideBar.Controls.Add(btnPatientInfo);
             flowPanelSideBar.Controls.Add(btnAdmission);
+            flowPanelSideBar.Controls.Add(btnStaff);
+            flowPanelSideBar.Controls.Add(btnRooms);
             flowPanelSideBar.Controls.Add(btnBilling);
+            flowPanelSideBar.Controls.Add(btnDischarge);
             flowPanelSideBar.Location = new Point(27, 30);
             flowPanelSideBar.Name = "flowPanelSideBar";
-            flowPanelSideBar.Size = new Size(346, 614);
+            flowPanelSideBar.Size = new Size(346, 872);
             flowPanelSideBar.TabIndex = 0;
             // 
             // btnDashboard
@@ -130,17 +132,58 @@
             btnAdmission.UseVisualStyleBackColor = true;
             btnAdmission.Click += btnAdmission_Click;
             // 
+            // btnStaff
+            // 
+            btnStaff.FlatStyle = FlatStyle.Popup;
+            btnStaff.Image = Properties.Resources._1000065900;
+            btnStaff.ImageAlign = ContentAlignment.MiddleLeft;
+            btnStaff.Location = new Point(3, 354);
+            btnStaff.Name = "btnStaff";
+            btnStaff.Size = new Size(343, 111);
+            btnStaff.TabIndex = 4;
+            btnStaff.Text = "Doctors and Nurses List";
+            btnStaff.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnStaff.UseVisualStyleBackColor = true;
+            btnStaff.Click += btnStaff_Click;
+            // 
+            // btnRooms
+            // 
+            btnRooms.FlatStyle = FlatStyle.Popup;
+            btnRooms.Image = Properties.Resources._1000065900;
+            btnRooms.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRooms.Location = new Point(3, 471);
+            btnRooms.Name = "btnRooms";
+            btnRooms.Size = new Size(343, 111);
+            btnRooms.TabIndex = 5;
+            btnRooms.Text = "Rooms";
+            btnRooms.UseVisualStyleBackColor = true;
+            btnRooms.Click += btnRooms_Click;
+            // 
             // btnBilling
             // 
             btnBilling.FlatStyle = FlatStyle.Popup;
             btnBilling.Image = Properties.Resources._1000065900;
             btnBilling.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBilling.Location = new Point(3, 354);
+            btnBilling.Location = new Point(3, 588);
             btnBilling.Name = "btnBilling";
             btnBilling.Size = new Size(343, 111);
             btnBilling.TabIndex = 3;
-            btnBilling.Text = "Treatment/Billing Breakdown";
+            btnBilling.Text = "Billing Breakdown";
             btnBilling.UseVisualStyleBackColor = true;
+            btnBilling.Click += btnBilling_Click;
+            // 
+            // btnDischarge
+            // 
+            btnDischarge.FlatStyle = FlatStyle.Popup;
+            btnDischarge.Image = Properties.Resources._1000065900;
+            btnDischarge.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDischarge.Location = new Point(3, 705);
+            btnDischarge.Name = "btnDischarge";
+            btnDischarge.Size = new Size(343, 111);
+            btnDischarge.TabIndex = 6;
+            btnDischarge.Text = "Discharge";
+            btnDischarge.UseVisualStyleBackColor = true;
+            btnDischarge.Click += btnDischarge_Click;
             // 
             // panelAppTitle
             // 
@@ -187,10 +230,6 @@
             flowPanelSideBar.ResumeLayout(false);
             panelAppTitle.ResumeLayout(false);
             ResumeLayout(false);
-            flowPanelSideBar.Visible = true;
-            panelSideBar.Visible = true;
-            panelAppTitle.Visible = true;
-            panelMain.Visible = true;
         }
 
         #endregion
@@ -205,5 +244,8 @@
         private Button btnPatientInfo;
         private Button btnAdmission;
         private Button btnBilling;
+        private Button btnStaff;
+        private Button btnRooms;
+        private Button btnDischarge;
     }
 }

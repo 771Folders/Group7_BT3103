@@ -1,6 +1,6 @@
 ﻿namespace EventDriven.Project.UI.UserControls
 {
-    partial class PatientRecord
+    partial class Discharge
     {
         /// <summary> 
         /// Required designer variable.
@@ -40,7 +40,7 @@
             panel1.Location = new Point(60, 50);
             panel1.Name = "panel1";
             panel1.Size = new Size(1400, 60);
-            panel1.TabIndex = 98;
+            panel1.TabIndex = 99;
             // 
             // labelTitle
             // 
@@ -49,21 +49,20 @@
             labelTitle.ForeColor = Color.White;
             labelTitle.Location = new Point(13, 7);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(274, 47);
+            labelTitle.Size = new Size(194, 47);
             labelTitle.TabIndex = 0;
-            labelTitle.Text = "Patient Record";
+            labelTitle.Text = "Discharge";
             // 
-            // PatientRecord
+            // Discharge
             // 
             AutoScaleDimensions = new SizeF(14F, 29F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSeaGreen;
             Controls.Add(panel1);
             Font = new Font("Microsoft JhengHei UI", 14F);
-            Margin = new Padding(5);
-            Name = "PatientRecord";
+            Margin = new Padding(5, 4, 5, 4);
+            Name = "Discharge";
             Size = new Size(1520, 1000);
-            Load += PatientRecord_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
