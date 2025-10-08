@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[GetPatientByID]
+﻿CREATE PROCEDURE GetPatientByID
 	@PatientID INT
 AS
-	SELECT * FROM [dbo].[Patients] WHERE PatientID = @PatientID
+	SELECT * FROM Patients WHERE PatientID = @PatientID

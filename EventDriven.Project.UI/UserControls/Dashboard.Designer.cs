@@ -92,8 +92,7 @@
             panelRooms.Name = "panelRooms";
             panelRooms.Size = new Size(350, 350);
             panelRooms.TabIndex = 7;
-            panelRooms.MouseEnter += panelRooms_MouseEnter;
-            panelRooms.MouseLeave += panelRooms_MouseLeave;
+            panelRooms.Click += panelRooms_Click;
             // 
             // lblRoomCount
             // 
@@ -107,8 +106,7 @@
             lblRoomCount.TabIndex = 5;
             lblRoomCount.Text = "20 Available";
             lblRoomCount.TextAlign = ContentAlignment.MiddleCenter;
-            lblRoomCount.MouseEnter += panelRooms_MouseEnter;
-            lblRoomCount.MouseLeave += panelRooms_MouseLeave;
+            lblRoomCount.Click += panelRooms_Click;
             // 
             // label8
             // 
@@ -122,8 +120,7 @@
             label8.TabIndex = 4;
             label8.Text = "Rooms";
             label8.TextAlign = ContentAlignment.MiddleCenter;
-            label8.MouseEnter += panelRooms_MouseEnter;
-            label8.MouseLeave += panelRooms_MouseLeave;
+            label8.Click += panelRooms_Click;
             // 
             // pictureRooms
             // 
@@ -136,8 +133,7 @@
             pictureRooms.SizeMode = PictureBoxSizeMode.Zoom;
             pictureRooms.TabIndex = 3;
             pictureRooms.TabStop = false;
-            pictureRooms.MouseEnter += panelRooms_MouseEnter;
-            pictureRooms.MouseLeave += panelRooms_MouseLeave;
+            pictureRooms.Click += panelRooms_Click;
             // 
             // panelPatients
             // 
@@ -156,8 +152,6 @@
             panelPatients.Size = new Size(350, 350);
             panelPatients.TabIndex = 7;
             panelPatients.Click += panelPatients_Click;
-            panelPatients.MouseEnter += panelPatients_MouseEnter;
-            panelPatients.MouseLeave += panelPatients_MouseLeave;
             // 
             // lblPatientCount
             // 
@@ -171,8 +165,6 @@
             lblPatientCount.Text = "50 Admitted";
             lblPatientCount.TextAlign = ContentAlignment.MiddleCenter;
             lblPatientCount.Click += panelPatients_Click;
-            lblPatientCount.MouseEnter += panelPatients_MouseEnter;
-            lblPatientCount.MouseLeave += panelPatients_MouseLeave;
             // 
             // label6
             // 
@@ -186,8 +178,6 @@
             label6.Text = "Patients";
             label6.TextAlign = ContentAlignment.MiddleCenter;
             label6.Click += panelPatients_Click;
-            label6.MouseEnter += panelPatients_MouseEnter;
-            label6.MouseLeave += panelPatients_MouseLeave;
             // 
             // picturePatients
             // 
@@ -201,8 +191,6 @@
             picturePatients.TabIndex = 3;
             picturePatients.TabStop = false;
             picturePatients.Click += panelPatients_Click;
-            picturePatients.MouseEnter += panelPatients_MouseEnter;
-            picturePatients.MouseLeave += panelPatients_MouseLeave;
             // 
             // panelNurses
             // 
@@ -220,8 +208,7 @@
             panelNurses.Name = "panelNurses";
             panelNurses.Size = new Size(350, 350);
             panelNurses.TabIndex = 6;
-            panelNurses.MouseEnter += panelNurses_MouseEnter;
-            panelNurses.MouseLeave += panelNurses_MouseLeave;
+            panelNurses.Click += panelStaff_Click;
             // 
             // lblNursesCount
             // 
@@ -235,8 +222,7 @@
             lblNursesCount.TabIndex = 5;
             lblNursesCount.Text = "8 Available";
             lblNursesCount.TextAlign = ContentAlignment.MiddleCenter;
-            lblNursesCount.MouseEnter += panelNurses_MouseEnter;
-            lblNursesCount.MouseLeave += panelNurses_MouseLeave;
+            lblNursesCount.Click += panelStaff_Click;
             // 
             // label4
             // 
@@ -250,8 +236,7 @@
             label4.TabIndex = 4;
             label4.Text = "Nurses";
             label4.TextAlign = ContentAlignment.MiddleCenter;
-            label4.MouseEnter += panelNurses_MouseEnter;
-            label4.MouseLeave += panelNurses_MouseLeave;
+            label4.Click += panelStaff_Click;
             // 
             // pictureNurses
             // 
@@ -264,8 +249,7 @@
             pictureNurses.SizeMode = PictureBoxSizeMode.Zoom;
             pictureNurses.TabIndex = 3;
             pictureNurses.TabStop = false;
-            pictureNurses.MouseEnter += panelNurses_MouseEnter;
-            pictureNurses.MouseLeave += panelNurses_MouseLeave;
+            pictureNurses.Click += panelStaff_Click;
             // 
             // panelDoctors
             // 
@@ -283,8 +267,7 @@
             panelDoctors.Name = "panelDoctors";
             panelDoctors.Size = new Size(350, 350);
             panelDoctors.TabIndex = 0;
-            panelDoctors.MouseEnter += panelDoctors_MouseEnter;
-            panelDoctors.MouseLeave += panelDoctors_MouseLeave;
+            panelDoctors.Click += panelStaff_Click;
             // 
             // lblDoctorCount
             // 
@@ -298,8 +281,7 @@
             lblDoctorCount.TabIndex = 5;
             lblDoctorCount.Text = "8 Available";
             lblDoctorCount.TextAlign = ContentAlignment.MiddleCenter;
-            lblDoctorCount.MouseEnter += panelDoctors_MouseEnter;
-            lblDoctorCount.MouseLeave += panelDoctors_MouseLeave;
+            lblDoctorCount.Click += panelStaff_Click;
             // 
             // label1
             // 
@@ -313,8 +295,7 @@
             label1.TabIndex = 4;
             label1.Text = "Doctors";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.MouseEnter += panelDoctors_MouseEnter;
-            label1.MouseLeave += panelDoctors_MouseLeave;
+            label1.Click += panelStaff_Click;
             // 
             // pictureDoctors
             // 
@@ -327,8 +308,7 @@
             pictureDoctors.SizeMode = PictureBoxSizeMode.Zoom;
             pictureDoctors.TabIndex = 3;
             pictureDoctors.TabStop = false;
-            pictureDoctors.MouseEnter += panelDoctors_MouseEnter;
-            pictureDoctors.MouseLeave += panelDoctors_MouseLeave;
+            pictureDoctors.Click += panelStaff_Click;
             // 
             // Dashboard
             // 

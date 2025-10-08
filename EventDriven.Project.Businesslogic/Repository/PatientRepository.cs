@@ -8,7 +8,6 @@ namespace EventDriven.Project.Businesslogic.Repository
     internal class PatientRepository
     {
         private string CONNECTIONSTRING = "Data Source=KOUTAIBA;Initial Catalog=Hospital;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
-
         public void AddPatient(PatientModel patient)
         {
             try
@@ -38,7 +37,6 @@ namespace EventDriven.Project.Businesslogic.Repository
                 Debug.WriteLine(ex.Message);
             }
         }
-
         public void EditPatient(PatientModel patient)
         {
             try
@@ -69,7 +67,6 @@ namespace EventDriven.Project.Businesslogic.Repository
                 Debug.WriteLine(ex.Message);
             }
         }
-
         public void DeletePatient(int patientID)
         {
             try
@@ -88,7 +85,6 @@ namespace EventDriven.Project.Businesslogic.Repository
                 Debug.WriteLine(ex.Message);
             }
         }
-
         public PatientModel GetPatientByID(int patientID)
         {
             try
@@ -97,7 +93,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                 using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
                 {
                     con.Open();
-                    using (SqlCommand command = new SqlCommand("dbo.GetPatientByID", con))
+                    using (SqlCommand command = new SqlCommand("GetPatientByID", con))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@PatientID", patientID);
@@ -133,7 +129,6 @@ namespace EventDriven.Project.Businesslogic.Repository
             }
             return null;
         }
-
         public List<PatientModel> GetAllPatients()
         {
             try
@@ -142,7 +137,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                 using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
                 {
                     con.Open();
-                    using (SqlCommand command = new SqlCommand("dbo.GetAllPatients", con))
+                    using (SqlCommand command = new SqlCommand("GetAllPatients", con))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         using (SqlDataReader reader = command.ExecuteReader())
@@ -176,7 +171,6 @@ namespace EventDriven.Project.Businesslogic.Repository
             }
             return null;
         }
-
         public int GetNextPatientID()
         {
             try
@@ -184,7 +178,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                 using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
                 {
                     con.Open();
-                    using (SqlCommand command = new SqlCommand("dbo.GetNextPatientID", con))
+                    using (SqlCommand command = new SqlCommand("GetNextPatientID", con))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         using (SqlDataReader reader = command.ExecuteReader())
@@ -203,8 +197,6 @@ namespace EventDriven.Project.Businesslogic.Repository
             }
             return -1;
         }
-
-
         public List<PatientModel> SearchPatient(string searchTerm)
         {
             try
@@ -213,7 +205,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                 using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
                 {
                     con.Open();
-                    using (SqlCommand command = new SqlCommand("dbo.SearchPatient", con))
+                    using (SqlCommand command = new SqlCommand("SearchPatient", con))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@SearchTerm", searchTerm);

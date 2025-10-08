@@ -1,3 +1,3 @@
-﻿CREATE PROCEDURE [dbo].[GetAllPatients]
+﻿CREATE PROCEDURE GetAllPatients
 AS
-	SELECT * FROM [dbo].[Patients]
+	SELECT * FROM Patients

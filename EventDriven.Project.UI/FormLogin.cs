@@ -5,14 +5,20 @@ namespace EventDriven.Project.UI
 {
     public partial class FormLogin : Form
     {
-
+        #region Global Variables
         public static UserModel LoggedUser;
+        #endregion
+        #region Local Variables
         private UserController userController;
-
+        #endregion
         public FormLogin()
         {
             InitializeComponent();
-            #region Double Buffering
+            DoubleBuffering();
+            userController = new UserController();
+        }
+        private void DoubleBuffering()
+        {
             SetStyle(ControlStyles.AllPaintingInWmPaint |
               ControlStyles.UserPaint |
               ControlStyles.OptimizedDoubleBuffer, true);
@@ -38,15 +44,11 @@ namespace EventDriven.Project.UI
                 null,
                 flowLayoutPanel2, // <- second one
                 new object[] { true });
-            #endregion
-            userController = new UserController();
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -66,12 +68,10 @@ namespace EventDriven.Project.UI
                 MessageBox.Show(EX.Message);
             }
         }
-
         private void FormLogin_Load(object sender, EventArgs e)
         {
             LoggedUser = null;
         }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -81,6 +81,20 @@ namespace EventDriven.Project.UI
             else
             {
                 txtPassword.UseSystemPasswordChar = true;
+            }
+        }
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnLogin.PerformClick();
+            }
+        }
+        private void checkBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                checkBox1.Checked = !checkBox1.Checked;
             }
         }
     }

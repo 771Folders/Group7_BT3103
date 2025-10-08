@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[SearchPatient]
+﻿CREATE PROCEDURE SearchPatient
 	@searchTerm NVARCHAR(50)
 AS
 	SELECT * FROM Patients

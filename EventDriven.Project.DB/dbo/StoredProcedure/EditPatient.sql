@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[EditPatient]
+﻿CREATE PROCEDURE EditPatient
 	@PatientID INT,
 	@FirstName VARCHAR(50),
 	@LastName VARCHAR(50),
@@ -12,7 +12,7 @@
 	@EmergencyContactPhone VARCHAR(15),
 	@DateRegistered DATETIME = NULL
 AS
-	UPDATE [dbo].[Patients]
+	UPDATE Patients
 	SET
 		FirstName = @FirstName,
 		LastName = @LastName,

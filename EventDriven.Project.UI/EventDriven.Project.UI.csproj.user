@@ -16,10 +16,25 @@
     <Compile Update="UserControls\Admission.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\Billing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\Discharge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\PatientInformationMaintenance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\PatientRecord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\Rooms.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\StaffList.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

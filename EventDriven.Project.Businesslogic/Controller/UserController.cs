@@ -6,18 +6,14 @@ namespace EventDriven.Project.Businesslogic.Controller
     public class UserController
     {
         private UserRepository userRepo;
-
-
         public UserController()
         {
             userRepo = new UserRepository();
         }
-
         public List<UserModel> GetUserList()
         {
             return new List<UserModel> { new UserModel() };
         }
-
         public UserModel ValidateUser(string Username, string Password)
         {
             try
