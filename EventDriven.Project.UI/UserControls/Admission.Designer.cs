@@ -184,8 +184,9 @@
             // 
             // dateAdmissionDate
             // 
+            dateAdmissionDate.CustomFormat = "MM/dd/yyyy hh:mm tt";
             dateAdmissionDate.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateAdmissionDate.Format = DateTimePickerFormat.Short;
+            dateAdmissionDate.Format = DateTimePickerFormat.Custom;
             dateAdmissionDate.Location = new Point(1081, 833);
             dateAdmissionDate.Name = "dateAdmissionDate";
             dateAdmissionDate.Size = new Size(374, 47);

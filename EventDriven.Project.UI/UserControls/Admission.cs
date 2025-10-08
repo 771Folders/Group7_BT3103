@@ -110,7 +110,7 @@ namespace EventDriven.Project.UI.UserControls
                     Email = txtEmail.Text,
                     EmergencyContact = txtGuardian.Text,
                     EmergencyContactPhone = txtGuardianPhone.Text,
-                    DateRegistered = dateAdmissionDate.Value.Date
+                    DateRegistered = dateAdmissionDate.Value
                 };
                 if (action.Equals("Add"))
                 {

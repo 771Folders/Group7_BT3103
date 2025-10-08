@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using EventDriven.Project.UI.UserControls;
+﻿using EventDriven.Project.UI.UserControls;
 
 namespace EventDriven.Project.UI
 {
@@ -12,7 +11,13 @@ namespace EventDriven.Project.UI
         public FormMain()
         {
             InitializeComponent();
-            #region Double Buffering
+            DoubleBuffering();
+            ShowControl(new Dashboard());
+            CheckLoggedUser();
+        }
+
+        private void DoubleBuffering()
+        {
             SetStyle(ControlStyles.AllPaintingInWmPaint |
               ControlStyles.UserPaint |
               ControlStyles.OptimizedDoubleBuffer, true);
@@ -45,10 +50,8 @@ namespace EventDriven.Project.UI
                 null,
                 flowPanelSideBar, // <- second one
                 new object[] { true });
-            #endregion
-            ShowControl(new Dashboard());
-            CheckLoggedUser();
         }
+
         private void CheckLoggedUser()
         {
             switch (FormLogin.LoggedUser.Role)
@@ -108,6 +111,7 @@ namespace EventDriven.Project.UI
                     admissionAction = "Edit";
                     ShowControl(new Admission());
                 };
+                pim.GoToPatientRecord += (s, e) => ShowControl(new PatientRecord());
             }
             else if (control is Admission admission)
             {
@@ -122,14 +126,13 @@ namespace EventDriven.Project.UI
                 admission.GoToDashboard += (s, e) => ShowControl(new Dashboard());
                 admission.GoToPatientInfo += (s, e) => ShowControl(new PatientInformationMaintenance());
             }
+            else if (control is PatientRecord patientRecord)
+            {
+
+            }
 
             panelMain.Controls.Clear();
             panelMain.Controls.Add(control);
-        }
-
-        private void Pim_GoToDashboard(object? sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
         #region Sidebar Button Events
         private void btnDashboard_Click(object sender, EventArgs e)

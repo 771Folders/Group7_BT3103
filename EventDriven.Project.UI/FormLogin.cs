@@ -5,14 +5,21 @@ namespace EventDriven.Project.UI
 {
     public partial class FormLogin : Form
     {
-
+        #region Global Variables
         public static UserModel LoggedUser;
+        #endregion
+        #region Local Variables
         private UserController userController;
-
+        #endregion
         public FormLogin()
         {
             InitializeComponent();
-            #region Double Buffering
+            DoubleBuffering();
+            userController = new UserController();
+        }
+
+        private void DoubleBuffering()
+        {
             SetStyle(ControlStyles.AllPaintingInWmPaint |
               ControlStyles.UserPaint |
               ControlStyles.OptimizedDoubleBuffer, true);
@@ -38,8 +45,6 @@ namespace EventDriven.Project.UI
                 null,
                 flowLayoutPanel2, // <- second one
                 new object[] { true });
-            #endregion
-            userController = new UserController();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
