@@ -20,3 +20,14 @@
 /EventDriven.Project.DB/EventDriven.Project.DB.jfm
 /EventDriven.Project.Businesslogic/bin/Release/net8.0
 /EventDriven.Project.UI/bin/Release/net8.0-windows
+/TrinityCareMedica.UI/obj/Release/net8.0-windows
+/TrinityCareMedica.UI/obj
+/TrinityCareMedica.UI/bin/Debug/net8.0-windows
+/TrinityCareMedica.UI/.vs/TrinityCareMedica.UI
+/TrinityCareMedica.Model/bin/Debug/net8.0
+/TrinityCareMedica.Model/obj
+/TrinityCareMedica.DB/bin/Debug
+/TrinityCareMedica.DB/obj/Debug
+/TrinityCareMedica.Businesslogic/bin/Debug/net8.0
+/TrinityCareMedica.Businesslogic/obj
+/TrinityCareMedica.DB/TrinityCareMedica.DB.publish.xml
