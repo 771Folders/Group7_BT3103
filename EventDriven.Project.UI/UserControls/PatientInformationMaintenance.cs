@@ -20,19 +20,8 @@ namespace EventDriven.Project.UI.UserControls
         {
             InitializeComponent();
             patientController = new PatientController();
-            DoubleBuffering();
             CheckLoggedUser();
             LoadData();
-        }
-        private void DoubleBuffering()
-        {
-            typeof(DataGridView).InvokeMember("DoubleBuffered",
-                System.Reflection.BindingFlags.SetProperty |
-                System.Reflection.BindingFlags.Instance |
-                System.Reflection.BindingFlags.NonPublic,
-                null,
-                dataPatients,
-                new object[] { true });
         }
         private void CheckLoggedUser()
         {
@@ -192,7 +181,6 @@ namespace EventDriven.Project.UI.UserControls
                 selectedIds.Clear();
                 btnAdd.Enabled = false;
                 btnEdit.Enabled = false;
-                btnView.Enabled = false;
                 btnBilling.Enabled = false;
                 btnDischarge.Enabled = false;
 
@@ -223,7 +211,6 @@ namespace EventDriven.Project.UI.UserControls
                 selectedIds.Clear();
                 btnAdd.Enabled = true;
                 btnEdit.Enabled = true;
-                btnView.Enabled = true;
                 btnBilling.Enabled = true;
                 btnDischarge.Enabled = true;
 
@@ -376,10 +363,8 @@ namespace EventDriven.Project.UI.UserControls
             try
             {
                 if (dataPatients.CurrentCell.RowIndex < 0) return;
-                if (dataPatients.CurrentRow == null)
-                {
+                if (dataPatients.CurrentRow == null) 
                     MessageBox.Show("Please select a patient.");
-                }
 
                 int selected = Convert.ToInt32(dataPatients.CurrentRow.Cells["PatientID"].Value);
                 FormMain.selectedPatientID = selected;

@@ -57,7 +57,7 @@ namespace EventDriven.Project.UI.UserControls
             txtGuardianPhone.Text = patient.EmergencyContactPhone;
             dateAdmissionDate.Value = patient.DateRegistered;
         }
-        private void Reset()    
+        private void Reset()
         {
             if (action.Equals("Edit"))
             {
@@ -74,27 +74,19 @@ namespace EventDriven.Project.UI.UserControls
             }
             else if (action.Equals("Add"))
             {
-                DialogResult dialogResult = MessageBox.Show("Are you sure you want to reset all fields?", "Reset All Fields", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.No)
-                {
-                    return;
-                }
-                else
-                {
-                    lblID.Text = patientController.GetNextPatientID().ToString();
-                    txtLastName.Clear();
-                    txtFirstName.Clear();
-                    txtMiddleName.Clear();
-                    dateBirth.Value = DateTime.Today;
-                    drpdownGender.SelectedIndex = -1;
-                    txtPhone.Clear();
-                    txtEmail.Clear();
-                    txtGuardian.Clear();
-                    txtGuardianPhone.Clear();
-                    txtAddress.Clear();
-                    checkboxTandC.Checked = false;
-                    dateAdmissionDate.Value = DateTime.Today;
-                }
+                lblID.Text = patientController.GetNextPatientID().ToString();
+                txtLastName.Clear();
+                txtFirstName.Clear();
+                txtMiddleName.Clear();
+                dateBirth.Value = DateTime.Today;
+                drpdownGender.SelectedIndex = -1;
+                txtPhone.Clear();
+                txtEmail.Clear();
+                txtGuardian.Clear();
+                txtGuardianPhone.Clear();
+                txtAddress.Clear();
+                checkboxTandC.Checked = false;
+                dateAdmissionDate.Value = DateTime.Today;
             }
         }
         private void btnSubmit_Click(object sender, EventArgs e)

@@ -47,7 +47,7 @@ namespace EventDriven.Project.UI
                 System.Reflection.BindingFlags.Instance |
                 System.Reflection.BindingFlags.NonPublic,
                 null,
-                flowPanelSideBar,
+                flowPanelSideBar, // <- second one
                 new object[] { true });
         }
         private void CheckLoggedUser()
