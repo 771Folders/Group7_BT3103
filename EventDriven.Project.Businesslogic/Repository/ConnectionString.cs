@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 
 namespace EventDriven.Project.Businesslogic.Repository
 {
@@ -10,7 +6,7 @@ namespace EventDriven.Project.Businesslogic.Repository
     {
         public static string GetConnectionString()
         {
-            return "Data Source=KOUTAIBA;Initial Catalog=Hospital;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+            return ConfigurationManager.ConnectionStrings["Hospital"].ConnectionString;
         }
     }
 }
