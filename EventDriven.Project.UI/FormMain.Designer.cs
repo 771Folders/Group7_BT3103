@@ -90,7 +90,7 @@
             flowPanelSideBar.FlowDirection = FlowDirection.TopDown;
             flowPanelSideBar.Location = new Point(27, 30);
             flowPanelSideBar.Name = "flowPanelSideBar";
-            flowPanelSideBar.Size = new Size(346, 872);
+            flowPanelSideBar.Size = new Size(346, 826);
             flowPanelSideBar.TabIndex = 0;
             // 
             // btnDashboard
