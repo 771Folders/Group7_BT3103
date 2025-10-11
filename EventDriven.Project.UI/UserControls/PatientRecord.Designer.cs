@@ -30,6 +30,7 @@
         {
             panel1 = new Panel();
             labelTitle = new Label();
+            lblPatientID = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -37,7 +38,9 @@
             // 
             panel1.BackColor = Color.Teal;
             panel1.Controls.Add(labelTitle);
+            panel1.Font = new Font("Microsoft JhengHei UI", 14F);
             panel1.Location = new Point(60, 50);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
             panel1.Size = new Size(1400, 60);
             panel1.TabIndex = 98;
@@ -53,13 +56,24 @@
             labelTitle.TabIndex = 0;
             labelTitle.Text = "Patient Record";
             // 
+            // lblPatientID
+            // 
+            lblPatientID.AutoSize = true;
+            lblPatientID.ForeColor = Color.White;
+            lblPatientID.Location = new Point(60, 138);
+            lblPatientID.Name = "lblPatientID";
+            lblPatientID.Size = new Size(220, 36);
+            lblPatientID.TabIndex = 99;
+            lblPatientID.Text = "Patient ID: 1000";
+            // 
             // PatientRecord
             // 
-            AutoScaleDimensions = new SizeF(14F, 29F);
+            AutoScaleDimensions = new SizeF(16F, 35F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSeaGreen;
+            Controls.Add(lblPatientID);
             Controls.Add(panel1);
-            Font = new Font("Microsoft JhengHei UI", 14F);
+            Font = new Font("Microsoft JhengHei UI", 16.2F);
             Margin = new Padding(5);
             Name = "PatientRecord";
             Size = new Size(1520, 1000);
@@ -67,11 +81,13 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Panel panel1;
         private Label labelTitle;
+        private Label lblPatientID;
     }
 }

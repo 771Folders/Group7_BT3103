@@ -6,7 +6,13 @@ namespace EventDriven.Project.Businesslogic.Repository
     {
         public static string GetConnectionString()
         {
-            return ConfigurationManager.ConnectionStrings["Hospital"].ConnectionString;
+            switch (Environment.MachineName)
+            {
+                case "KOUTAIBA":
+                    return ConfigurationManager.ConnectionStrings["771Folders"].ConnectionString;
+                default:
+                    return null;
+            }
         }
     }
 }
