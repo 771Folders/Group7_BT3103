@@ -1,4 +1,5 @@
-﻿using EventDriven.Project.Businesslogic.Controller;
+﻿using System.Diagnostics;
+using EventDriven.Project.Businesslogic.Controller;
 using EventDriven.Project.Model;
 
 namespace EventDriven.Project.UI
@@ -13,6 +14,7 @@ namespace EventDriven.Project.UI
         #endregion
         public FormLogin()
         {
+            Debug.WriteLine(Environment.MachineName);
             InitializeComponent();
             DoubleBuffering();
             userController = new UserController();

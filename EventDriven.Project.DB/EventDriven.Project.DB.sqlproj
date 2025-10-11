@@ -78,6 +78,7 @@
   <ItemGroup>
     <None Include="dbo\Scripts\UserScript.sql" />
     <None Include="dbo\Scripts\PatientScript.sql" />
+    <None Include="EventDriven.Project.DB.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\MasterScript.sql" />
