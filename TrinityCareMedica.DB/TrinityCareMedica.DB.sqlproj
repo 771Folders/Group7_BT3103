@@ -74,11 +74,34 @@
     <Build Include="dbo\StoredProcedure\DeletePatient.sql" />
     <Build Include="dbo\StoredProcedure\SearchPatient.sql" />
     <Build Include="dbo\StoredProcedure\GetNextPatientID.sql" />
+    <Build Include="dbo\Tables\Staff.sql" />
+    <Build Include="dbo\Tables\Departments.sql" />
+    <Build Include="dbo\Tables\Rooms.sql" />
+    <Build Include="dbo\Tables\MedicalRecords.sql" />
+    <Build Include="dbo\Tables\Medications.sql" />
+    <Build Include="dbo\Tables\Treatments.sql" />
+    <Build Include="dbo\Tables\RoomAssignments.sql" />
+    <Build Include="dbo\Tables\MedicalRecordStaff.sql" />
+    <Build Include="dbo\StoredProcedure\GetAllRooms.sql" />
+    <Build Include="dbo\StoredProcedure\GetAllDoctors.sql" />
+    <Build Include="dbo\StoredProcedure\GetAllNurses.sql" />
+    <Build Include="dbo\StoredProcedure\GetAllStaff.sql" />
+    <Build Include="dbo\StoredProcedure\GetMedicalRecord.sql" />
+    <Build Include="dbo\StoredProcedure\GetRoomByPatientID.sql" />
+    <Build Include="dbo\StoredProcedure\GetAssignedStaff.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\UserScript.sql" />
     <None Include="dbo\Scripts\PatientScript.sql" />
     <None Include="TrinityCareMedica.DB.publish.xml" />
+    <None Include="dbo\Scripts\RoomsScript.sql" />
+    <None Include="dbo\Scripts\RoomAssignmentsScript.sql" />
+    <None Include="dbo\Scripts\DepartmentsScript.sql" />
+    <None Include="dbo\Scripts\StaffScript.sql" />
+    <None Include="dbo\Scripts\MedicalRecordsScript.sql" />
+    <None Include="dbo\Scripts\MedicalRecordStaffScript.sql" />
+    <None Include="dbo\Scripts\TreatmentsScript.sql" />
+    <None Include="dbo\Scripts\MedicationsScript.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\MasterScript.sql" />

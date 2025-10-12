@@ -5,7 +5,7 @@ VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrinityCareMedica.Businesslogic", "TrinityCareMedica.Businesslogic\TrinityCareMedica.Businesslogic.csproj", "{2310831B-C96E-485B-86DB-D6E017C703DD}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TrinityCareMedica.DB", "TrinityCareMedica.DB\TrinityCareMedica.DB.sqlproj", "{C2C9CAE2-3967-4430-9967-783A793373F4}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TrinityCareMedica.DB", "TrinityCareMedica.DB\TrinityCareMedica.DB.sqlproj", "{A1F37D94-9F69-4142-815C-287B8EDDB1CE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrinityCareMedica.Model", "TrinityCareMedica.Model\TrinityCareMedica.Model.csproj", "{F19F9786-CEFC-493C-A18B-62073AABEF5C}"
 EndProject
@@ -21,12 +21,12 @@ Global
 		{2310831B-C96E-485B-86DB-D6E017C703DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2310831B-C96E-485B-86DB-D6E017C703DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2310831B-C96E-485B-86DB-D6E017C703DD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2C9CAE2-3967-4430-9967-783A793373F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2C9CAE2-3967-4430-9967-783A793373F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2C9CAE2-3967-4430-9967-783A793373F4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{C2C9CAE2-3967-4430-9967-783A793373F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2C9CAE2-3967-4430-9967-783A793373F4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2C9CAE2-3967-4430-9967-783A793373F4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A1F37D94-9F69-4142-815C-287B8EDDB1CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1F37D94-9F69-4142-815C-287B8EDDB1CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1F37D94-9F69-4142-815C-287B8EDDB1CE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A1F37D94-9F69-4142-815C-287B8EDDB1CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1F37D94-9F69-4142-815C-287B8EDDB1CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1F37D94-9F69-4142-815C-287B8EDDB1CE}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{F19F9786-CEFC-493C-A18B-62073AABEF5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F19F9786-CEFC-493C-A18B-62073AABEF5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F19F9786-CEFC-493C-A18B-62073AABEF5C}.Release|Any CPU.ActiveCfg = Release|Any CPU

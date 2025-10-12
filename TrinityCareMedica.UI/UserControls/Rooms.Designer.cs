@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dataRooms = new DataGridView();
             panel1 = new Panel();
             labelTitle = new Label();
@@ -37,10 +39,37 @@
             // 
             // dataRooms
             // 
+            dataRooms.AllowUserToAddRows = false;
+            dataRooms.AllowUserToDeleteRows = false;
+            dataRooms.AllowUserToResizeRows = false;
+            dataRooms.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Microsoft JhengHei UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataRooms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataRooms.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Microsoft JhengHei UI", 10F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataRooms.DefaultCellStyle = dataGridViewCellStyle2;
+            dataRooms.EnableHeadersVisualStyles = false;
             dataRooms.Location = new Point(60, 116);
+            dataRooms.MultiSelect = false;
             dataRooms.Name = "dataRooms";
+            dataRooms.ReadOnly = true;
+            dataRooms.RowHeadersVisible = false;
             dataRooms.RowHeadersWidth = 51;
+            dataRooms.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataRooms.ShowCellToolTips = false;
+            dataRooms.ShowEditingIcon = false;
             dataRooms.Size = new Size(1400, 750);
             dataRooms.TabIndex = 102;
             // 

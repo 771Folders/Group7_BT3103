@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using TrinityCareMedica.Businesslogic.Controller;
+﻿using TrinityCareMedica.Businesslogic.Controller;
 using TrinityCareMedica.Model;
 
 namespace TrinityCareMedica.UI
@@ -14,7 +13,6 @@ namespace TrinityCareMedica.UI
         #endregion
         public FormLogin()
         {
-            Debug.WriteLine(Environment.MachineName);
             InitializeComponent();
             DoubleBuffering();
             userController = new UserController();

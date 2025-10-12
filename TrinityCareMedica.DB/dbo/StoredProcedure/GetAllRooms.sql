@@ -1,0 +1,3 @@
+﻿CREATE PROCEDURE GetAllRooms
+AS
+	SELECT * FROM Rooms

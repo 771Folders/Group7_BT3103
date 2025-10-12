@@ -5,6 +5,8 @@ namespace TrinityCareMedica.UI.UserControls
     public partial class Dashboard : UserControl
     {
         PatientController patientController;
+        RoomController roomController;
+        StaffController staffController;
         public event EventHandler GoToStaff;
         public event EventHandler GoToPatients;
         public event EventHandler GoToRooms;
@@ -12,11 +14,16 @@ namespace TrinityCareMedica.UI.UserControls
         {
             InitializeComponent();
             patientController = new PatientController();
+            roomController = new RoomController();
+            staffController = new StaffController();
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            lblPatientCount.Text = patientController.GetAllPatients().Count.ToString() + "\nAdmitted";
+            lblDoctorCount.Text = $"{staffController.GetAllDoctors().Count.ToString()} Doctors";
+            lblNursesCount.Text = $"{staffController.GetAllNurses().Count.ToString()} Nurses";
+            lblPatientCount.Text = $"{patientController.GetAllPatients().Count.ToString()} Admitted";
+            lblRoomCount.Text = $"{roomController.GetAllRooms().Count.ToString()} Available";
         }
 
         private void panelPatients_Click(object sender, EventArgs e)

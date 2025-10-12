@@ -12,3 +12,11 @@ Post-Deployment Script Template
 
 :r .\UserScript.sql
 :r .\PatientScript.sql
+:r .\RoomsScript.sql
+:r .\RoomAssignmentsScript.sql
+:r .\DepartmentsScript.sql
+:r .\StaffScript.sql
+:r .\MedicalRecordsScript.sql
+:r .\MedicalRecordStaffScript.sql
+:r .\TreatmentsScript.sql
+:r .\MedicationsScript.sql

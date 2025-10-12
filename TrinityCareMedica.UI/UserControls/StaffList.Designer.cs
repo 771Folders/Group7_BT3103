@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
             labelTitle = new Label();
             dataStaff = new DataGridView();
@@ -57,10 +59,38 @@
             // 
             // dataStaff
             // 
+            dataStaff.AllowUserToAddRows = false;
+            dataStaff.AllowUserToDeleteRows = false;
+            dataStaff.AllowUserToOrderColumns = true;
+            dataStaff.AllowUserToResizeRows = false;
+            dataStaff.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Microsoft JhengHei UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataStaff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataStaff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Microsoft JhengHei UI", 10F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataStaff.DefaultCellStyle = dataGridViewCellStyle2;
+            dataStaff.EnableHeadersVisualStyles = false;
             dataStaff.Location = new Point(60, 116);
+            dataStaff.MultiSelect = false;
             dataStaff.Name = "dataStaff";
+            dataStaff.ReadOnly = true;
+            dataStaff.RowHeadersVisible = false;
             dataStaff.RowHeadersWidth = 51;
+            dataStaff.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataStaff.ShowCellToolTips = false;
+            dataStaff.ShowEditingIcon = false;
             dataStaff.Size = new Size(1400, 750);
             dataStaff.TabIndex = 100;
             // 
@@ -72,7 +102,7 @@
             Controls.Add(dataStaff);
             Controls.Add(panel1);
             Font = new Font("Microsoft JhengHei UI", 14F);
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "StaffList";
             Size = new Size(1520, 1000);
             panel1.ResumeLayout(false);

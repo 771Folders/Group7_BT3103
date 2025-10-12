@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[RoomAssignments]
+(
+	[AssignmentID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	[RoomID] INT NOT NULL,
+	[PatientID] INT NOT NULL,
+	[BedNumber] VARCHAR(10) NULL,
+	[StartDate] DATETIME NOT NULL DEFAULT GETDATE(),
+	[EndDate] DATETIME NULL
+	FOREIGN KEY (RoomID) REFERENCES Rooms(RoomID),
+	FOREIGN KEY (PatientID) REFERENCES Patients(PatientID)
+)

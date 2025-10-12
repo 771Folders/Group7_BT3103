@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[MedicalRecords]
+(
+	[RecordID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	[PatientID] INT NOT NULL,
+	[RoomID] INT NOT NULL,
+	[RecordDate] DATETIME NOT NULL DEFAULT GETDATE(),
+	[Diagnosis] VARCHAR(MAX) NULL,
+	[Notes] VARCHAR(MAX) NULL
+	FOREIGN KEY (PatientID) REFERENCES Patients(PatientID),
+	FOREIGN KEY (RoomID) REFERENCES Rooms(RoomID)
+)
