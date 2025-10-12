@@ -31,3 +31,5 @@
 /TrinityCareMedica.Businesslogic/bin/Debug/net8.0
 /TrinityCareMedica.Businesslogic/obj
 /TrinityCareMedica.DB/TrinityCareMedica.DB.publish.xml
+/TrinityCareMedica.DB/TrinityCareMedica.DB.sqlproj.user
+/TrinityCareMedica.UI/TrinityCareMedica.UI.csproj.user
