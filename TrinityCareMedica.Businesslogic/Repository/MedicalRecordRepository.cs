@@ -28,7 +28,6 @@ namespace TrinityCareMedica.Businesslogic.Repository
                                     RecordID = Convert.ToInt32(reader["RecordID"]),
                                     RecordDate = Convert.ToDateTime(reader["RecordDate"]),
                                     RoomName = reader["RoomName"].ToString(),
-                                    DoctorName = reader["DoctorName"].ToString(),
                                     Diagnosis = reader["Diagnosis"].ToString(),
                                     Notes = reader["Notes"].ToString(),
                                     Medications = reader["Medications"].ToString(),

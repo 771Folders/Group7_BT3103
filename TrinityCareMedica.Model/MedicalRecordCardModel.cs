@@ -11,7 +11,6 @@ namespace TrinityCareMedica.Model
         public int RecordID { get; set; }
         public DateTime RecordDate { get; set; }
         public string RoomName { get; set; }
-        public string DoctorName { get; set; }
         public string Diagnosis { get; set; }
         public string Notes { get; set; }
         public string Medications { get; set; }

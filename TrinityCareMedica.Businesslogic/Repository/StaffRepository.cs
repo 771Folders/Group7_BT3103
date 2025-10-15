@@ -104,7 +104,7 @@ namespace TrinityCareMedica.Businesslogic.Repository
             using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("GetAssignedStaff",con))
+                using (SqlCommand cmd = new SqlCommand("GetAssignedStaff", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@PatientID", PatientID);
@@ -121,6 +121,43 @@ namespace TrinityCareMedica.Businesslogic.Repository
                         }
                         return staff;
                     }
+                }
+            }
+        }
+        public int GetStaffIDByName(string Name)
+        {
+            using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("GetStaffIDByName", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Name", Name);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return reader.GetInt32(0);
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                }
+            }
+        }
+        public void AssignStaff(int PatientID, int StaffID)
+        {
+            using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("AssignStaff", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    cmd.Parameters.AddWithValue("@StaffID", StaffID);
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

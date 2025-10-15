@@ -67,11 +67,24 @@ namespace TrinityCareMedica.UI.UserControls
         private void LoadDoctors()
         {
             assignedStaff = staffController.GetAssignedStaff(patient.PatientID);
+            int Doctors = 0;
+            int Nurses = 0;
+            for (int i = 0; i < assignedStaff.Count; i++)
+            {
+                if (assignedStaff[i].Role.Equals("Doctor"))
+                    Doctors++;
+                else if (assignedStaff[i].Role.Equals("Nurse"))
+                    Nurses++;
+            }
+            if (Doctors == 0)
+                textboxDoctors.Text = "None";
+            if (Nurses == 0)
+                textboxNurses.Text = "None";
             for (int i = 0; i < assignedStaff.Count; i++)
             {
                 if (assignedStaff[i].Role.Equals("Doctor"))
                 {
-                    if(i == assignedStaff.Count - 1)
+                    if (i == assignedStaff.Count - 1)
                         textboxDoctors.AppendText($"{assignedStaff[i].FirstName} {assignedStaff[i].LastName}");
                     else
                         textboxDoctors.AppendText($"{assignedStaff[i].FirstName} {assignedStaff[i].LastName}, \n");
@@ -101,6 +114,13 @@ namespace TrinityCareMedica.UI.UserControls
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormMain.assignAction = "Old";
+            FormDoctorAssignment doctorAssignment = new FormDoctorAssignment();
+            doctorAssignment.Show();
         }
     }
 }

@@ -21,7 +21,6 @@ namespace TrinityCareMedica.UI.UserControls
                     labelRecordID.Text = $"Record #{cards[i].RecordID.ToString()}";
                     labelRecordDate.Text = cards[i].RecordDate.ToString();
                     labelRoom.Text = $"Room: {cards[i].RoomName}";
-                    labelDoctor.Text = $"Doctor: \n{cards[i].DoctorName}";
                     labelDiagnosis.Text = $"Diagnosis: {cards[i].Diagnosis}";
                     textboxNotes.Text = cards[i].Notes;
                     textboxMedications.Text = cards[i].Medications;

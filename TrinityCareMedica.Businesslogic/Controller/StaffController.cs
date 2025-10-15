@@ -31,5 +31,13 @@ namespace TrinityCareMedica.Businesslogic.Controller
         {
             return staffRepository.GetAssignedStaff(PatientID);
         }
+        public int GetStaffIDByName(string Name)
+        {
+            return staffRepository.GetStaffIDByName(Name);
+        }
+        public void AssignStaff(int PatientID, int StaffID)
+        {
+            staffRepository.AssignStaff(PatientID, StaffID);
+        }
     }
 }

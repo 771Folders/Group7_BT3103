@@ -10,10 +10,6 @@ BEGIN
     R.RoomType + ' - ' + CAST(R.RoomNumber AS VARCHAR(10)),
     'No Room Assigned'
     ) AS RoomName,
-    COALESCE(
-        STRING_AGG(CONCAT(S.FirstName, ' ', S.LastName), ', '),
-        'No Assigned Doctor'
-    ) AS DoctorName,
     MR.Diagnosis,
     MR.Notes,
 	COALESCE(
@@ -31,8 +27,6 @@ BEGIN
     FROM
         MedicalRecords MR
         INNER JOIN Rooms R ON MR.RoomID = R.RoomID
-        LEFT JOIN MedicalRecordStaff MRS ON MR.RecordID = MRS.RecordID
-        LEFT JOIN Staff S ON MRS.StaffID = S.StaffID
     WHERE
         MR.PatientID = @PatientID
     GROUP BY

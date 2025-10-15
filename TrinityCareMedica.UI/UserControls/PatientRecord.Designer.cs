@@ -123,7 +123,7 @@
             // button2
             // 
             button2.Font = new Font("Microsoft JhengHei UI", 14F);
-            button2.Location = new Point(234, 784);
+            button2.Location = new Point(157, 784);
             button2.Name = "button2";
             button2.Size = new Size(201, 60);
             button2.TabIndex = 108;
@@ -133,12 +133,13 @@
             // button1
             // 
             button1.Font = new Font("Microsoft JhengHei UI", 14F);
-            button1.Location = new Point(438, 784);
+            button1.Location = new Point(364, 784);
             button1.Name = "button1";
-            button1.Size = new Size(197, 60);
+            button1.Size = new Size(271, 60);
             button1.TabIndex = 102;
-            button1.Text = "Assign Doctor";
+            button1.Text = "Assign Doctor/Nurse";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -218,7 +219,7 @@
             textboxNurses.ReadOnly = true;
             textboxNurses.Size = new Size(183, 174);
             textboxNurses.TabIndex = 114;
-            textboxNurses.Text = "None";
+            textboxNurses.Text = "";
             textboxNurses.WordWrap = false;
             // 
             // textboxDoctors
@@ -231,7 +232,7 @@
             textboxDoctors.ReadOnly = true;
             textboxDoctors.Size = new Size(183, 174);
             textboxDoctors.TabIndex = 113;
-            textboxDoctors.Text = "None";
+            textboxDoctors.Text = "";
             textboxDoctors.WordWrap = false;
             // 
             // lblNurses
@@ -415,9 +416,9 @@
             // btnAddMedRecord
             // 
             btnAddMedRecord.Font = new Font("Microsoft JhengHei UI", 14F);
-            btnAddMedRecord.Location = new Point(494, 784);
+            btnAddMedRecord.Location = new Point(471, 784);
             btnAddMedRecord.Name = "btnAddMedRecord";
-            btnAddMedRecord.Size = new Size(257, 60);
+            btnAddMedRecord.Size = new Size(280, 60);
             btnAddMedRecord.TabIndex = 101;
             btnAddMedRecord.Text = "Add Medical Record";
             btnAddMedRecord.UseVisualStyleBackColor = true;

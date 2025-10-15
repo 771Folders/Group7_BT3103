@@ -6,6 +6,6 @@ AS
 		S.LastName,
 		S.Role
 	FROM Staff S
-	INNER JOIN MedicalRecordStaff MRS ON S.StaffID = MRS.StaffID
-	INNER JOIN MedicalRecords MR ON MRS.RecordID = MR.RecordID
-	WHERE MR.PatientID = @PatientID;
+	INNER JOIN StaffAssignments SA ON S.StaffID = SA.StaffID
+	INNER JOIN Patients P ON SA.PatientID = P.PatientID
+	WHERE P.PatientID = @PatientID;

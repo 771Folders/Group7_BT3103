@@ -7,6 +7,8 @@ namespace TrinityCareMedica.UI
         #region Global Variables
         public static string admissionAction = "Add";
         public static int selectedPatientID = 0;
+        public static string assignAction = "New";
+        public static List<int> assignStaffIDs = new List<int>();
         #endregion
         public FormMain()
         {

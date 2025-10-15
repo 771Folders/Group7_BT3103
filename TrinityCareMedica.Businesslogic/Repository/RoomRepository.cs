@@ -64,5 +64,22 @@ namespace TrinityCareMedica.Businesslogic.Repository
                 }
             }
         }
+        public void AssignRoom(int PatientID, int RoomID, string BedNumber, DateTime StartDate, DateTime EndDate)
+        {
+            using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("AssignRoom", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    cmd.Parameters.AddWithValue("@RoomID", RoomID);
+                    cmd.Parameters.AddWithValue("@BedNumber", BedNumber);
+                    cmd.Parameters.AddWithValue("@StartDate", StartDate);
+                    cmd.Parameters.AddWithValue("@EndDate", EndDate);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

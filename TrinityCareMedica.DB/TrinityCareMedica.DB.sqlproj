@@ -81,7 +81,7 @@
     <Build Include="dbo\Tables\Medications.sql" />
     <Build Include="dbo\Tables\Treatments.sql" />
     <Build Include="dbo\Tables\RoomAssignments.sql" />
-    <Build Include="dbo\Tables\MedicalRecordStaff.sql" />
+    <Build Include="dbo\Tables\StaffAssignments.sql" />
     <Build Include="dbo\StoredProcedure\GetAllRooms.sql" />
     <Build Include="dbo\StoredProcedure\GetAllDoctors.sql" />
     <Build Include="dbo\StoredProcedure\GetAllNurses.sql" />
@@ -89,6 +89,9 @@
     <Build Include="dbo\StoredProcedure\GetMedicalRecord.sql" />
     <Build Include="dbo\StoredProcedure\GetRoomByPatientID.sql" />
     <Build Include="dbo\StoredProcedure\GetAssignedStaff.sql" />
+    <Build Include="dbo\StoredProcedure\AssignStaff.sql" />
+    <Build Include="dbo\StoredProcedure\AssignRoom.sql" />
+    <Build Include="dbo\StoredProcedure\GetStaffIDByName.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\UserScript.sql" />
@@ -99,7 +102,7 @@
     <None Include="dbo\Scripts\DepartmentsScript.sql" />
     <None Include="dbo\Scripts\StaffScript.sql" />
     <None Include="dbo\Scripts\MedicalRecordsScript.sql" />
-    <None Include="dbo\Scripts\MedicalRecordStaffScript.sql" />
+    <None Include="dbo\Scripts\StaffAssignmentsScript.sql" />
     <None Include="dbo\Scripts\TreatmentsScript.sql" />
     <None Include="dbo\Scripts\MedicationsScript.sql" />
   </ItemGroup>

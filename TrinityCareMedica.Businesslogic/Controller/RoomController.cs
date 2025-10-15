@@ -18,5 +18,9 @@ namespace TrinityCareMedica.Businesslogic.Controller
         {
             return roomRepository.GetRoomByPatientID(PatientID);
         }
+        public void AssignRoom(int PatientID, int RoomID, string BedNumber, DateTime StartDate, DateTime EndDate)
+        {
+            roomRepository.AssignRoom(PatientID, RoomID, BedNumber, StartDate, EndDate);
+        }
     }
 }

@@ -7,7 +7,9 @@ namespace TrinityCareMedica.UI.UserControls
     {
         #region Local Variables
         PatientController patientController;
-        String action;
+        StaffController staffController;
+        List<int> assignStaffIDs;
+        string action;
         public event EventHandler GoToDashboard;
         public event EventHandler GoToPatientInfo;
         #endregion
@@ -15,6 +17,8 @@ namespace TrinityCareMedica.UI.UserControls
         {
             InitializeComponent();
             patientController = new PatientController();
+            staffController = new StaffController();
+            assignStaffIDs = FormMain.assignStaffIDs;
             action = FormMain.admissionAction;
             lblID.Text = patientController.GetNextPatientID().ToString();
             CheckAction();
@@ -57,8 +61,9 @@ namespace TrinityCareMedica.UI.UserControls
             txtGuardianPhone.Text = patient.EmergencyContactPhone;
             dateAdmissionDate.Value = patient.DateRegistered;
         }
-        private void Reset()    
+        private void Reset()
         {
+            FormMain.assignStaffIDs.Clear();
             if (action.Equals("Edit"))
             {
                 DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel the changes?", "Cancel Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -121,6 +126,10 @@ namespace TrinityCareMedica.UI.UserControls
                     if (checkboxTandC.Checked == true)
                     {
                         patientController.AddPatient(patient);
+                        foreach (int id in assignStaffIDs)
+                        {
+                            staffController.AssignStaff(patient.PatientID, id);
+                        }
                         MessageBox.Show("Patient admitted successfully.");
                         Reset();
                     }
@@ -132,6 +141,10 @@ namespace TrinityCareMedica.UI.UserControls
                 else if (action.Equals("Edit"))
                 {
                     patientController.EditPatient(patient);
+                    foreach (int id in assignStaffIDs)
+                    {
+                        staffController.AssignStaff(patient.PatientID, id);
+                    }
                     MessageBox.Show("Patient information updated successfully.");
                     GoToPatientInfo?.Invoke(this, EventArgs.Empty);
                 }
@@ -152,6 +165,12 @@ namespace TrinityCareMedica.UI.UserControls
             {
                 checkboxTandC.Checked = !checkboxTandC.Checked;
             }
+        }
+        private void btnAddDoctor_Click(object sender, EventArgs e)
+        {
+            FormMain.assignAction = "New";
+            FormDoctorAssignment doctorAssignment = new FormDoctorAssignment();
+            doctorAssignment.Show();
         }
     }
 }
