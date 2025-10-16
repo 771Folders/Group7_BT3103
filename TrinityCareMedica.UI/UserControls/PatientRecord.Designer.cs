@@ -217,10 +217,10 @@
             textboxNurses.Location = new Point(420, 3);
             textboxNurses.Name = "textboxNurses";
             textboxNurses.ReadOnly = true;
+            textboxNurses.ScrollBars = RichTextBoxScrollBars.Vertical;
             textboxNurses.Size = new Size(183, 174);
             textboxNurses.TabIndex = 114;
             textboxNurses.Text = "";
-            textboxNurses.WordWrap = false;
             // 
             // textboxDoctors
             // 
@@ -230,10 +230,10 @@
             textboxDoctors.Location = new Point(120, 4);
             textboxDoctors.Name = "textboxDoctors";
             textboxDoctors.ReadOnly = true;
+            textboxDoctors.ScrollBars = RichTextBoxScrollBars.Vertical;
             textboxDoctors.Size = new Size(183, 174);
             textboxDoctors.TabIndex = 113;
             textboxDoctors.Text = "";
-            textboxDoctors.WordWrap = false;
             // 
             // lblNurses
             // 

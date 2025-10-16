@@ -161,5 +161,18 @@ namespace TrinityCareMedica.Businesslogic.Repository
                 }
             }
         }
+        public void DeleteAllAssignedStaff(int PatientID)
+        {
+            using (SqlConnection con =new SqlConnection(CONNECTIONSTRING))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("DeleteAllAssignedStaff", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

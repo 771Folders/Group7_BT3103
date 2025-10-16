@@ -66,40 +66,24 @@ namespace TrinityCareMedica.UI.UserControls
             FormMain.assignStaffIDs.Clear();
             if (action.Equals("Edit"))
             {
-                DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel the changes?", "Cancel Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.No)
-                {
-                    return;
-                }
-                else
-                {
-                    GoToPatientInfo?.Invoke(this, EventArgs.Empty);
-                    return;
-                }
+                GoToPatientInfo?.Invoke(this, EventArgs.Empty);
+                return;
             }
             else if (action.Equals("Add"))
             {
-                DialogResult dialogResult = MessageBox.Show("Are you sure you want to reset all fields?", "Reset All Fields", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.No)
-                {
-                    return;
-                }
-                else
-                {
-                    lblID.Text = patientController.GetNextPatientID().ToString();
-                    txtLastName.Clear();
-                    txtFirstName.Clear();
-                    txtMiddleName.Clear();
-                    dateBirth.Value = DateTime.Today;
-                    drpdownGender.SelectedIndex = -1;
-                    txtPhone.Clear();
-                    txtEmail.Clear();
-                    txtGuardian.Clear();
-                    txtGuardianPhone.Clear();
-                    txtAddress.Clear();
-                    checkboxTandC.Checked = false;
-                    dateAdmissionDate.Value = DateTime.Today;
-                }
+                lblID.Text = patientController.GetNextPatientID().ToString();
+                txtLastName.Clear();
+                txtFirstName.Clear();
+                txtMiddleName.Clear();
+                dateBirth.Value = DateTime.Today;
+                drpdownGender.SelectedIndex = -1;
+                txtPhone.Clear();
+                txtEmail.Clear();
+                txtGuardian.Clear();
+                txtGuardianPhone.Clear();
+                txtAddress.Clear();
+                checkboxTandC.Checked = false;
+                dateAdmissionDate.Value = DateTime.Today;
             }
         }
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -157,7 +141,23 @@ namespace TrinityCareMedica.UI.UserControls
         }
         private void btnReset_Click(object sender, EventArgs e)
         {
-            Reset();
+            if (action.Equals("Add"))
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to reset all fields?", "Reset All Fields", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+            }
+            else if (action.Equals("Edit"))
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel the changes?", "Cancel Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+            }
+                Reset();
         }
         private void checkboxTandC_KeyPress(object sender, KeyPressEventArgs e)
         {

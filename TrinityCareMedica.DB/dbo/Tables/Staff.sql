@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Staff]
+﻿CREATE TABLE Staff
 (
 	[StaffID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	DepartmentID INT NOT NULL,

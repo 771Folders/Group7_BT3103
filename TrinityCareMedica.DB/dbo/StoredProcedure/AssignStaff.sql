@@ -3,4 +3,9 @@
 	@StaffID INT
 AS
 	INSERT INTO StaffAssignments (PatientID, StaffID, Role)
-	VALUES (@PatientID, @StaffID, (SELECT Role FROM Staff WHERE StaffID = @StaffID));
+	SELECT
+			@PatientID,
+			s.StaffID,
+			s.Role
+	FROM Staff s
+	WHERE s.StaffID = @StaffID;

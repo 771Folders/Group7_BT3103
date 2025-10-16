@@ -6,6 +6,7 @@ namespace TrinityCareMedica.UI.UserControls
 {
     public partial class PatientRecord : UserControl
     {
+        #region Local Variables
         PatientController patientController;
         RoomController roomController;
         StaffController staffController;
@@ -13,6 +14,7 @@ namespace TrinityCareMedica.UI.UserControls
         PatientModel patient;
         PatientRoomModel room;
         List<AssignedStaffModel> assignedStaff;
+        #endregion
         public PatientRecord()
         {
             patientController = new PatientController();
@@ -25,7 +27,6 @@ namespace TrinityCareMedica.UI.UserControls
             InitializeComponent();
             LoadData();
         }
-
         private void LoadData()
         {
             LoadPatientInfo();
@@ -33,7 +34,6 @@ namespace TrinityCareMedica.UI.UserControls
             LoadDoctors();
             LoadMedicalRecords();
         }
-
         private void LoadPatientInfo()
         {
             lblPatientID.Text = $"Patient ID: {patient.PatientID.ToString()}";
@@ -51,11 +51,14 @@ namespace TrinityCareMedica.UI.UserControls
         {
             try
             {
-                room = roomController.GetRoomByPatientID(patient.PatientID);
-                lblRoom.Text = $"Current Room: {room.RoomType} ({room.RoomNumber})";
-                lblBedNo.Text = $"Bed Number: {room.BedNumber}";
-                lblStartDate.Text = $"From: {room.StartDate.Date}";
-                lblEndDate.Text = $"To: {room.EndDate.Date}";
+                if (roomController.GetRoomByPatientID(patient.PatientID) != null)
+                {
+                    room = roomController.GetRoomByPatientID(patient.PatientID);
+                    lblRoom.Text = $"Current Room: {room.RoomType} ({room.RoomNumber})";
+                    lblBedNo.Text = $"Bed Number: {room.BedNumber}";
+                    lblStartDate.Text = $"From: {room.StartDate.Date}";
+                    lblEndDate.Text = $"To: {room.EndDate.Date}";
+                }
             }
             catch (SqlTypeException)
             {
@@ -66,35 +69,38 @@ namespace TrinityCareMedica.UI.UserControls
         }
         private void LoadDoctors()
         {
+            textboxDoctors.Clear();
+            textboxNurses.Clear();
             assignedStaff = staffController.GetAssignedStaff(patient.PatientID);
-            int Doctors = 0;
-            int Nurses = 0;
+            List<AssignedStaffModel> doctors = new List<AssignedStaffModel>();
+            List<AssignedStaffModel> nurses = new List<AssignedStaffModel>();
+
             for (int i = 0; i < assignedStaff.Count; i++)
             {
                 if (assignedStaff[i].Role.Equals("Doctor"))
-                    Doctors++;
+                    doctors.Add(assignedStaff[i]);
                 else if (assignedStaff[i].Role.Equals("Nurse"))
-                    Nurses++;
+                    nurses.Add(assignedStaff[i]);
             }
-            if (Doctors == 0)
+
+            if (doctors.Count == 0)
                 textboxDoctors.Text = "None";
-            if (Nurses == 0)
+            if (nurses.Count == 0)
                 textboxNurses.Text = "None";
+
             for (int i = 0; i < assignedStaff.Count; i++)
             {
                 if (assignedStaff[i].Role.Equals("Doctor"))
                 {
-                    if (i == assignedStaff.Count - 1)
-                        textboxDoctors.AppendText($"{assignedStaff[i].FirstName} {assignedStaff[i].LastName}");
-                    else
-                        textboxDoctors.AppendText($"{assignedStaff[i].FirstName} {assignedStaff[i].LastName}, \n");
+                    textboxDoctors.AppendText($"{assignedStaff[i].FirstName} {assignedStaff[i].LastName}");
+                    if (i < doctors.Count - 1)
+                        textboxDoctors.AppendText(", ");
                 }
                 else if (assignedStaff[i].Role.Equals("Nurse"))
                 {
-                    if (i == assignedStaff.Count - 1)
-                        textboxNurses.AppendText($"{assignedStaff[i].FirstName} {assignedStaff[i].LastName}");
-                    else
-                        textboxNurses.AppendText($"{assignedStaff[i].FirstName} {assignedStaff[i].LastName}, \n");
+                    textboxNurses.AppendText($"{assignedStaff[i].FirstName} {assignedStaff[i].LastName}");
+                    if (i == nurses.Count - 1)
+                        textboxNurses.AppendText(", ");
                 }
             }
         }
@@ -115,12 +121,15 @@ namespace TrinityCareMedica.UI.UserControls
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             FormMain.assignAction = "Old";
             FormDoctorAssignment doctorAssignment = new FormDoctorAssignment();
-            doctorAssignment.Show();
+            doctorAssignment.ShowDialog();
+            if (doctorAssignment.DialogResult == DialogResult.OK)
+            {
+                LoadDoctors();
+            }
         }
     }
 }

@@ -40,6 +40,8 @@
             label2 = new Label();
             buttonAssign = new Button();
             buttonCancel = new Button();
+            panel1 = new Panel();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // labelPatientID
@@ -78,6 +80,7 @@
             cbDoctor1.Name = "cbDoctor1";
             cbDoctor1.Size = new Size(306, 37);
             cbDoctor1.TabIndex = 3;
+            cbDoctor1.SelectedIndexChanged += SelectedIndexChanged;
             // 
             // cbDoctor2
             // 
@@ -87,6 +90,7 @@
             cbDoctor2.Name = "cbDoctor2";
             cbDoctor2.Size = new Size(306, 37);
             cbDoctor2.TabIndex = 4;
+            cbDoctor2.SelectedIndexChanged += SelectedIndexChanged;
             // 
             // cbDoctor3
             // 
@@ -96,6 +100,7 @@
             cbDoctor3.Name = "cbDoctor3";
             cbDoctor3.Size = new Size(306, 37);
             cbDoctor3.TabIndex = 5;
+            cbDoctor3.SelectedIndexChanged += SelectedIndexChanged;
             // 
             // cbNurse3
             // 
@@ -105,6 +110,7 @@
             cbNurse3.Name = "cbNurse3";
             cbNurse3.Size = new Size(306, 37);
             cbNurse3.TabIndex = 9;
+            cbNurse3.SelectedIndexChanged += SelectedIndexChanged;
             // 
             // cbNurse2
             // 
@@ -114,6 +120,7 @@
             cbNurse2.Name = "cbNurse2";
             cbNurse2.Size = new Size(306, 37);
             cbNurse2.TabIndex = 8;
+            cbNurse2.SelectedIndexChanged += SelectedIndexChanged;
             // 
             // cbNurse1
             // 
@@ -123,6 +130,7 @@
             cbNurse1.Name = "cbNurse1";
             cbNurse1.Size = new Size(306, 37);
             cbNurse1.TabIndex = 7;
+            cbNurse1.SelectedIndexChanged += SelectedIndexChanged;
             // 
             // label2
             // 
@@ -155,24 +163,33 @@
             buttonCancel.UseVisualStyleBackColor = true;
             buttonCancel.Click += buttonCancel_Click;
             // 
+            // panel1
+            // 
+            panel1.BorderStyle = BorderStyle.Fixed3D;
+            panel1.Controls.Add(buttonCancel);
+            panel1.Controls.Add(buttonAssign);
+            panel1.Controls.Add(labelPatientID);
+            panel1.Controls.Add(cbNurse3);
+            panel1.Controls.Add(labelName);
+            panel1.Controls.Add(cbNurse2);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(cbNurse1);
+            panel1.Controls.Add(cbDoctor1);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(cbDoctor2);
+            panel1.Controls.Add(cbDoctor3);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(800, 450);
+            panel1.TabIndex = 12;
+            // 
             // FormDoctorAssignment
             // 
             AutoScaleDimensions = new SizeF(14F, 29F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSeaGreen;
             ClientSize = new Size(800, 450);
-            Controls.Add(buttonCancel);
-            Controls.Add(buttonAssign);
-            Controls.Add(cbNurse3);
-            Controls.Add(cbNurse2);
-            Controls.Add(cbNurse1);
-            Controls.Add(label2);
-            Controls.Add(cbDoctor3);
-            Controls.Add(cbDoctor2);
-            Controls.Add(cbDoctor1);
-            Controls.Add(label1);
-            Controls.Add(labelName);
-            Controls.Add(labelPatientID);
+            Controls.Add(panel1);
             Font = new Font("Microsoft JhengHei UI", 14F);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
@@ -180,8 +197,9 @@
             Name = "FormDoctorAssignment";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormDoctorAssignment";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -198,5 +216,6 @@
         private Label label2;
         private Button buttonAssign;
         private Button buttonCancel;
+        private Panel panel1;
     }
 }

@@ -92,6 +92,7 @@
     <Build Include="dbo\StoredProcedure\AssignStaff.sql" />
     <Build Include="dbo\StoredProcedure\AssignRoom.sql" />
     <Build Include="dbo\StoredProcedure\GetStaffIDByName.sql" />
+    <Build Include="dbo\StoredProcedure\DeleteAllAssignedStaff.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\UserScript.sql" />

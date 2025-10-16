@@ -39,5 +39,9 @@ namespace TrinityCareMedica.Businesslogic.Controller
         {
             staffRepository.AssignStaff(PatientID, StaffID);
         }
+        public void DeleteAllAssignedStaff(int PatientID)
+        {
+            staffRepository.DeleteAllAssignedStaff(PatientID);
+        }
     }
 }
