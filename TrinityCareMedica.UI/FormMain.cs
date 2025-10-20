@@ -1,4 +1,5 @@
-﻿using TrinityCareMedica.UI.UserControls;
+﻿using TrinityCareMedica.Model;
+using TrinityCareMedica.UI.UserControls;
 
 namespace TrinityCareMedica.UI
 {
@@ -9,6 +10,7 @@ namespace TrinityCareMedica.UI
         public static int selectedPatientID = 0;
         public static string assignAction = "New";
         public static List<int> assignStaffIDs = new List<int>();
+        public static PatientRoomModel room = new PatientRoomModel();
         #endregion
         public FormMain()
         {

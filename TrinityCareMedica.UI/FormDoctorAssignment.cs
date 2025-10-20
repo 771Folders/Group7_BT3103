@@ -10,9 +10,9 @@ namespace TrinityCareMedica.UI
         PatientController patientController;
         StaffController staffController;
         PatientModel patient;
-        List<int> assignStaffIDs;
         ComboBox[] boxes;
         int selectedPatientID;
+        List<int> assignedStaffIDs;
         string action;
         #endregion
         public FormDoctorAssignment()
@@ -20,23 +20,16 @@ namespace TrinityCareMedica.UI
             patientController = new PatientController();
             staffController = new StaffController();
             selectedPatientID = FormMain.selectedPatientID;
-            assignStaffIDs = FormMain.assignStaffIDs;
+            assignedStaffIDs = FormMain.assignStaffIDs;
             patient = patientController.GetPatientByID(selectedPatientID);
             action = FormMain.assignAction;
             InitializeComponent();
             SetBoxes();
             LoadData();
-            CheckAssignedStaff();
-        }
-        private void SetBoxes()
-        {
-            boxes = new ComboBox[6];
-            boxes[0] = cbDoctor1;
-            boxes[1] = cbDoctor2;
-            boxes[2] = cbDoctor3;
-            boxes[3] = cbNurse1;
-            boxes[4] = cbNurse2;
-            boxes[5] = cbNurse3;
+            if (assignedStaffIDs != null)
+                CheckNewAssignedStaff();
+            else
+                CheckAssignedStaff();
         }
         private void LoadData()
         {
@@ -50,9 +43,13 @@ namespace TrinityCareMedica.UI
                 labelPatientID.Text = patientController.GetNextPatientID().ToString(); 
                 labelName.Visible = false ;
             }
+
             ComboBox[] doctorBoxes = { cbDoctor1, cbDoctor2, cbDoctor3 };
             ComboBox[] nurseBoxes = { cbNurse1, cbNurse2, cbNurse3 };
+
             List<DoctorModel> doctors = staffController.GetAllDoctors();
+            List<NurseModel> nurses = staffController.GetAllNurses();
+
             foreach (ComboBox box in doctorBoxes)
             {
                 box.Items.Add(string.Empty);
@@ -61,6 +58,7 @@ namespace TrinityCareMedica.UI
             {
                 box.Items.Add(string.Empty);
             }
+
             for (int i = 0; i < doctors.Count; i++)
             {
                foreach (ComboBox box in doctorBoxes)
@@ -68,7 +66,6 @@ namespace TrinityCareMedica.UI
                     box.Items.Add($"{doctors[i].FirstName} {doctors[i].LastName}");
                 }
             }
-            List<NurseModel> nurses = staffController.GetAllNurses();
             for (int i = 0; i < nurses.Count; i++)
             {
                 foreach (ComboBox box in nurseBoxes)
@@ -77,12 +74,23 @@ namespace TrinityCareMedica.UI
                 }
             }
         }
+        private void SetBoxes()
+        {
+            boxes = new ComboBox[6];
+            boxes[0] = cbDoctor1;
+            boxes[1] = cbDoctor2;
+            boxes[2] = cbDoctor3;
+            boxes[3] = cbNurse1;
+            boxes[4] = cbNurse2;
+            boxes[5] = cbNurse3;
+        }
         private void CheckAssignedStaff()
         {
             ComboBox[] DoctorComboBoxes = { cbDoctor1, cbDoctor2, cbDoctor3 };
             ComboBox[] NurseComboBoxes = { cbNurse1, cbNurse2, cbNurse3 };
             List<string> names = new List<string>();
-            List<AssignedStaffModel> staff = staffController.GetAssignedStaff(selectedPatientID);
+            List<AssignedStaffModel> staff = new List<AssignedStaffModel>();
+            staff = staffController.GetAssignedStaff(selectedPatientID);
             foreach (AssignedStaffModel member in staff)
             {
                 string Name = $"{member.FirstName} {member.LastName}";
@@ -97,6 +105,46 @@ namespace TrinityCareMedica.UI
                         names.Add(Name);
                         break;
                     }
+                }
+            }
+        }
+        private void CheckNewAssignedStaff()
+        {
+            ComboBox[] DoctorComboBoxes = { cbDoctor1, cbDoctor2, cbDoctor3 };
+            ComboBox[] NurseComboBoxes = { cbNurse1, cbNurse2, cbNurse3 };
+            List<string> names = new List<string>();
+            List<StaffModel> staff = new List<StaffModel>();
+            for (int i = 0; i < assignedStaffIDs.Count; i++)
+            {
+                staff.Add(staffController.GetStaffByID(assignedStaffIDs[i]));
+            }
+            foreach (StaffModel member in staff)
+            {
+                string name = $"{member.FirstName} {member.LastName}";
+                if (names.Contains(name))
+                    continue;
+                ComboBox[] boxes = member.Role == "Doctor" ? DoctorComboBoxes : NurseComboBoxes;
+                foreach (ComboBox box in boxes)
+                {
+                    if (string.IsNullOrEmpty(box.Text))
+                    {
+                        box.Text = name;
+                        names.Add(name);
+                        break;
+                    }
+                }
+            }
+        }
+        private void SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox box = sender as ComboBox;
+            string name = box.Text;
+            if (name != string.Empty)
+            {
+                foreach (ComboBox comboBox in boxes)
+                {
+                    if (comboBox.Name != box.Name && comboBox.Items.Contains(name))
+                        comboBox.Items.Remove(name);
                 }
             }
         }
@@ -156,18 +204,5 @@ namespace TrinityCareMedica.UI
             }
             Close();
         }
-        private void SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBox box = sender as ComboBox;
-            string name = box.Text;
-            if (name != string.Empty)
-            {
-                foreach (ComboBox comboBox in boxes)
-                {
-                    if (comboBox.Name != box.Name && comboBox.Items.Contains(name))
-                        comboBox.Items.Remove(name);
-                }
-            }
-        }
     }
-}
+}   

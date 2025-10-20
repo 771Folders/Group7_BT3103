@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Xml.Linq;
 using TrinityCareMedica.Model;
 
 namespace TrinityCareMedica.Businesslogic.Repository
@@ -143,6 +144,38 @@ namespace TrinityCareMedica.Businesslogic.Repository
                         {
                             return 0;
                         }
+                    }
+                }
+            }
+        }
+        public StaffModel GetStaffByID(int StaffID)
+        {
+            StaffModel staff = new StaffModel();
+            using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("GetStaffByID", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StaffID", StaffID);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            staff = new StaffModel
+                            {
+                                StaffID = reader.GetInt32(0),
+                                FirstName = reader.GetString(1),
+                                LastName = reader.GetString(2),
+                                Department = reader.GetString(3),
+                                Role = reader.GetString(4),
+                                PhoneNumber = reader.GetString(5),
+                                Email = reader.GetString(6),
+                                DateHired = reader.GetDateTime(7)
+                            };
+                            return staff;
+                        }
+                        return null;
                     }
                 }
             }

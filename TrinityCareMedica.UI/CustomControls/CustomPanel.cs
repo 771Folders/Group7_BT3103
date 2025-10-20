@@ -24,7 +24,6 @@ namespace TrinityCareMedica.UI.CustomControls
             rect.Width -= 1;
             rect.Height -= 1;
 
-            // Decide if we use rounded corners or normal rectangle
             GraphicsPath path;
             if (BorderRadius > 0)
                 path = GetRoundedPath(rect, BorderRadius);
@@ -36,14 +35,12 @@ namespace TrinityCareMedica.UI.CustomControls
 
             using (path)
             {
-                // Gradient fill
                 using (LinearGradientBrush brush = new LinearGradientBrush(
                     rect, ColorTop, ColorBottom, LinearGradientMode.Vertical))
                 {
                     e.Graphics.FillPath(brush, path);
                 }
 
-                // Optional border
                 if (BorderThickness > 0)
                 {
                     using (Pen pen = new Pen(BorderColor, BorderThickness))

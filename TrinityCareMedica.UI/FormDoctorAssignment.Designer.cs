@@ -47,7 +47,7 @@
             // labelPatientID
             // 
             labelPatientID.AutoSize = true;
-            labelPatientID.Location = new Point(14, 9);
+            labelPatientID.Location = new Point(14, 20);
             labelPatientID.Margin = new Padding(5, 0, 5, 0);
             labelPatientID.Name = "labelPatientID";
             labelPatientID.Size = new Size(130, 30);
@@ -57,7 +57,7 @@
             // labelName
             // 
             labelName.AutoSize = true;
-            labelName.Location = new Point(14, 39);
+            labelName.Location = new Point(14, 50);
             labelName.Name = "labelName";
             labelName.Size = new Size(87, 30);
             labelName.TabIndex = 1;
@@ -66,7 +66,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(14, 69);
+            label1.Location = new Point(14, 80);
             label1.Name = "label1";
             label1.Size = new Size(118, 30);
             label1.TabIndex = 2;
@@ -76,7 +76,7 @@
             // 
             cbDoctor1.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDoctor1.FormattingEnabled = true;
-            cbDoctor1.Location = new Point(138, 69);
+            cbDoctor1.Location = new Point(138, 80);
             cbDoctor1.Name = "cbDoctor1";
             cbDoctor1.Size = new Size(306, 37);
             cbDoctor1.TabIndex = 3;
@@ -86,7 +86,7 @@
             // 
             cbDoctor2.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDoctor2.FormattingEnabled = true;
-            cbDoctor2.Location = new Point(138, 112);
+            cbDoctor2.Location = new Point(138, 123);
             cbDoctor2.Name = "cbDoctor2";
             cbDoctor2.Size = new Size(306, 37);
             cbDoctor2.TabIndex = 4;
@@ -96,7 +96,7 @@
             // 
             cbDoctor3.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDoctor3.FormattingEnabled = true;
-            cbDoctor3.Location = new Point(138, 155);
+            cbDoctor3.Location = new Point(138, 166);
             cbDoctor3.Name = "cbDoctor3";
             cbDoctor3.Size = new Size(306, 37);
             cbDoctor3.TabIndex = 5;
@@ -106,7 +106,7 @@
             // 
             cbNurse3.DropDownStyle = ComboBoxStyle.DropDownList;
             cbNurse3.FormattingEnabled = true;
-            cbNurse3.Location = new Point(136, 304);
+            cbNurse3.Location = new Point(136, 315);
             cbNurse3.Name = "cbNurse3";
             cbNurse3.Size = new Size(306, 37);
             cbNurse3.TabIndex = 9;
@@ -116,7 +116,7 @@
             // 
             cbNurse2.DropDownStyle = ComboBoxStyle.DropDownList;
             cbNurse2.FormattingEnabled = true;
-            cbNurse2.Location = new Point(136, 261);
+            cbNurse2.Location = new Point(136, 272);
             cbNurse2.Name = "cbNurse2";
             cbNurse2.Size = new Size(306, 37);
             cbNurse2.TabIndex = 8;
@@ -126,7 +126,7 @@
             // 
             cbNurse1.DropDownStyle = ComboBoxStyle.DropDownList;
             cbNurse1.FormattingEnabled = true;
-            cbNurse1.Location = new Point(136, 218);
+            cbNurse1.Location = new Point(136, 229);
             cbNurse1.Name = "cbNurse1";
             cbNurse1.Size = new Size(306, 37);
             cbNurse1.TabIndex = 7;
@@ -135,7 +135,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 218);
+            label2.Location = new Point(12, 229);
             label2.Name = "label2";
             label2.Size = new Size(108, 30);
             label2.TabIndex = 6;
@@ -185,16 +185,20 @@
             // 
             // FormDoctorAssignment
             // 
+            AcceptButton = buttonAssign;
             AutoScaleDimensions = new SizeF(14F, 29F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightSeaGreen;
+            BackColor = Color.Teal;
+            CancelButton = buttonCancel;
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
             Font = new Font("Microsoft JhengHei UI", 14F);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
+            KeyPreview = true;
             Margin = new Padding(5, 4, 5, 4);
             Name = "FormDoctorAssignment";
+            SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormDoctorAssignment";
             panel1.ResumeLayout(false);

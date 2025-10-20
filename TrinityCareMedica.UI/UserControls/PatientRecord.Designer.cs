@@ -32,7 +32,7 @@
             labelTitle = new Label();
             lblPatientID = new Label();
             panelPatientInfo = new Panel();
-            button2 = new Button();
+            buttonTransferRoom = new Button();
             button1 = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             lblRoom = new Label();
@@ -108,7 +108,7 @@
             // panelPatientInfo
             // 
             panelPatientInfo.BackColor = SystemColors.Control;
-            panelPatientInfo.Controls.Add(button2);
+            panelPatientInfo.Controls.Add(buttonTransferRoom);
             panelPatientInfo.Controls.Add(button1);
             panelPatientInfo.Controls.Add(flowLayoutPanel1);
             panelPatientInfo.Controls.Add(label9);
@@ -120,15 +120,16 @@
             panelPatientInfo.Size = new Size(638, 847);
             panelPatientInfo.TabIndex = 99;
             // 
-            // button2
+            // buttonTransferRoom
             // 
-            button2.Font = new Font("Microsoft JhengHei UI", 14F);
-            button2.Location = new Point(157, 784);
-            button2.Name = "button2";
-            button2.Size = new Size(201, 60);
-            button2.TabIndex = 108;
-            button2.Text = "Transfer Room";
-            button2.UseVisualStyleBackColor = true;
+            buttonTransferRoom.Font = new Font("Microsoft JhengHei UI", 14F);
+            buttonTransferRoom.Location = new Point(157, 784);
+            buttonTransferRoom.Name = "buttonTransferRoom";
+            buttonTransferRoom.Size = new Size(201, 60);
+            buttonTransferRoom.TabIndex = 108;
+            buttonTransferRoom.Text = "Transfer Room";
+            buttonTransferRoom.UseVisualStyleBackColor = true;
+            buttonTransferRoom.Click += buttonTransferRoom_Click;
             // 
             // button1
             // 
@@ -483,7 +484,7 @@
         private Panel panel4;
         private Label lblNurses;
         private Label lblDoctors;
-        private Button button2;
+        private Button buttonTransferRoom;
         private Button button1;
         private RichTextBox textboxNurses;
         private RichTextBox textboxDoctors;

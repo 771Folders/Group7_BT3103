@@ -12,6 +12,6 @@ namespace TrinityCareMedica.Model
         public int RoomNumber { get; set; }
         public string BedNumber { get; set; }
         public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
     }
 }

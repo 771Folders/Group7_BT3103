@@ -8,6 +8,7 @@ namespace TrinityCareMedica.UI.UserControls
         #region Local Variables
         PatientController patientController;
         StaffController staffController;
+        RoomController roomController;
         List<int> assignStaffIDs;
         string action;
         public event EventHandler GoToDashboard;
@@ -18,6 +19,7 @@ namespace TrinityCareMedica.UI.UserControls
             InitializeComponent();
             patientController = new PatientController();
             staffController = new StaffController();
+            roomController = new RoomController();
             assignStaffIDs = FormMain.assignStaffIDs;
             action = FormMain.admissionAction;
             lblID.Text = patientController.GetNextPatientID().ToString();
@@ -64,6 +66,7 @@ namespace TrinityCareMedica.UI.UserControls
         private void Reset()
         {
             FormMain.assignStaffIDs.Clear();
+            FormMain.room = new PatientRoomModel();
             if (action.Equals("Edit"))
             {
                 GoToPatientInfo?.Invoke(this, EventArgs.Empty);
@@ -114,6 +117,8 @@ namespace TrinityCareMedica.UI.UserControls
                         {
                             staffController.AssignStaff(patient.PatientID, id);
                         }
+                        if (FormMain.room.RoomType != null)
+                            roomController.AssignRoom(patient.PatientID, FormMain.room);
                         MessageBox.Show("Patient admitted successfully.");
                         Reset();
                     }
@@ -129,6 +134,8 @@ namespace TrinityCareMedica.UI.UserControls
                     {
                         staffController.AssignStaff(patient.PatientID, id);
                     }
+                    if (FormMain.room.RoomType != null)
+                        roomController.AssignRoom(patient.PatientID, FormMain.room);
                     MessageBox.Show("Patient information updated successfully.");
                     GoToPatientInfo?.Invoke(this, EventArgs.Empty);
                 }
@@ -157,7 +164,7 @@ namespace TrinityCareMedica.UI.UserControls
                     return;
                 }
             }
-                Reset();
+            Reset();
         }
         private void checkboxTandC_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -171,6 +178,12 @@ namespace TrinityCareMedica.UI.UserControls
             FormMain.assignAction = "New";
             FormDoctorAssignment doctorAssignment = new FormDoctorAssignment();
             doctorAssignment.Show();
+        }
+        private void btnAddRoom_Click(object sender, EventArgs e)
+        {
+            FormMain.assignAction = "New";
+            FormRoomAssignment roomAssignment = new FormRoomAssignment();
+            roomAssignment.Show();
         }
     }
 }

@@ -9,9 +9,9 @@ BEGIN
 		RA.StartDate,
 		RA.EndDate
 	FROM 
-		Rooms R
+		RoomAssignments RA
 	INNER JOIN 
-		RoomAssignments RA ON R.RoomID = RA.RoomID
+		Rooms R ON R.RoomID = RA.RoomID
 	WHERE 
 		RA.PatientID = @PatientID;
 END;	

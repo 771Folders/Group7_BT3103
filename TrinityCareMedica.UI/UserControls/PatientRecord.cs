@@ -40,7 +40,7 @@ namespace TrinityCareMedica.UI.UserControls
             lblAdmissionDate.Text = $"Date Admitted: {patient.DateRegistered}";
             lblName.Text = $"{patient.FirstName} {patient.MiddleName} {patient.LastName}";
             lblGender.Text = $"Gender: {patient.Gender}";
-            lblDateOfBirth.Text = $"Date of Birth: {patient.DateOfBirth.Date}";
+            lblDateOfBirth.Text = $"Date of Birth: {patient.DateOfBirth.ToShortDateString()}";
             lblPhone.Text = $"Phone: {patient.Phone}";
             lblEmail.Text = $"Email: {patient.Email}";
             lblAddress.Text = $"Address: {patient.Address}";
@@ -56,12 +56,13 @@ namespace TrinityCareMedica.UI.UserControls
                     room = roomController.GetRoomByPatientID(patient.PatientID);
                     lblRoom.Text = $"Current Room: {room.RoomType} ({room.RoomNumber})";
                     lblBedNo.Text = $"Bed Number: {room.BedNumber}";
-                    lblStartDate.Text = $"From: {room.StartDate.Date}";
-                    lblEndDate.Text = $"To: {room.EndDate.Date}";
+                    lblStartDate.Text = $"From: {room.StartDate.ToShortDateString()}";
+                    lblEndDate.Text = $"To: {(room.EndDate.HasValue ? room.EndDate.Value.ToShortDateString() : "N/A")}";
                 }
             }
             catch (SqlTypeException)
             {
+                lblRoom.Text = "N/A";
                 lblBedNo.Visible = false;
                 lblStartDate.Visible = false;
                 lblEndDate.Visible = false;
@@ -129,6 +130,16 @@ namespace TrinityCareMedica.UI.UserControls
             if (doctorAssignment.DialogResult == DialogResult.OK)
             {
                 LoadDoctors();
+            }
+        }
+        private void buttonTransferRoom_Click(object sender, EventArgs e)
+        {
+            FormMain.assignAction = "Old";
+            FormRoomAssignment roomAssignment = new FormRoomAssignment();
+            roomAssignment.ShowDialog();
+            if (roomAssignment.DialogResult == DialogResult.OK)
+            {
+                LoadRoomInfo();
             }
         }
     }

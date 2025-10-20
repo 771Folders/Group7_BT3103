@@ -93,6 +93,13 @@
     <Build Include="dbo\StoredProcedure\AssignRoom.sql" />
     <Build Include="dbo\StoredProcedure\GetStaffIDByName.sql" />
     <Build Include="dbo\StoredProcedure\DeleteAllAssignedStaff.sql" />
+    <Build Include="dbo\StoredProcedure\GetRoomAssignmentModels.sql" />
+    <Build Include="dbo\StoredProcedure\DeleteRoomAssignment.sql" />
+    <Build Include="dbo\StoredProcedure\GetRoomNumbers.sql" />
+    <Build Include="dbo\StoredProcedure\GetRoomCapacity.sql" />
+    <Build Include="dbo\StoredProcedure\GetRoomTypes.sql" />
+    <Build Include="dbo\StoredProcedure\GetAvailableBedNumbers.sql" />
+    <Build Include="dbo\StoredProcedure\GetStaffByID.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\UserScript.sql" />

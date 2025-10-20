@@ -1,0 +1,3 @@
+﻿CREATE PROCEDURE [dbo].[GetRoomTypes]
+AS
+	SELECT DISTINCT RoomType FROM Rooms

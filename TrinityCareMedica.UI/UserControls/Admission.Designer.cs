@@ -444,6 +444,7 @@
             btnAddRoom.TabIndex = 78;
             btnAddRoom.Text = "Room";
             btnAddRoom.UseVisualStyleBackColor = true;
+            btnAddRoom.Click += btnAddRoom_Click;
             // 
             // label1
             // 
