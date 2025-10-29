@@ -10,5 +10,6 @@ CREATE TABLE Patients (
     [Email] VARCHAR(50),
     [EmergencyContact] VARCHAR(50),
     [EmergencyContactPhone] VARCHAR(15),
-    [DateRegistered] DATETIME NOT NULL DEFAULT GETDATE()
+    [DateRegistered] DATETIME NOT NULL DEFAULT GETDATE(),
+    [Status] VARCHAR(50) DEFAULT 'Admitted'
 );

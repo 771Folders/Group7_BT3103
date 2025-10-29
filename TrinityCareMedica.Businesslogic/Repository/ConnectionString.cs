@@ -10,6 +10,8 @@ namespace TrinityCareMedica.Businesslogic.Repository
             {
                 case "KOUTAIBA":
                     return ConfigurationManager.ConnectionStrings["771Folders"].ConnectionString;
+                case "JACE":
+                    return ConfigurationManager.ConnectionStrings["jace"].ConnectionString;
                 default:
                     return null;
             }

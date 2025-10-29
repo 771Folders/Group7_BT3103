@@ -31,3 +31,6 @@
 /TrinityCareMedica.Businesslogic/bin/Debug/net8.0
 /TrinityCareMedica.Businesslogic/obj
 /TrinityCareMedica.DB/TrinityCareMedica.DB.publish.xml
+/TrinityCareMedica.DB/TrinityCareMedica.DB.dbmdl
+/TrinityCareMedica.DB/TrinityCareMedica.DB.jfm
+/TrinityCareMedica.UI/.vs/ProjectEvaluation

@@ -6,7 +6,7 @@
     <Name>EventDriven.Project.DB</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{a1f37d94-9f69-4142-815c-287b8eddb1ce}</ProjectGuid>
+    <ProjectGuid>{c2c9cae2-3967-4430-9967-783a793373f4}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
