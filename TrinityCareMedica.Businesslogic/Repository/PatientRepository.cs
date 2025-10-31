@@ -21,6 +21,7 @@ namespace TrinityCareMedica.Businesslogic.Repository
                     command.Parameters.AddWithValue("@FirstName", patient.FirstName);
                     command.Parameters.AddWithValue("@MiddleName", patient.MiddleName);
                     command.Parameters.AddWithValue("@DateOfBirth", patient.DateOfBirth);
+                    command.Parameters.AddWithValue("@Age", patient.Age);
                     command.Parameters.AddWithValue("@Gender", patient.Gender);
                     command.Parameters.AddWithValue("@Address", patient.Address);
                     command.Parameters.AddWithValue("@Phone", patient.Phone);
@@ -51,6 +52,7 @@ namespace TrinityCareMedica.Businesslogic.Repository
                     command.Parameters.AddWithValue("@FirstName", patient.FirstName);
                     command.Parameters.AddWithValue("@MiddleName", patient.MiddleName);
                     command.Parameters.AddWithValue("@DateOfBirth", patient.DateOfBirth);
+                    command.Parameters.AddWithValue("@Age", patient.Age);
                     command.Parameters.AddWithValue("@Gender", patient.Gender);
                     command.Parameters.AddWithValue("@Address", patient.Address);
                     command.Parameters.AddWithValue("@Phone", patient.Phone);
@@ -74,10 +76,12 @@ namespace TrinityCareMedica.Businesslogic.Repository
                 using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
                 {
                     con.Open();
-                    SqlCommand command = new SqlCommand("DeletePatient", con);
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@PatientID", patientID);
-                    command.ExecuteNonQuery();
+                    using (SqlCommand command = new SqlCommand("DeletePatient", con))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@PatientID", patientID);
+                        command.ExecuteNonQuery();
+                    }
                 }
             }
             catch (Exception ex)
@@ -108,13 +112,15 @@ namespace TrinityCareMedica.Businesslogic.Repository
                                     FirstName = (string)reader["FirstName"],
                                     MiddleName = (string)reader["MiddleName"],
                                     DateOfBirth = (DateTime)reader["DateOfBirth"],
+                                    Age = (int)reader["Age"],
                                     Gender = (string)reader["Gender"],
                                     Address = (string)reader["Address"],
                                     Phone = (string)reader["Phone"],
                                     Email = (string)reader["Email"],
                                     EmergencyContact = (string)reader["EmergencyContact"],
                                     EmergencyContactPhone = (string)reader["EmergencyContactPhone"],
-                                    DateRegistered = (DateTime)reader["DateRegistered"]
+                                    DateRegistered = (DateTime)reader["DateRegistered"],
+                                    Status = (string)reader["Status"]
                                 };
                                 return patient;
                             }
@@ -150,6 +156,7 @@ namespace TrinityCareMedica.Businesslogic.Repository
                                 patient.FirstName = (string)reader["FirstName"];
                                 patient.MiddleName = (string)reader["MiddleName"];
                                 patient.DateOfBirth = (DateTime)reader["DateOfBirth"];
+                                patient.Age = (int)reader["Age"];
                                 patient.Gender = (string)reader["Gender"];
                                 patient.Address = (string)reader["Address"];
                                 patient.Phone = (string)reader["Phone"];
@@ -157,6 +164,7 @@ namespace TrinityCareMedica.Businesslogic.Repository
                                 patient.EmergencyContact = (string)reader["EmergencyContact"];
                                 patient.EmergencyContactPhone = (string)reader["EmergencyContactPhone"];
                                 patient.DateRegistered = (DateTime)reader["DateRegistered"];
+                                patient.Status = (string)reader["Status"];
                                 patients.Add(patient);
                             }
                             return patients;
@@ -219,6 +227,7 @@ namespace TrinityCareMedica.Businesslogic.Repository
                                 patient.FirstName = (string)reader["FirstName"];
                                 patient.MiddleName = (string)reader["MiddleName"];
                                 patient.DateOfBirth = (DateTime)reader["DateOfBirth"];
+                                patient.Age = (int)reader["Age"];
                                 patient.Gender = (string)reader["Gender"];
                                 patient.Address = (string)reader["Address"];
                                 patient.Phone = (string)reader["Phone"];
@@ -226,6 +235,7 @@ namespace TrinityCareMedica.Businesslogic.Repository
                                 patient.EmergencyContact = (string)reader["EmergencyContact"];
                                 patient.EmergencyContactPhone = (string)reader["EmergencyContactPhone"];
                                 patient.DateRegistered = (DateTime)reader["DateRegistered"];
+                                patient.Status = (string)reader["Status"];
                                 patients.Add(patient);
                             }
                             return patients;

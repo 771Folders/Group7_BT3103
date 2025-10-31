@@ -7,6 +7,7 @@ namespace TrinityCareMedica.UI.UserControls
     {
         #region Local Variables
         PatientController patientController;
+        StaffController staffController;
         public event EventHandler GoToDashboard;
         public event EventHandler GoToAddPatient;
         public event EventHandler GoToEditPatient;
@@ -19,6 +20,7 @@ namespace TrinityCareMedica.UI.UserControls
         public PatientInformationMaintenance()
         {
             patientController = new PatientController();
+            staffController = new StaffController();
             InitializeComponent();
             DoubleBuffering();
             CheckLoggedUser();
@@ -288,8 +290,9 @@ namespace TrinityCareMedica.UI.UserControls
                 if (dataPatients.CurrentRow != null)
                 {
                     int selected = Convert.ToInt32(dataPatients.CurrentRow.Cells["PatientID"].Value);
-                    FormMain.selectedPatientID = selected;
+                    GlobalVariables.selectedPatientID = selected;
                 }
+                GlobalVariables.admissionAction = "Edit";
                 GoToEditPatient?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
@@ -309,6 +312,7 @@ namespace TrinityCareMedica.UI.UserControls
                         DialogResult confirmResult = MessageBox.Show("Are you sure to delete this patient?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (confirmResult == DialogResult.Yes)
                         {
+                            staffController.DeleteStaffAssignments(patientId);
                             patientController.DeletePatient(patientId);
                             txtSearch.Clear();
                             LoadData();
@@ -341,6 +345,7 @@ namespace TrinityCareMedica.UI.UserControls
                         {
                             foreach (var id in selectedPatientIds)
                             {
+                                staffController.DeleteStaffAssignments(id);
                                 patientController.DeletePatient(id);
                             }
                             txtSearch.Clear();
@@ -382,7 +387,7 @@ namespace TrinityCareMedica.UI.UserControls
                 }
 
                 int selected = Convert.ToInt32(dataPatients.CurrentRow.Cells["PatientID"].Value);
-                FormMain.selectedPatientID = selected;
+                GlobalVariables.selectedPatientID = selected;
                 GoToPatientRecord?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)

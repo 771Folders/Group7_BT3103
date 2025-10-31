@@ -74,11 +74,20 @@
     <Build Include="dbo\StoredProcedure\DeletePatient.sql" />
     <Build Include="dbo\StoredProcedure\SearchPatient.sql" />
     <Build Include="dbo\StoredProcedure\GetNextPatientID.sql" />
+    <Build Include="dbo\Tables\Staff.sql" />
+    <Build Include="dbo\StoredProcedure\GetAllStaff.sql" />
+    <Build Include="dbo\Tables\StaffAssignments.sql" />
+    <Build Include="dbo\StoredProcedure\AssignStaff.sql" />
+    <Build Include="dbo\StoredProcedure\GetStaffByID.sql" />
+    <Build Include="dbo\StoredProcedure\GetAssignedStaff.sql" />
+    <Build Include="dbo\StoredProcedure\DeleteStaffAssignments.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\UserScript.sql" />
     <None Include="dbo\Scripts\PatientScript.sql" />
     <None Include="TrinityCareMedica.DB.publish.xml" />
+    <None Include="dbo\Scripts\StaffScript.sql" />
+    <None Include="dbo\Scripts\StaffAssignmentScript.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\MasterScript.sql" />

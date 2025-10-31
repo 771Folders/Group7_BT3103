@@ -7,6 +7,7 @@ namespace TrinityCareMedica.UI.UserControls
     {
         #region Local Variables
         PatientController patientController;
+        StaffController staffController;
         String action;
         public event EventHandler GoToDashboard;
         public event EventHandler GoToPatientInfo;
@@ -15,7 +16,8 @@ namespace TrinityCareMedica.UI.UserControls
         {
             InitializeComponent();
             patientController = new PatientController();
-            action = FormMain.admissionAction;
+            staffController = new StaffController();
+            action = GlobalVariables.admissionAction;
             lblID.Text = patientController.GetNextPatientID().ToString();
             CheckAction();
         }
@@ -43,7 +45,7 @@ namespace TrinityCareMedica.UI.UserControls
         }
         private void FillFields()
         {
-            PatientModel patient = patientController.GetPatientByID(FormMain.selectedPatientID);
+            PatientModel patient = patientController.GetPatientByID(GlobalVariables.selectedPatientID);
             lblID.Text = patient.PatientID.ToString();
             txtLastName.Text = patient.LastName;
             txtFirstName.Text = patient.FirstName;
@@ -57,7 +59,7 @@ namespace TrinityCareMedica.UI.UserControls
             txtGuardianPhone.Text = patient.EmergencyContactPhone;
             dateAdmissionDate.Value = patient.DateRegistered;
         }
-        private void Reset()    
+        private void Reset()
         {
             if (action.Equals("Edit"))
             {
@@ -108,6 +110,7 @@ namespace TrinityCareMedica.UI.UserControls
                     LastName = txtLastName.Text,
                     MiddleName = txtMiddleName.Text,
                     DateOfBirth = dateBirth.Value.Date,
+                    Age = calculateAge(),
                     Gender = drpdownGender.Text,
                     Address = txtAddress.Text,
                     Phone = txtPhone.Text,
@@ -135,6 +138,13 @@ namespace TrinityCareMedica.UI.UserControls
                     MessageBox.Show("Patient information updated successfully.");
                     GoToPatientInfo?.Invoke(this, EventArgs.Empty);
                 }
+                if (GlobalVariables.assignedStaff.Count > 0)
+                {
+                    foreach (StaffModel assigned in GlobalVariables.assignedStaff)
+                    {
+                        staffController.AssignStaff(patientController.GetNextPatientID(), assigned.StaffID);
+                    }
+                }
             }
 
             catch (Exception ex)
@@ -152,6 +162,18 @@ namespace TrinityCareMedica.UI.UserControls
             {
                 checkboxTandC.Checked = !checkboxTandC.Checked;
             }
+        }
+        private int calculateAge()
+        {
+            DateTime today = DateTime.Today;
+            int age = today.Year - dateBirth.Value.Year;
+            if (dateBirth.Value.Date > today.AddYears(-age)) age--;
+            return age;
+        }
+        private void btnAddDoctor_Click(object sender, EventArgs e)
+        {
+            FormAssignStaff form = new FormAssignStaff();
+            form.ShowDialog();
         }
     }
 }

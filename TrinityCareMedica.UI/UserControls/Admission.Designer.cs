@@ -76,6 +76,7 @@
             btnAddDoctor.TabIndex = 77;
             btnAddDoctor.Text = "Doctors/Nurses";
             btnAddDoctor.UseVisualStyleBackColor = true;
+            btnAddDoctor.Click += btnAddDoctor_Click;
             // 
             // label3
             // 

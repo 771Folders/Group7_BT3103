@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Staff]
+(
+	[StaffID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	[FirstName] VARCHAR(50) NOT NULL,
+	[LastName] VARCHAR(50) NOT NULL,
+	[Department] VARCHAR(50) NOT NULL,
+	[Role] VARCHAR(50) NOT NULL
+)
