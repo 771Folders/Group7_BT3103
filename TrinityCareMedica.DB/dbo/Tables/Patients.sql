@@ -4,6 +4,7 @@ CREATE TABLE Patients (
     [LastName] VARCHAR(50),
     [MiddleName] VARCHAR(50),
     [DateOfBirth] DATETIME,
+    [Age] INT,
     [Gender] VARCHAR(50),
     [Phone] VARCHAR(15),
     [Address] VARCHAR(100),
@@ -11,5 +12,5 @@ CREATE TABLE Patients (
     [EmergencyContact] VARCHAR(50),
     [EmergencyContactPhone] VARCHAR(15),
     [DateRegistered] DATETIME NOT NULL DEFAULT GETDATE(),
-    [Status] VARCHAR(50) DEFAULT 'Admitted'
+    [Status] VARCHAR(50) DEFAULT 'Admitted' NOT NULL
 );

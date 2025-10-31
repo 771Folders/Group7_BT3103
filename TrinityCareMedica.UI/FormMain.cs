@@ -4,10 +4,6 @@ namespace TrinityCareMedica.UI
 {
     public partial class FormMain : Form
     {
-        #region Global Variables
-        public static string admissionAction = "Add";
-        public static int selectedPatientID = 0;
-        #endregion
         public FormMain()
         {
             InitializeComponent();
@@ -116,12 +112,12 @@ namespace TrinityCareMedica.UI
                 pim.GoToDashboard += (s, e) => ShowControl(new Dashboard());
                 pim.GoToAddPatient += (s, e) =>
                 {
-                    admissionAction = "Add";
+                    GlobalVariables.admissionAction = "Add";
                     ShowControl(new Admission());
                 };
                 pim.GoToEditPatient += (s, e) =>
                 {
-                    admissionAction = "Edit";
+                    GlobalVariables.admissionAction = "Edit";
                     ShowControl(new Admission());
                 };
                 pim.GoToPatientRecord += (s, e) => ShowControl(new PatientRecord());
@@ -130,11 +126,11 @@ namespace TrinityCareMedica.UI
             }
             else if (control is Admission admission)
             {
-                if (admissionAction == "Add")
+                if (GlobalVariables.admissionAction == "Add")
                 {
                     btnAdmission.BackColor = Color.White;
                 }
-                else if (admissionAction == "Edit")
+                else if (GlobalVariables.admissionAction == "Edit")
                 {
                     btnPatientInfo.BackColor = Color.White;
                 }
@@ -178,7 +174,7 @@ namespace TrinityCareMedica.UI
 
         private void btnAdmission_Click(object sender, EventArgs e)
         {
-            admissionAction = "Add";
+            GlobalVariables.admissionAction = "Add";
             ShowControl(new Admission());
         }
 

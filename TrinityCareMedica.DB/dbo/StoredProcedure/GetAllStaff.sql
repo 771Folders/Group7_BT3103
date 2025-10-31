@@ -1,0 +1,3 @@
+﻿CREATE PROCEDURE [dbo].[GetAllStaff]
+AS
+	SELECT * FROM Staff

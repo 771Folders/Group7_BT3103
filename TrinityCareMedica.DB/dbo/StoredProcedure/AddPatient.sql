@@ -3,6 +3,7 @@
 	@LastName VARCHAR(50),
 	@MiddleName VARCHAR(50),
 	@DateOfBirth DATETIME,
+	@Age INT,
 	@Gender VARCHAR(50),
 	@Phone VARCHAR(15),
 	@Address VARCHAR(100),
@@ -11,5 +12,5 @@
 	@EmergencyContactPhone VARCHAR(15) = NULL,
 	@DateRegistered DATETIME = NULL
 AS
-	INSERT INTO Patients(FirstName, LastName, MiddleName, DateOfBirth, Gender, Phone, Address, Email, EmergencyContact, EmergencyContactPhone, DateRegistered)
-	VALUES (@FirstName, @LastName, @MiddleName, @DateOfBirth, @Gender, @Phone, @Address, @Email, @EmergencyContact, @EmergencyContactPhone, ISNULL(@DateRegistered, GETDATE()))
+	INSERT INTO Patients(FirstName, LastName, MiddleName, DateOfBirth, Age, Gender, Phone, Address, Email, EmergencyContact, EmergencyContactPhone, DateRegistered)
+	VALUES (@FirstName, @LastName, @MiddleName, @DateOfBirth, @Age, @Gender, @Phone, @Address, @Email, @EmergencyContact, @EmergencyContactPhone, ISNULL(@DateRegistered, GETDATE()))
