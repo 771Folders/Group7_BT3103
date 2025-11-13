@@ -460,7 +460,7 @@
             // button1
             // 
             button1.Font = new Font("Tahoma", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(58, 898);
+            button1.Location = new Point(65, 898);
             button1.Name = "button1";
             button1.Size = new Size(263, 54);
             button1.TabIndex = 101;

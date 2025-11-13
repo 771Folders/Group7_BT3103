@@ -31,19 +31,19 @@
             panel1 = new Panel();
             labelTitle = new Label();
             panel2 = new Panel();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            label10 = new Label();
-            dataGridView1 = new DataGridView();
-            textBox1 = new TextBox();
             button1 = new Button();
+            textBox1 = new TextBox();
+            dataGridView1 = new DataGridView();
+            label10 = new Label();
+            label9 = new Label();
+            label8 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
             button2 = new Button();
             button3 = new Button();
             panel1.SuspendLayout();
@@ -93,95 +93,30 @@
             panel2.Size = new Size(1406, 770);
             panel2.TabIndex = 99;
             // 
-            // label1
+            // button1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(74, 29);
-            label1.Name = "label1";
-            label1.Size = new Size(214, 36);
-            label1.TabIndex = 0;
-            label1.Text = "Patient Details";
+            button1.Location = new Point(1222, 27);
+            button1.Name = "button1";
+            button1.Size = new Size(148, 38);
+            button1.TabIndex = 12;
+            button1.Text = "Search";
+            button1.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // textBox1
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(74, 95);
-            label2.Name = "label2";
-            label2.Size = new Size(84, 29);
-            label2.TabIndex = 1;
-            label2.Text = "Name:";
+            textBox1.Location = new Point(818, 27);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(398, 37);
+            textBox1.TabIndex = 11;
             // 
-            // label3
+            // dataGridView1
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(74, 149);
-            label3.Name = "label3";
-            label3.Size = new Size(124, 29);
-            label3.TabIndex = 2;
-            label3.Text = "Patient ID:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(74, 201);
-            label4.Name = "label4";
-            label4.Size = new Size(99, 29);
-            label4.TabIndex = 3;
-            label4.Text = "Gender:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(74, 255);
-            label5.Name = "label5";
-            label5.Size = new Size(155, 29);
-            label5.TabIndex = 4;
-            label5.Text = "Date of Birth:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(709, 95);
-            label6.Name = "label6";
-            label6.Size = new Size(164, 29);
-            label6.TabIndex = 5;
-            label6.Text = "Michael Tagle";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(789, 149);
-            label7.Name = "label7";
-            label7.Size = new Size(78, 29);
-            label7.TabIndex = 6;
-            label7.Text = "11112";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(800, 201);
-            label8.Name = "label8";
-            label8.Size = new Size(67, 29);
-            label8.TabIndex = 7;
-            label8.Text = "Male";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(730, 255);
-            label9.Name = "label9";
-            label9.Size = new Size(137, 29);
-            label9.TabIndex = 8;
-            label9.Text = "10/28/2004";
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(79, 365);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(1306, 392);
+            dataGridView1.TabIndex = 10;
             // 
             // label10
             // 
@@ -193,30 +128,95 @@
             label10.TabIndex = 9;
             label10.Text = "Items";
             // 
-            // dataGridView1
+            // label9
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(79, 365);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1306, 392);
-            dataGridView1.TabIndex = 10;
+            label9.AutoSize = true;
+            label9.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Location = new Point(730, 255);
+            label9.Name = "label9";
+            label9.Size = new Size(137, 29);
+            label9.TabIndex = 8;
+            label9.Text = "10/28/2004";
             // 
-            // textBox1
+            // label8
             // 
-            textBox1.Location = new Point(818, 27);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(398, 37);
-            textBox1.TabIndex = 11;
+            label8.AutoSize = true;
+            label8.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(800, 201);
+            label8.Name = "label8";
+            label8.Size = new Size(67, 29);
+            label8.TabIndex = 7;
+            label8.Text = "Male";
             // 
-            // button1
+            // label7
             // 
-            button1.Location = new Point(1222, 27);
-            button1.Name = "button1";
-            button1.Size = new Size(148, 38);
-            button1.TabIndex = 12;
-            button1.Text = "Search";
-            button1.UseVisualStyleBackColor = true;
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(789, 149);
+            label7.Name = "label7";
+            label7.Size = new Size(78, 29);
+            label7.TabIndex = 6;
+            label7.Text = "11112";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(709, 95);
+            label6.Name = "label6";
+            label6.Size = new Size(164, 29);
+            label6.TabIndex = 5;
+            label6.Text = "Michael Tagle";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(74, 255);
+            label5.Name = "label5";
+            label5.Size = new Size(155, 29);
+            label5.TabIndex = 4;
+            label5.Text = "Date of Birth:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(74, 201);
+            label4.Name = "label4";
+            label4.Size = new Size(99, 29);
+            label4.TabIndex = 3;
+            label4.Text = "Gender:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(74, 149);
+            label3.Name = "label3";
+            label3.Size = new Size(124, 29);
+            label3.TabIndex = 2;
+            label3.Text = "Patient ID:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(74, 95);
+            label2.Name = "label2";
+            label2.Size = new Size(84, 29);
+            label2.TabIndex = 1;
+            label2.Text = "Name:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(74, 29);
+            label1.Name = "label1";
+            label1.Size = new Size(214, 36);
+            label1.TabIndex = 0;
+            label1.Text = "Patient Details";
             // 
             // button2
             // 

@@ -87,6 +87,7 @@
             label5.Size = new Size(192, 25);
             label5.TabIndex = 4;
             label5.Text = "Parkinson's disease";
+            label5.Click += label5_Click;
             // 
             // label6
             // 

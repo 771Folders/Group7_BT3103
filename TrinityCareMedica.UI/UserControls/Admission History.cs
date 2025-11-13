@@ -16,5 +16,10 @@ namespace TrinityCareMedica.UI.UserControls
         {
             InitializeComponent();
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
