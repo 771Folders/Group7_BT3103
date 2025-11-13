@@ -34,6 +34,12 @@
     <Compile Update="UserControls\Billing.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\Billing2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UserControls\Billing3.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UserControls\Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>

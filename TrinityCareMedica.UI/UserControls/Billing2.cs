@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace TrinityCareMedica.UI.UserControls
 {
-    public partial class Billing : UserControl
+    public partial class Billing2 : Form
     {
-        public Billing()
+        public Billing2()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
