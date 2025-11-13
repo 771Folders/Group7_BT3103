@@ -4,6 +4,15 @@
     <_LastSelectedProfileId>C:\Users\xeans\source\repos\Group7_BT3103\EventDriven.Project.UI\Properties\PublishProfiles\FolderProfile1.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="AssignmentForms\FormAddMedicalRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AssignmentForms\FormAddMedication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AssignmentForms\FormAddTreatment.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="AssignmentForms\FormAssignRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -29,6 +38,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\Discharge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\MedicalRecordCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\PatientInformationMaintenance.cs">

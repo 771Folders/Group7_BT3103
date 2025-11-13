@@ -1,18 +1,22 @@
 ﻿using TrinityCareMedica.Businesslogic.Controller;
 using TrinityCareMedica.Model;
+using TrinityCareMedica.UI.AssignmentForms;
 
 namespace TrinityCareMedica.UI.UserControls
 {
     public partial class PatientRecord : UserControl
     {
+        #region Local Variables
         PatientController patientController;
         StaffController staffController;
         RoomController roomController;
+        MedicalRecordController medicalRecordController;
         List<int> assignedStaffIDs;
         List<StaffModel> assignedStaff;
         int selectedPatientID;
         PatientModel patient;
         AssignedRoomModel assignedRoom;
+        #endregion
         public PatientRecord()
         {
             InitializeComponent();
@@ -20,6 +24,7 @@ namespace TrinityCareMedica.UI.UserControls
             patientController = new PatientController();
             staffController = new StaffController();
             roomController = new RoomController();
+            medicalRecordController = new MedicalRecordController();
             selectedPatientID = GlobalVariables.selectedPatientID;
             patient = patientController.GetPatientByID(selectedPatientID);
             assignedRoom = GlobalVariables.assignedRoom;
@@ -29,6 +34,7 @@ namespace TrinityCareMedica.UI.UserControls
             LoadPatientData();
             LoadStaff();
             LoadRoom();
+            LoadMedicalRecords();
         }
         private void LoadPatientData()
         {
@@ -83,6 +89,17 @@ namespace TrinityCareMedica.UI.UserControls
                 labelEndDate.Visible = false;
             }
         }
+        private void LoadMedicalRecords()
+        {
+            flowMedicalRecords.Controls.Clear();
+            List<MedicalRecordModel> medicalRecords = medicalRecordController.GetPatientMedicalRecords(selectedPatientID);
+            foreach (MedicalRecordModel medicalRecord in medicalRecords)
+            {
+                MedicalRecordCard card = new MedicalRecordCard(medicalRecord.RecordID);
+                card.LoadMedicalRecords += (s, e) => LoadMedicalRecords();
+                flowMedicalRecords.Controls.Add(card);
+            }
+        }
         private void CheckDischargeStatus()
         {
             if (patient.Status.Equals("Discharged"))
@@ -94,6 +111,15 @@ namespace TrinityCareMedica.UI.UserControls
             {
                 panelDischarged.Visible = false;
                 panelRoomAndStaff.Visible = true;
+            }
+        }
+        private void btnAddMedicalRecord_Click(object sender, EventArgs e)
+        {
+            FormAddMedicalRecord form = new FormAddMedicalRecord();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.OK)
+            {
+                LoadMedicalRecords();
             }
         }
     }

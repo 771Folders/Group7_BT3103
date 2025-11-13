@@ -56,6 +56,8 @@
             panelDischarged = new Panel();
             lblDischarged = new Label();
             panel3 = new Panel();
+            btnAddMedicalRecord = new Button();
+            flowMedicalRecords = new FlowLayoutPanel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -63,6 +65,7 @@
             panelRoom.SuspendLayout();
             panel4.SuspendLayout();
             panelDischarged.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -335,16 +338,38 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.Control;
+            panel3.Controls.Add(btnAddMedicalRecord);
             panel3.Location = new Point(765, 120);
             panel3.Name = "panel3";
             panel3.Size = new Size(695, 830);
             panel3.TabIndex = 100;
+            // 
+            // btnAddMedicalRecord
+            // 
+            btnAddMedicalRecord.Location = new Point(375, 775);
+            btnAddMedicalRecord.Name = "btnAddMedicalRecord";
+            btnAddMedicalRecord.Size = new Size(308, 42);
+            btnAddMedicalRecord.TabIndex = 0;
+            btnAddMedicalRecord.Text = "Add Medical Record";
+            btnAddMedicalRecord.UseVisualStyleBackColor = true;
+            btnAddMedicalRecord.Click += btnAddMedicalRecord_Click;
+            // 
+            // flowMedicalRecords
+            // 
+            flowMedicalRecords.AutoScroll = true;
+            flowMedicalRecords.BackColor = SystemColors.Control;
+            flowMedicalRecords.FlowDirection = FlowDirection.TopDown;
+            flowMedicalRecords.Location = new Point(765, 117);
+            flowMedicalRecords.Name = "flowMedicalRecords";
+            flowMedicalRecords.Size = new Size(695, 741);
+            flowMedicalRecords.TabIndex = 0;
             // 
             // PatientRecord
             // 
             AutoScaleDimensions = new SizeF(16F, 35F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSeaGreen;
+            Controls.Add(flowMedicalRecords);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -365,6 +390,7 @@
             panel4.PerformLayout();
             panelDischarged.ResumeLayout(false);
             panelDischarged.PerformLayout();
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -398,5 +424,7 @@
         private Panel panelDischarged;
         private Label lblDischarged;
         private Panel panelRoomAndStaff;
+        private FlowLayoutPanel flowMedicalRecords;
+        private Button btnAddMedicalRecord;
     }
 }

@@ -89,6 +89,18 @@
     <Build Include="dbo\StoredProcedure\DeleteAssignedRoom.sql" />
     <Build Include="dbo\StoredProcedure\AssignRoom.sql" />
     <Build Include="dbo\Tables\AdmissionHistory.sql" />
+    <Build Include="dbo\Tables\MedicalRecords.sql" />
+    <Build Include="dbo\Tables\Treatments.sql" />
+    <Build Include="dbo\Tables\Medications.sql" />
+    <Build Include="dbo\StoredProcedure\AddMedicalRecord.sql" />
+    <Build Include="dbo\StoredProcedure\AddMedication.sql" />
+    <Build Include="dbo\StoredProcedure\AddTreatment.sql" />
+    <Build Include="dbo\StoredProcedure\DeleteMedicalRecordByID.sql" />
+    <Build Include="dbo\StoredProcedure\GetMedicalRecordByID.sql" />
+    <Build Include="dbo\StoredProcedure\GetMedicationByRecordID.sql" />
+    <Build Include="dbo\StoredProcedure\GetNextMedicalRecordID.sql" />
+    <Build Include="dbo\StoredProcedure\GetPatientMedicalRecords.sql" />
+    <Build Include="dbo\StoredProcedure\GetTreatmentByRecordID.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\UserScript.sql" />
