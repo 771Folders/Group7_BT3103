@@ -16,6 +16,9 @@
     <Compile Update="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UserControls\Admission History.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\Admission.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -38,6 +41,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\StaffList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\ViewAdminHistory.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
