@@ -8,6 +8,7 @@ namespace TrinityCareMedica.UI.UserControls
         #region Local Variables
         PatientController patientController;
         StaffController staffController;
+        RoomController roomController;
         public event EventHandler GoToDashboard;
         public event EventHandler GoToAddPatient;
         public event EventHandler GoToEditPatient;
@@ -21,6 +22,9 @@ namespace TrinityCareMedica.UI.UserControls
         {
             patientController = new PatientController();
             staffController = new StaffController();
+            roomController = new RoomController();
+            GlobalVariables.assignedStaff.Clear();
+            GlobalVariables.assignedRoom = new AssignedRoomModel();
             InitializeComponent();
             DoubleBuffering();
             CheckLoggedUser();
@@ -291,6 +295,12 @@ namespace TrinityCareMedica.UI.UserControls
                 {
                     int selected = Convert.ToInt32(dataPatients.CurrentRow.Cells["PatientID"].Value);
                     GlobalVariables.selectedPatientID = selected;
+                    List<int> assignedStaffIDs = staffController.GetAssignedStaff(selected);
+                    foreach (int id in assignedStaffIDs)
+                    {
+                        GlobalVariables.assignedStaff.Add(staffController.GetStaffByID(id));
+                    }
+                    GlobalVariables.assignedRoom = roomController.GetCurrentRoom(selected);
                 }
                 GlobalVariables.admissionAction = "Edit";
                 GoToEditPatient?.Invoke(this, EventArgs.Empty);
@@ -388,6 +398,12 @@ namespace TrinityCareMedica.UI.UserControls
 
                 int selected = Convert.ToInt32(dataPatients.CurrentRow.Cells["PatientID"].Value);
                 GlobalVariables.selectedPatientID = selected;
+                List<int> assignedStaffIDs = staffController.GetAssignedStaff(selected);
+                foreach (int id in assignedStaffIDs)
+                {
+                    GlobalVariables.assignedStaff.Add(staffController.GetStaffByID(id));
+                }
+                GlobalVariables.assignedRoom = roomController.GetCurrentRoom(selected);
                 GoToPatientRecord?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)

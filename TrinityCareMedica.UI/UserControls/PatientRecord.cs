@@ -7,27 +7,32 @@ namespace TrinityCareMedica.UI.UserControls
     {
         PatientController patientController;
         StaffController staffController;
+        RoomController roomController;
         List<int> assignedStaffIDs;
         List<StaffModel> assignedStaff;
         int selectedPatientID;
         PatientModel patient;
+        AssignedRoomModel assignedRoom;
         public PatientRecord()
         {
             InitializeComponent();
 
             patientController = new PatientController();
             staffController = new StaffController();
+            roomController = new RoomController();
             selectedPatientID = GlobalVariables.selectedPatientID;
             patient = patientController.GetPatientByID(selectedPatientID);
+            assignedRoom = GlobalVariables.assignedRoom;
+            assignedStaff = GlobalVariables.assignedStaff;
 
-            LoadAssignedStaff();
+            CheckDischargeStatus();
             LoadPatientData();
             LoadStaff();
+            LoadRoom();
         }
         private void LoadPatientData()
         {
             labelPatientID.Text = $"Patient ID: {patient.PatientID.ToString()}";
-            labelDateRegistered.Text = $"Date Registered: {patient.DateRegistered.ToString("MMM/dd/yyyy")}";
             labelFullName.Text = $"Full Name: {patient.FirstName} {patient.MiddleName} {patient.LastName}";
             labelDateOfBirth.Text = $"Date of Birth: {patient.DateOfBirth.ToString("MMM/dd/yyyy")}";
             labelAge.Text = $"Age: {patient.Age.ToString()}";
@@ -36,16 +41,6 @@ namespace TrinityCareMedica.UI.UserControls
             labelEmail.Text = $"Email: {patient.Email}";
             labelAddress.Text = $"Address: {patient.Address}";
             labelEmergencyContact.Text = $"Emergency Contact: {patient.EmergencyContact} ({patient.EmergencyContactPhone})";
-        }
-        private void LoadAssignedStaff()
-        {
-            assignedStaff = new List<StaffModel>();
-            assignedStaffIDs = staffController.GetAssignedStaff(selectedPatientID);
-            foreach (int staffID in assignedStaffIDs)
-            {
-                StaffModel staff = staffController.GetStaffByID(staffID);
-                assignedStaff.Add(staff);
-            }
         }
         private void LoadStaff()
         {
@@ -71,6 +66,35 @@ namespace TrinityCareMedica.UI.UserControls
                     txtNurses.AppendText(", " + Environment.NewLine);
             }
         }
-
+        private void LoadRoom()
+        {
+            if (!string.IsNullOrEmpty(assignedRoom.RoomType))
+            {
+                labelRoom.Text = $"Current Room: {assignedRoom.RoomType} ({assignedRoom.RoomNumber})";
+                labelBedNo.Text = $"Bed Number: {assignedRoom.BedNumber}";
+                labelStartDate.Text = $"Start Date: {assignedRoom.StartDate.ToString("MMM/dd/yyyy")}";
+                labelEndDate.Text = assignedRoom.EndDate.HasValue ? $"End Date: {assignedRoom.EndDate.Value.ToString("MMM/dd/yyyy")}" : "End Date: N/A";
+            }
+            else
+            {
+                labelRoom.Text = "Not Assigned to a Room";
+                labelBedNo.Visible = false;
+                labelStartDate.Visible = false;
+                labelEndDate.Visible = false;
+            }
+        }
+        private void CheckDischargeStatus()
+        {
+            if (patient.Status.Equals("Discharged"))
+            {
+                panelDischarged.Visible = true;
+                panelRoomAndStaff.Visible = false;
+            }
+            else
+            {
+                panelDischarged.Visible = false;
+                panelRoomAndStaff.Visible = true;
+            }
+        }
     }
 }

@@ -10,8 +10,7 @@
 	@Address VARCHAR(100),
 	@Email VARCHAR(50),
 	@EmergencyContact VARCHAR(50),
-	@EmergencyContactPhone VARCHAR(15),
-	@DateRegistered DATETIME = NULL
+	@EmergencyContactPhone VARCHAR(15)
 AS
 	UPDATE Patients
 	SET
@@ -25,6 +24,5 @@ AS
 		Address = @Address,
 		Email = @Email,
 		EmergencyContact = @EmergencyContact,
-		EmergencyContactPhone = @EmergencyContactPhone,
-		DateRegistered = ISNULL(@DateRegistered, DateRegistered)
+		EmergencyContactPhone = @EmergencyContactPhone
 	WHERE PatientID = @PatientID

@@ -4,6 +4,9 @@
     <_LastSelectedProfileId>C:\Users\xeans\source\repos\Group7_BT3103\EventDriven.Project.UI\Properties\PublishProfiles\FolderProfile1.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="AssignmentForms\FormAssignRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="CustomControls\CustomPanel.cs">
       <SubType>Component</SubType>
     </Compile>

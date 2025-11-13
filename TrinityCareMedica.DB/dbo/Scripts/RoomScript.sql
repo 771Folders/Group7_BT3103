@@ -1,0 +1,21 @@
+﻿INSERT INTO Rooms (RoomType, RoomNumber, RatePerDay, Capacity)
+VALUES
+('Emergency Room', 101, 2800.00, 10),
+('Procedure Room', 102, 2000.00, 2),
+('X-Ray Room', 103, 1800.00, 1),
+('MRI Room', 104, 6000.00, 1),
+('Ward Room', 201, 1000.00, 6),
+('Ward Room', 202, 1000.00, 6),
+('Semi-Private Room', 203, 1800.00, 2),
+('Semi-Private Room', 204, 1800.00, 2),
+('Private/Single Room', 205, 2500.00, 1),
+('Private/Single Room', 206, 2500.00, 1),
+('Medical-Surgical Room', 301, 1600.00, 4),
+('Operating Room', 302, 5000.00, 1),
+('Isolation Room', 303, 2200.00, 1),
+('Intensive Care Unit (ICU)', 304, 3500.00, 2),
+('Neonatal Intensive Care Unit (NICU)', 401, 4000.00, 4),
+('Pediatric Room', 402, 1300.00, 4),
+('Delivery Room', 403, 3200.00, 2),
+('Dermatology Treatment Room', 404, 1800.00, 2),
+('Cardiology Observation Room', 405, 3000.00, 2);

@@ -28,7 +28,6 @@ namespace TrinityCareMedica.Businesslogic.Repository
                     command.Parameters.AddWithValue("@Email", patient.Email);
                     command.Parameters.AddWithValue("@EmergencyContact", patient.EmergencyContact);
                     command.Parameters.AddWithValue("@EmergencyContactPhone", patient.EmergencyContactPhone);
-                    command.Parameters.AddWithValue("@DateRegistered", patient.DateRegistered);
                     command.ExecuteNonQuery();
                 }
             }
@@ -59,7 +58,6 @@ namespace TrinityCareMedica.Businesslogic.Repository
                     command.Parameters.AddWithValue("@Email", patient.Email);
                     command.Parameters.AddWithValue("@EmergencyContact", patient.EmergencyContact);
                     command.Parameters.AddWithValue("@EmergencyContactPhone", patient.EmergencyContactPhone);
-                    command.Parameters.AddWithValue("@DateRegistered", patient.DateRegistered);
                     command.ExecuteNonQuery();
                 }
             }
@@ -119,7 +117,6 @@ namespace TrinityCareMedica.Businesslogic.Repository
                                     Email = (string)reader["Email"],
                                     EmergencyContact = (string)reader["EmergencyContact"],
                                     EmergencyContactPhone = (string)reader["EmergencyContactPhone"],
-                                    DateRegistered = (DateTime)reader["DateRegistered"],
                                     Status = (string)reader["Status"]
                                 };
                                 return patient;
@@ -163,7 +160,6 @@ namespace TrinityCareMedica.Businesslogic.Repository
                                 patient.Email = (string)reader["Email"];
                                 patient.EmergencyContact = (string)reader["EmergencyContact"];
                                 patient.EmergencyContactPhone = (string)reader["EmergencyContactPhone"];
-                                patient.DateRegistered = (DateTime)reader["DateRegistered"];
                                 patient.Status = (string)reader["Status"];
                                 patients.Add(patient);
                             }
@@ -234,7 +230,6 @@ namespace TrinityCareMedica.Businesslogic.Repository
                                 patient.Email = (string)reader["Email"];
                                 patient.EmergencyContact = (string)reader["EmergencyContact"];
                                 patient.EmergencyContactPhone = (string)reader["EmergencyContactPhone"];
-                                patient.DateRegistered = (DateTime)reader["DateRegistered"];
                                 patient.Status = (string)reader["Status"];
                                 patients.Add(patient);
                             }

@@ -62,12 +62,12 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 450);
+            panel1.Size = new Size(800, 300);
             panel1.TabIndex = 0;
             // 
             // buttonSave
             // 
-            buttonSave.Location = new Point(651, 388);
+            buttonSave.Location = new Point(655, 238);
             buttonSave.Name = "buttonSave";
             buttonSave.Size = new Size(132, 49);
             buttonSave.TabIndex = 10;
@@ -77,7 +77,7 @@
             // 
             // buttonCancel
             // 
-            buttonCancel.Location = new Point(513, 388);
+            buttonCancel.Location = new Point(517, 238);
             buttonCancel.Name = "buttonCancel";
             buttonCancel.Size = new Size(132, 49);
             buttonCancel.TabIndex = 9;
@@ -90,7 +90,7 @@
             cbNurse3.DropDownStyle = ComboBoxStyle.DropDownList;
             cbNurse3.FlatStyle = FlatStyle.System;
             cbNurse3.FormattingEnabled = true;
-            cbNurse3.Location = new Point(414, 250);
+            cbNurse3.Location = new Point(425, 189);
             cbNurse3.Name = "cbNurse3";
             cbNurse3.Size = new Size(332, 37);
             cbNurse3.Sorted = true;
@@ -102,7 +102,7 @@
             cbNurse2.DropDownStyle = ComboBoxStyle.DropDownList;
             cbNurse2.FlatStyle = FlatStyle.System;
             cbNurse2.FormattingEnabled = true;
-            cbNurse2.Location = new Point(414, 207);
+            cbNurse2.Location = new Point(425, 146);
             cbNurse2.Name = "cbNurse2";
             cbNurse2.Size = new Size(332, 37);
             cbNurse2.Sorted = true;
@@ -114,7 +114,7 @@
             cbNurse1.DropDownStyle = ComboBoxStyle.DropDownList;
             cbNurse1.FlatStyle = FlatStyle.System;
             cbNurse1.FormattingEnabled = true;
-            cbNurse1.Location = new Point(414, 164);
+            cbNurse1.Location = new Point(425, 103);
             cbNurse1.Name = "cbNurse1";
             cbNurse1.Size = new Size(332, 37);
             cbNurse1.Sorted = true;
@@ -125,7 +125,7 @@
             // 
             label3.AutoSize = true;
             label3.ForeColor = SystemColors.Control;
-            label3.Location = new Point(414, 131);
+            label3.Location = new Point(425, 70);
             label3.Name = "label3";
             label3.Size = new Size(98, 30);
             label3.TabIndex = 5;
@@ -136,7 +136,7 @@
             cbDoctor3.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDoctor3.FlatStyle = FlatStyle.System;
             cbDoctor3.FormattingEnabled = true;
-            cbDoctor3.Location = new Point(11, 250);
+            cbDoctor3.Location = new Point(22, 189);
             cbDoctor3.Name = "cbDoctor3";
             cbDoctor3.Size = new Size(332, 37);
             cbDoctor3.Sorted = true;
@@ -148,7 +148,7 @@
             cbDoctor2.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDoctor2.FlatStyle = FlatStyle.System;
             cbDoctor2.FormattingEnabled = true;
-            cbDoctor2.Location = new Point(11, 207);
+            cbDoctor2.Location = new Point(22, 146);
             cbDoctor2.Name = "cbDoctor2";
             cbDoctor2.Size = new Size(332, 37);
             cbDoctor2.Sorted = true;
@@ -160,7 +160,7 @@
             cbDoctor1.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDoctor1.FlatStyle = FlatStyle.System;
             cbDoctor1.FormattingEnabled = true;
-            cbDoctor1.Location = new Point(11, 164);
+            cbDoctor1.Location = new Point(22, 103);
             cbDoctor1.Name = "cbDoctor1";
             cbDoctor1.Size = new Size(332, 37);
             cbDoctor1.Sorted = true;
@@ -171,7 +171,7 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(11, 131);
+            label2.Location = new Point(22, 70);
             label2.Name = "label2";
             label2.Size = new Size(108, 30);
             label2.TabIndex = 1;
@@ -179,18 +179,20 @@
             // 
             // panel2
             // 
-            panel2.BackColor = SystemColors.Window;
+            panel2.BackColor = Color.FromArgb(242, 242, 243);
             panel2.Controls.Add(label1);
             panel2.Dock = DockStyle.Top;
+            panel2.ForeColor = SystemColors.WindowText;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(798, 62);
+            panel2.Size = new Size(798, 60);
             panel2.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(11, 16);
+            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.Location = new Point(10, 15);
             label1.Name = "label1";
             label1.Size = new Size(146, 30);
             label1.TabIndex = 1;
@@ -203,7 +205,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
             CancelButton = buttonCancel;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 300);
             Controls.Add(panel1);
             Font = new Font("Microsoft JhengHei UI", 14F);
             FormBorderStyle = FormBorderStyle.None;

@@ -1,5 +1,6 @@
 ﻿using TrinityCareMedica.Businesslogic.Controller;
 using TrinityCareMedica.Model;
+using TrinityCareMedica.UI.AssignmentForms;
 
 namespace TrinityCareMedica.UI.UserControls
 {
@@ -8,6 +9,7 @@ namespace TrinityCareMedica.UI.UserControls
         #region Local Variables
         PatientController patientController;
         StaffController staffController;
+        RoomController roomController;
         String action;
         public event EventHandler GoToDashboard;
         public event EventHandler GoToPatientInfo;
@@ -17,6 +19,7 @@ namespace TrinityCareMedica.UI.UserControls
             InitializeComponent();
             patientController = new PatientController();
             staffController = new StaffController();
+            roomController = new RoomController();
             action = GlobalVariables.admissionAction;
             lblID.Text = patientController.GetNextPatientID().ToString();
             CheckAction();
@@ -25,6 +28,7 @@ namespace TrinityCareMedica.UI.UserControls
         {
             if (action == "Add")
             {
+                GlobalVariables.selectedPatientID = patientController.GetNextPatientID();
                 labelTitle.Text = "Patient Admission";
                 btnSubmit.Text = "ADMIT";
                 btnReset.Text = "RESET";
@@ -57,9 +61,82 @@ namespace TrinityCareMedica.UI.UserControls
             txtPhone.Text = patient.Phone;
             txtGuardian.Text = patient.EmergencyContact;
             txtGuardianPhone.Text = patient.EmergencyContactPhone;
-            dateAdmissionDate.Value = patient.DateRegistered;
         }
         private void Reset()
+        {
+            lblID.Text = patientController.GetNextPatientID().ToString();
+            txtLastName.Clear();
+            txtFirstName.Clear();
+            txtMiddleName.Clear();
+            dateBirth.Value = DateTime.Today;
+            drpdownGender.SelectedIndex = -1;
+            txtPhone.Clear();
+            txtEmail.Clear();
+            txtGuardian.Clear();
+            txtGuardianPhone.Clear();
+            txtAddress.Clear();
+            checkboxTandC.Checked = false;
+            dateAdmissionDate.Value = DateTime.Today;
+            GlobalVariables.assignedStaff.Clear();
+            GlobalVariables.assignedRoom = new AssignedRoomModel();
+        }
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PatientModel patient = new PatientModel()
+                {
+                    PatientID = int.Parse(lblID.Text),
+                    FirstName = txtFirstName.Text,
+                    LastName = txtLastName.Text,
+                    MiddleName = txtMiddleName.Text,
+                    DateOfBirth = dateBirth.Value.Date,
+                    Age = calculateAge(),
+                    Gender = drpdownGender.Text,
+                    Address = txtAddress.Text,
+                    Phone = txtPhone.Text,
+                    Email = txtEmail.Text,
+                    EmergencyContact = txtGuardian.Text,
+                    EmergencyContactPhone = txtGuardianPhone.Text
+                };
+                if (action.Equals("Add"))
+                {
+                    if (checkboxTandC.Checked == true)
+                    {
+                        patientController.AddPatient(patient);
+                        MessageBox.Show("Patient admitted successfully.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please agree to the terms and conditions.", "Terms and Conditions", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else if (action.Equals("Edit"))
+                {
+                    patientController.EditPatient(patient);
+                    MessageBox.Show("Patient information updated successfully.");
+                    GoToPatientInfo?.Invoke(this, EventArgs.Empty);
+                }
+                if (GlobalVariables.assignedStaff.Count > 0)
+                {
+                    foreach (StaffModel assigned in GlobalVariables.assignedStaff)
+                    {
+                        staffController.AssignStaff(GlobalVariables.selectedPatientID, assigned.StaffID);
+                    }
+                }
+                if (!string.IsNullOrEmpty(GlobalVariables.assignedRoom.RoomType))
+                {
+                    GlobalVariables.assignedRoom.PatientID = GlobalVariables.selectedPatientID;
+                    roomController.AssignRoom(GlobalVariables.assignedRoom);
+                }
+                Reset();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void btnReset_Click(object sender, EventArgs e)
         {
             if (action.Equals("Edit"))
             {
@@ -83,78 +160,9 @@ namespace TrinityCareMedica.UI.UserControls
                 }
                 else
                 {
-                    lblID.Text = patientController.GetNextPatientID().ToString();
-                    txtLastName.Clear();
-                    txtFirstName.Clear();
-                    txtMiddleName.Clear();
-                    dateBirth.Value = DateTime.Today;
-                    drpdownGender.SelectedIndex = -1;
-                    txtPhone.Clear();
-                    txtEmail.Clear();
-                    txtGuardian.Clear();
-                    txtGuardianPhone.Clear();
-                    txtAddress.Clear();
-                    checkboxTandC.Checked = false;
-                    dateAdmissionDate.Value = DateTime.Today;
+                    Reset();
                 }
             }
-        }
-        private void btnSubmit_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                PatientModel patient = new PatientModel()
-                {
-                    PatientID = int.Parse(lblID.Text),
-                    FirstName = txtFirstName.Text,
-                    LastName = txtLastName.Text,
-                    MiddleName = txtMiddleName.Text,
-                    DateOfBirth = dateBirth.Value.Date,
-                    Age = calculateAge(),
-                    Gender = drpdownGender.Text,
-                    Address = txtAddress.Text,
-                    Phone = txtPhone.Text,
-                    Email = txtEmail.Text,
-                    EmergencyContact = txtGuardian.Text,
-                    EmergencyContactPhone = txtGuardianPhone.Text,
-                    DateRegistered = dateAdmissionDate.Value
-                };
-                if (action.Equals("Add"))
-                {
-                    if (checkboxTandC.Checked == true)
-                    {
-                        patientController.AddPatient(patient);
-                        MessageBox.Show("Patient admitted successfully.");
-                        Reset();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please agree to the terms and conditions.", "Terms and Conditions", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                else if (action.Equals("Edit"))
-                {
-                    patientController.EditPatient(patient);
-                    MessageBox.Show("Patient information updated successfully.");
-                    GoToPatientInfo?.Invoke(this, EventArgs.Empty);
-                }
-                if (GlobalVariables.assignedStaff.Count > 0)
-                {
-                    foreach (StaffModel assigned in GlobalVariables.assignedStaff)
-                    {
-                        staffController.AssignStaff(patientController.GetNextPatientID(), assigned.StaffID);
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            Reset();
         }
         private void checkboxTandC_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -173,6 +181,11 @@ namespace TrinityCareMedica.UI.UserControls
         private void btnAddDoctor_Click(object sender, EventArgs e)
         {
             FormAssignStaff form = new FormAssignStaff();
+            form.ShowDialog();
+        }
+        private void btnAddRoom_Click(object sender, EventArgs e)
+        {
+            FormAssignRoom form = new FormAssignRoom();
             form.ShowDialog();
         }
     }
