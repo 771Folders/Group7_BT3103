@@ -1,30 +1,26 @@
-﻿using TrinityCareMedica.Businesslogic.Controller;
+﻿using System.Windows.Forms;
+using TrinityCareMedica.Businesslogic.Controller;
 using TrinityCareMedica.Model;
 
 namespace TrinityCareMedica.UI.UserControls
 {
-    public partial class Billing : UserControl
+    public partial class BillingSummary : UserControl
     {
-        PatientController patientController;
-        BillingController billingController;
-        public event EventHandler GoToBillingSummary;
-        public Billing()
+        private PatientController patientController;
+        private BillingController billingController;
+        BillingModel billingSummary;
+        int selectedPatientID;
+        public event EventHandler GoToDashboard;
+        public BillingSummary()
         {
             InitializeComponent();
             patientController = new PatientController();
             billingController = new BillingController();
-            LoadPatientData();
-            LoadBillingDetails();
+            selectedPatientID = GlobalVariables.selectedPatientID;
+            billingSummary = GlobalVariables.billingSummary;
+            LoadData();
         }
-        private void LoadPatientData()
-        {
-            PatientModel patient = patientController.GetPatientByID(GlobalVariables.selectedPatientID);
-            lblPatientID.Text = $"Patient ID: {patient.PatientID.ToString()}";
-            lblPatientName.Text = $"Name: {patient.FirstName} {patient.MiddleName} {patient.LastName}";
-            lblGender.Text = $"Gender: {patient.Gender}";
-            lblAge.Text = $"Age: {patient.DateOfBirth.ToString("MM/dd/yyyy")}";
-        }
-        private void LoadBillingDetails()
+        private void LoadData()
         {
             List<int> admissionIDs = patientController.GetPatientAdmissionIDs(GlobalVariables.selectedPatientID);
             List<BillingDetailsModel> billingDetails = new List<BillingDetailsModel>();
@@ -44,20 +40,24 @@ namespace TrinityCareMedica.UI.UserControls
             {
                 Total = GrandTotal
             });
-            dataGridView1.DataSource = billingDetails;
-            dataGridView1.Columns["AdmissionID"].Visible = false;
+            dataSummary.DataSource = billingDetails;
+            dataSummary.Columns["AdmissionID"].Visible = false;
+        }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            GoToDashboard?.Invoke(this, EventArgs.Empty);
         }
         private void btnPrint_Click(object sender, EventArgs e)
         {
             printPreviewDialog1.ShowDialog();
+            GoToDashboard?.Invoke(this, EventArgs.Empty);
         }
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            PatientModel patient = patientController.GetPatientByID(GlobalVariables.selectedPatientID);
-
+            PatientModel patient = patientController.GetPatientByID(selectedPatientID);
             Graphics g = e.Graphics;
 
-            g.DrawString("Billing Statement", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new PointF(100, 50));
+            g.DrawString("Bill Receipt", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new PointF(100, 50));
 
             g.DrawString("Generated: " + DateTime.Now.ToString("MM/dd/yyyy"), new Font("Arial", 12), Brushes.Gray, new PointF(100, 90));
 
@@ -76,10 +76,9 @@ namespace TrinityCareMedica.UI.UserControls
             g.DrawString("Price", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(490, 280));
             g.DrawString("Total", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(600, 280));
 
-
             int y = 310;
 
-            List<int> admissionIDs = patientController.GetPatientAdmissionIDs(GlobalVariables.selectedPatientID);
+            List<int> admissionIDs = patientController.GetPatientAdmissionIDs(selectedPatientID);
             List<BillingDetailsModel> billingDetails = new List<BillingDetailsModel>();
             decimal GrandTotal = 0;
             foreach (int admissionID in admissionIDs)
@@ -97,19 +96,15 @@ namespace TrinityCareMedica.UI.UserControls
                 GrandTotal += detail.Total;
             }
 
-            g.DrawLine(Pens.Black, 100, y + 20, 700, y + 20);
+            g.DrawLine(Pens.Black, 100, y, 700, y);
             g.DrawString("Total Amount:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, y + 30));
-            g.DrawString($"₱{GrandTotal}", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 30));
-
-
-            g.DrawString("End of Report", new Font("Arial", 10, FontStyle.Italic), Brushes.Gray, new PointF(100, y + 90));
-        }
-        private void btnPayment_Click(object sender, EventArgs e)
-        {
-            List<int> admissionIDs = patientController.GetPatientAdmissionIDs(GlobalVariables.selectedPatientID);
-            BillPayment form = new BillPayment(admissionIDs[0]);
-            form.GoToBillingSummary += (s, e) => GoToBillingSummary?.Invoke(this, EventArgs.Empty);
-            form.ShowDialog();
+            g.DrawString("Payment Received:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, y + 60));
+            g.DrawString("Remaining Balance:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, y + 90));
+            g.DrawString("Remarks:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, y + 120));
+            g.DrawString("₱" + billingSummary.TotalAmount.ToString(), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 30));
+            g.DrawString("₱" + billingSummary.AmountPaid.ToString(), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 60));
+            g.DrawString("₱" + billingSummary.Balance.ToString(), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 90));
+            g.DrawString(billingSummary.Remarks, new Font("Arial", 14), Brushes.Black, new PointF(100, y + 150));
         }
     }
 }

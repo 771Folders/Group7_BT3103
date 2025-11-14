@@ -380,7 +380,26 @@ namespace TrinityCareMedica.UI.UserControls
         }
         private void btnBilling_Click(object sender, EventArgs e)
         {
-            GoToBilling?.Invoke(this, EventArgs.Empty);
+            try
+            {
+                if (dataPatients.CurrentRow != null)
+                {
+                    int selected = Convert.ToInt32(dataPatients.CurrentRow.Cells["PatientID"].Value);
+                    GlobalVariables.selectedPatientID = selected;
+                    List<int> assignedStaffIDs = staffController.GetAssignedStaff(selected);
+                    foreach (int id in assignedStaffIDs)
+                    {
+                        GlobalVariables.assignedStaff.Add(staffController.GetStaffByID(id));
+                    }
+                    GlobalVariables.assignedRoom = roomController.GetCurrentRoom(selected);
+                }
+                GlobalVariables.admissionAction = "Edit";
+                GoToBilling?.Invoke(this, EventArgs.Empty);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error during edit: " + ex.Message);
+            }
         }
         private void btnDischarge_Click(object sender, EventArgs e)
         {

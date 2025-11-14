@@ -101,6 +101,14 @@
     <Build Include="dbo\StoredProcedure\GetNextMedicalRecordID.sql" />
     <Build Include="dbo\StoredProcedure\GetPatientMedicalRecords.sql" />
     <Build Include="dbo\StoredProcedure\GetTreatmentByRecordID.sql" />
+    <Build Include="dbo\Tables\Billings.sql" />
+    <Build Include="dbo\Tables\BillingDetails.sql" />
+    <Build Include="dbo\StoredProcedure\GenerateBilling.sql" />
+    <Build Include="dbo\StoredProcedure\GetBillingDetails.sql" />
+    <Build Include="dbo\StoredProcedure\ConfirmPayment.sql" />
+    <Build Include="dbo\StoredProcedure\GetPatientAdmissionIDs.sql" />
+    <Build Include="dbo\StoredProcedure\DischargePatient.sql" />
+    <Build Include="dbo\StoredProcedure\GetAllAdmissionCards.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\UserScript.sql" />

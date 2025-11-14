@@ -1,4 +1,6 @@
-﻿using TrinityCareMedica.UI.UserControls;
+﻿using TrinityCareMedica.UI.AssignmentForms;
+using TrinityCareMedica.UI.PopupForms;
+using TrinityCareMedica.UI.UserControls;
 
 namespace TrinityCareMedica.UI
 {
@@ -144,6 +146,7 @@ namespace TrinityCareMedica.UI
             else if (control is Billing billing)
             {
                 btnBilling.BackColor = Color.White;
+                billing.GoToBillingSummary += (s, e) => ShowControl(new BillingSummary());
             }
             else if (control is StaffList staffList)
             {
@@ -156,6 +159,11 @@ namespace TrinityCareMedica.UI
             else if (control is Discharge discharge)
             {
                 btnDischarge.BackColor = Color.White;
+            }
+            else if (control is BillingSummary billingSummary)
+            {
+                btnBilling.BackColor = Color.White;
+                billingSummary.GoToDashboard += (s, e) => ShowControl(new Dashboard());
             }
 
             panelMain.Controls.Clear();
@@ -180,24 +188,30 @@ namespace TrinityCareMedica.UI
 
         private void btnBilling_Click(object sender, EventArgs e)
         {
-            ShowControl(new Billing());
+            FormSelectPatient form = new FormSelectPatient();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.OK)
+            {
+                ShowControl(new Billing());
+            }
         }
-
         private void btnStaff_Click(object sender, EventArgs e)
         {
             ShowControl(new StaffList());
         }
-
         private void btnRooms_Click(object sender, EventArgs e)
         {
             ShowControl(new Rooms());
         }
-
         private void btnDischarge_Click(object sender, EventArgs e)
         {
-            ShowControl(new Discharge());
+            FormDischargePatient form = new FormDischargePatient();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.OK)
+            {
+                ShowControl(new Discharge());
+            }
         }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             FormLogin formLogin = new FormLogin();

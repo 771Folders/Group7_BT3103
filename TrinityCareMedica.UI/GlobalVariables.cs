@@ -11,5 +11,6 @@ namespace TrinityCareMedica.UI
         public static MedicalRecordModel medicalRecord = new MedicalRecordModel();
         public static TreatmentModel treatment = new TreatmentModel();
         public static MedicationModel medication = new MedicationModel();
+        public static BillingModel billingSummary = new BillingModel();
     }
 }

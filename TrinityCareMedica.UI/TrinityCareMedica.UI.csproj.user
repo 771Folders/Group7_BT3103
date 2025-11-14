@@ -4,22 +4,28 @@
     <_LastSelectedProfileId>C:\Users\xeans\source\repos\Group7_BT3103\EventDriven.Project.UI\Properties\PublishProfiles\FolderProfile1.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="AssignmentForms\FormAddMedicalRecord.cs">
+    <Compile Update="PopupForms\FormAddMedicalRecord.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AssignmentForms\FormAddMedication.cs">
+    <Compile Update="PopupForms\FormAddMedication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AssignmentForms\FormAddTreatment.cs">
+    <Compile Update="PopupForms\FormAddTreatment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AssignmentForms\FormAssignRoom.cs">
+    <Compile Update="PopupForms\FormAssignRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PopupForms\FormDischargePatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PopupForms\FormSelectPatient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="CustomControls\CustomPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="AssignmentForms\FormAssignStaff.cs">
+    <Compile Update="PopupForms\FormAssignStaff.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormLogin.cs">
@@ -28,7 +34,7 @@
     <Compile Update="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UserControls\Admission History.cs">
+    <Compile Update="UserControls\AdmissionHistoryCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\Admission.cs">
@@ -37,11 +43,11 @@
     <Compile Update="UserControls\Billing.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControls\Billing2.cs">
+    <Compile Update="PopupForms\BillPayment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UserControls\Billing3.cs">
-      <SubType>Form</SubType>
+    <Compile Update="UserControls\BillingSummary.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\Dashboard.cs">
       <SubType>UserControl</SubType>

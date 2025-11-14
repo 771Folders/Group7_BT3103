@@ -244,5 +244,75 @@ namespace TrinityCareMedica.Businesslogic.Repository
             }
             return null;
         }
+        public List<int> GetPatientAdmissionIDs(int PatientID)
+        {
+            List<int> admissions = new List<int>();
+            using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("GetPatientAdmissionIDs", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                            admissions.Add((int)reader["AdmissionID"]);
+                    }
+                }
+            }
+            return admissions;
+        }
+        public List<AdmissionHistoryModel> GetAllAdmissionCards()
+        {
+            try
+            {
+                List<AdmissionHistoryModel> admissionCards = new List<AdmissionHistoryModel>();
+                using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("dbo.GetAllAdmissionCards", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                AdmissionHistoryModel admissionCard = new AdmissionHistoryModel
+                                {
+                                    AdmissionID = (int)reader["AdmissionID"],
+                                    PatientID = (int)reader["PatientID"],
+                                    PatientName = (string)reader["PatientName"],
+                                    Diagnosis = (string)reader["Diagnosis"],
+                                    AdmissionDate = (DateTime)reader["AdmissionDate"],
+                                    DischargeDate = reader["DischargeDate"] as DateTime?
+                                };
+                                admissionCards.Add(admissionCard);
+                            }
+                            return admissionCards;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            return null;
+        }
+        public void DischargePatient(int PatientID, int AdmissionID)
+        {
+            using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("DischargePatient", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    cmd.Parameters.AddWithValue("@AdmissionID", AdmissionID);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

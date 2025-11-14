@@ -31,13 +31,11 @@
             panel1 = new Panel();
             labelTitle = new Label();
             panel2 = new Panel();
-            label12 = new Label();
-            label11 = new Label();
-            label10 = new Label();
-            label9 = new Label();
-            label8 = new Label();
-            label7 = new Label();
-            label6 = new Label();
+            lblDiagnosis = new Label();
+            lblDischargeDate = new Label();
+            lblAdmissionDate = new Label();
+            lblPatientID = new Label();
+            lblPatientName = new Label();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
@@ -70,13 +68,11 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Controls.Add(label12);
-            panel2.Controls.Add(label11);
-            panel2.Controls.Add(label10);
-            panel2.Controls.Add(label9);
-            panel2.Controls.Add(label8);
-            panel2.Controls.Add(label7);
-            panel2.Controls.Add(label6);
+            panel2.Controls.Add(lblDiagnosis);
+            panel2.Controls.Add(lblDischargeDate);
+            panel2.Controls.Add(lblAdmissionDate);
+            panel2.Controls.Add(lblPatientID);
+            panel2.Controls.Add(lblPatientName);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(label3);
@@ -88,75 +84,55 @@
             panel2.Size = new Size(1400, 743);
             panel2.TabIndex = 101;
             // 
-            // label12
+            // lblDiagnosis
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.Location = new Point(1014, 538);
-            label12.Name = "label12";
-            label12.Size = new Size(43, 38);
-            label12.TabIndex = 110;
-            label12.Text = "--";
+            lblDiagnosis.AutoSize = true;
+            lblDiagnosis.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDiagnosis.Location = new Point(1014, 447);
+            lblDiagnosis.Name = "lblDiagnosis";
+            lblDiagnosis.Size = new Size(43, 38);
+            lblDiagnosis.TabIndex = 109;
+            lblDiagnosis.Text = "--";
             // 
-            // label11
+            // lblDischargeDate
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.Location = new Point(1014, 447);
-            label11.Name = "label11";
-            label11.Size = new Size(43, 38);
-            label11.TabIndex = 109;
-            label11.Text = "--";
+            lblDischargeDate.AutoSize = true;
+            lblDischargeDate.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDischargeDate.Location = new Point(1014, 347);
+            lblDischargeDate.Name = "lblDischargeDate";
+            lblDischargeDate.Size = new Size(43, 38);
+            lblDischargeDate.TabIndex = 108;
+            lblDischargeDate.Text = "--";
             // 
-            // label10
+            // lblAdmissionDate
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.Location = new Point(1014, 347);
-            label10.Name = "label10";
-            label10.Size = new Size(43, 38);
-            label10.TabIndex = 108;
-            label10.Text = "--";
+            lblAdmissionDate.AutoSize = true;
+            lblAdmissionDate.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblAdmissionDate.Location = new Point(1014, 247);
+            lblAdmissionDate.Name = "lblAdmissionDate";
+            lblAdmissionDate.Size = new Size(43, 38);
+            lblAdmissionDate.TabIndex = 107;
+            lblAdmissionDate.Text = "--";
             // 
-            // label9
+            // lblPatientID
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(1014, 247);
-            label9.Name = "label9";
-            label9.Size = new Size(43, 38);
-            label9.TabIndex = 107;
-            label9.Text = "--";
+            lblPatientID.AutoSize = true;
+            lblPatientID.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPatientID.Location = new Point(1014, 147);
+            lblPatientID.Name = "lblPatientID";
+            lblPatientID.Size = new Size(43, 38);
+            lblPatientID.TabIndex = 106;
+            lblPatientID.Text = "--";
             // 
-            // label8
+            // lblPatientName
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(1014, 147);
-            label8.Name = "label8";
-            label8.Size = new Size(43, 38);
-            label8.TabIndex = 106;
-            label8.Text = "--";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(1014, 47);
-            label7.Name = "label7";
-            label7.Size = new Size(43, 38);
-            label7.TabIndex = 105;
-            label7.Text = "--";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(78, 552);
-            label6.Name = "label6";
-            label6.Size = new Size(305, 38);
-            label6.TabIndex = 104;
-            label6.Text = "Attending Physician:";
+            lblPatientName.AutoSize = true;
+            lblPatientName.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPatientName.Location = new Point(1014, 47);
+            lblPatientName.Name = "lblPatientName";
+            lblPatientName.Size = new Size(43, 38);
+            lblPatientName.TabIndex = 105;
+            lblPatientName.Text = "--";
             // 
             // label5
             // 
@@ -164,9 +140,9 @@
             label5.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.Location = new Point(78, 452);
             label5.Name = "label5";
-            label5.Size = new Size(186, 38);
+            label5.Size = new Size(163, 38);
             label5.TabIndex = 103;
-            label5.Text = "Room Type:";
+            label5.Text = "Diagnosis:";
             // 
             // label4
             // 
@@ -231,13 +207,11 @@
         private Panel panel1;
         private Label labelTitle;
         private Panel panel2;
-        private Label label12;
-        private Label label11;
-        private Label label10;
-        private Label label9;
-        private Label label8;
-        private Label label7;
-        private Label label6;
+        private Label lblDiagnosis;
+        private Label lblDischargeDate;
+        private Label lblAdmissionDate;
+        private Label lblPatientID;
+        private Label lblPatientName;
         private Label label5;
         private Label label4;
         private Label label3;

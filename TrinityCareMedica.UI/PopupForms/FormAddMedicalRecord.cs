@@ -22,9 +22,9 @@ namespace TrinityCareMedica.UI.AssignmentForms
                 Notes = txtNotes.Text
             };
             medicalRecordController.AddMedicalRecord(GlobalVariables.medicalRecord);
-            if (GlobalVariables.medication.MedicationID > 0)
+            if (!string.IsNullOrEmpty(GlobalVariables.medication.MedicationName))
                 medicalRecordController.AddMedication(GlobalVariables.medication);
-            if (GlobalVariables.treatment.TreatmentID > 0)
+            if (!string.IsNullOrEmpty(GlobalVariables.treatment.TreatmentType))
                 medicalRecordController.AddTreatment(GlobalVariables.treatment);
             DialogResult = DialogResult.OK;
             DialogResult = DialogResult.OK;

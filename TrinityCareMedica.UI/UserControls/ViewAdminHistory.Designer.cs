@@ -28,44 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            panel1 = new Panel();
+            labelTitle = new Label();
+            panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(54, 48);
-            label1.Name = "label1";
-            label1.Size = new Size(282, 38);
-            label1.TabIndex = 0;
-            label1.Text = "Admission History";
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.BackColor = Color.Silver;
-            flowLayoutPanel1.Location = new Point(55, 125);
+            flowLayoutPanel1.Location = new Point(60, 125);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1816, 921);
+            flowLayoutPanel1.Size = new Size(1400, 829);
             flowLayoutPanel1.TabIndex = 1;
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Teal;
+            panel1.Controls.Add(labelTitle);
+            panel1.Location = new Point(60, 50);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1400, 60);
+            panel1.TabIndex = 98;
+            // 
+            // labelTitle
+            // 
+            labelTitle.AutoSize = true;
+            labelTitle.Font = new Font("Microsoft JhengHei UI", 22F);
+            labelTitle.ForeColor = Color.White;
+            labelTitle.Location = new Point(13, 7);
+            labelTitle.Name = "labelTitle";
+            labelTitle.Size = new Size(336, 47);
+            labelTitle.TabIndex = 0;
+            labelTitle.Text = "Admission History";
             // 
             // ViewAdminHistory
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSeaGreen;
+            Controls.Add(panel1);
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(label1);
             Name = "ViewAdminHistory";
-            Size = new Size(1920, 1080);
+            Size = new Size(1520, 1000);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Panel panel1;
+        private Label labelTitle;
     }
 }
