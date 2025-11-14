@@ -38,5 +38,17 @@ namespace TrinityCareMedica.Businesslogic.Controller
         {
             return patientRepo.GetNextPatientID();
         }
+        public List<int> GetPatientAdmissionIDs(int PatientID)
+        {
+            return patientRepo.GetPatientAdmissionIDs(PatientID);
+        }
+        public List<AdmissionHistoryModel> GetAllAdmissionCards()
+        {
+            return patientRepo.GetAllAdmissionCards();
+        }
+        public void DischargePatient(int PatientID, int AdmissionID)
+        {
+            patientRepo.DischargePatient(PatientID, AdmissionID);
+        }
     }
 }

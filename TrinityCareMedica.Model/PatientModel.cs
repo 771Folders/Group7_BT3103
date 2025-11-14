@@ -14,7 +14,6 @@
         public string Email { get; set; }
         public string EmergencyContact { get; set; }
         public string EmergencyContactPhone { get; set; }
-        public DateTime DateRegistered { get; set; }
         public string Status { get; set; }
     }
 }

@@ -81,6 +81,34 @@
     <Build Include="dbo\StoredProcedure\GetStaffByID.sql" />
     <Build Include="dbo\StoredProcedure\GetAssignedStaff.sql" />
     <Build Include="dbo\StoredProcedure\DeleteStaffAssignments.sql" />
+    <Build Include="dbo\Tables\Rooms.sql" />
+    <Build Include="dbo\Tables\RoomAssignments.sql" />
+    <Build Include="dbo\StoredProcedure\GetAllRooms.sql" />
+    <Build Include="dbo\StoredProcedure\GetCurrentRoom.sql" />
+    <Build Include="dbo\StoredProcedure\GetRoomByRoomID.sql" />
+    <Build Include="dbo\StoredProcedure\DeleteAssignedRoom.sql" />
+    <Build Include="dbo\StoredProcedure\AssignRoom.sql" />
+    <Build Include="dbo\Tables\AdmissionHistory.sql" />
+    <Build Include="dbo\Tables\MedicalRecords.sql" />
+    <Build Include="dbo\Tables\Treatments.sql" />
+    <Build Include="dbo\Tables\Medications.sql" />
+    <Build Include="dbo\StoredProcedure\AddMedicalRecord.sql" />
+    <Build Include="dbo\StoredProcedure\AddMedication.sql" />
+    <Build Include="dbo\StoredProcedure\AddTreatment.sql" />
+    <Build Include="dbo\StoredProcedure\DeleteMedicalRecordByID.sql" />
+    <Build Include="dbo\StoredProcedure\GetMedicalRecordByID.sql" />
+    <Build Include="dbo\StoredProcedure\GetMedicationByRecordID.sql" />
+    <Build Include="dbo\StoredProcedure\GetNextMedicalRecordID.sql" />
+    <Build Include="dbo\StoredProcedure\GetPatientMedicalRecords.sql" />
+    <Build Include="dbo\StoredProcedure\GetTreatmentByRecordID.sql" />
+    <Build Include="dbo\Tables\Billings.sql" />
+    <Build Include="dbo\Tables\BillingDetails.sql" />
+    <Build Include="dbo\StoredProcedure\GenerateBilling.sql" />
+    <Build Include="dbo\StoredProcedure\GetBillingDetails.sql" />
+    <Build Include="dbo\StoredProcedure\ConfirmPayment.sql" />
+    <Build Include="dbo\StoredProcedure\GetPatientAdmissionIDs.sql" />
+    <Build Include="dbo\StoredProcedure\DischargePatient.sql" />
+    <Build Include="dbo\StoredProcedure\GetAllAdmissionCards.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\UserScript.sql" />
@@ -88,6 +116,9 @@
     <None Include="TrinityCareMedica.DB.publish.xml" />
     <None Include="dbo\Scripts\StaffScript.sql" />
     <None Include="dbo\Scripts\StaffAssignmentScript.sql" />
+    <None Include="dbo\Scripts\RoomScript.sql" />
+    <None Include="dbo\Scripts\RoomAssignmentScript.sql" />
+    <None Include="dbo\Scripts\AdmissionHistoryScript.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\MasterScript.sql" />

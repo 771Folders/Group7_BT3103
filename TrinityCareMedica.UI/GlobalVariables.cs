@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TrinityCareMedica.Model;
+﻿using TrinityCareMedica.Model;
 
 namespace TrinityCareMedica.UI
 {
@@ -12,5 +7,10 @@ namespace TrinityCareMedica.UI
         public static string admissionAction = "Add";
         public static int selectedPatientID = 0;
         public static List<StaffModel> assignedStaff = new List<StaffModel>();
+        public static AssignedRoomModel assignedRoom = new AssignedRoomModel();
+        public static MedicalRecordModel medicalRecord = new MedicalRecordModel();
+        public static TreatmentModel treatment = new TreatmentModel();
+        public static MedicationModel medication = new MedicationModel();
+        public static BillingModel billingSummary = new BillingModel();
     }
 }

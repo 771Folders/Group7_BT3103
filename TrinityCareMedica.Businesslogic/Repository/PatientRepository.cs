@@ -28,7 +28,6 @@ namespace TrinityCareMedica.Businesslogic.Repository
                     command.Parameters.AddWithValue("@Email", patient.Email);
                     command.Parameters.AddWithValue("@EmergencyContact", patient.EmergencyContact);
                     command.Parameters.AddWithValue("@EmergencyContactPhone", patient.EmergencyContactPhone);
-                    command.Parameters.AddWithValue("@DateRegistered", patient.DateRegistered);
                     command.ExecuteNonQuery();
                 }
             }
@@ -59,7 +58,6 @@ namespace TrinityCareMedica.Businesslogic.Repository
                     command.Parameters.AddWithValue("@Email", patient.Email);
                     command.Parameters.AddWithValue("@EmergencyContact", patient.EmergencyContact);
                     command.Parameters.AddWithValue("@EmergencyContactPhone", patient.EmergencyContactPhone);
-                    command.Parameters.AddWithValue("@DateRegistered", patient.DateRegistered);
                     command.ExecuteNonQuery();
                 }
             }
@@ -119,7 +117,6 @@ namespace TrinityCareMedica.Businesslogic.Repository
                                     Email = (string)reader["Email"],
                                     EmergencyContact = (string)reader["EmergencyContact"],
                                     EmergencyContactPhone = (string)reader["EmergencyContactPhone"],
-                                    DateRegistered = (DateTime)reader["DateRegistered"],
                                     Status = (string)reader["Status"]
                                 };
                                 return patient;
@@ -163,7 +160,6 @@ namespace TrinityCareMedica.Businesslogic.Repository
                                 patient.Email = (string)reader["Email"];
                                 patient.EmergencyContact = (string)reader["EmergencyContact"];
                                 patient.EmergencyContactPhone = (string)reader["EmergencyContactPhone"];
-                                patient.DateRegistered = (DateTime)reader["DateRegistered"];
                                 patient.Status = (string)reader["Status"];
                                 patients.Add(patient);
                             }
@@ -234,7 +230,6 @@ namespace TrinityCareMedica.Businesslogic.Repository
                                 patient.Email = (string)reader["Email"];
                                 patient.EmergencyContact = (string)reader["EmergencyContact"];
                                 patient.EmergencyContactPhone = (string)reader["EmergencyContactPhone"];
-                                patient.DateRegistered = (DateTime)reader["DateRegistered"];
                                 patient.Status = (string)reader["Status"];
                                 patients.Add(patient);
                             }
@@ -248,6 +243,76 @@ namespace TrinityCareMedica.Businesslogic.Repository
                 Debug.WriteLine(ex.Message);
             }
             return null;
+        }
+        public List<int> GetPatientAdmissionIDs(int PatientID)
+        {
+            List<int> admissions = new List<int>();
+            using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("GetPatientAdmissionIDs", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                            admissions.Add((int)reader["AdmissionID"]);
+                    }
+                }
+            }
+            return admissions;
+        }
+        public List<AdmissionHistoryModel> GetAllAdmissionCards()
+        {
+            try
+            {
+                List<AdmissionHistoryModel> admissionCards = new List<AdmissionHistoryModel>();
+                using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("dbo.GetAllAdmissionCards", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                AdmissionHistoryModel admissionCard = new AdmissionHistoryModel
+                                {
+                                    AdmissionID = (int)reader["AdmissionID"],
+                                    PatientID = (int)reader["PatientID"],
+                                    PatientName = (string)reader["PatientName"],
+                                    Diagnosis = (string)reader["Diagnosis"],
+                                    AdmissionDate = (DateTime)reader["AdmissionDate"],
+                                    DischargeDate = reader["DischargeDate"] as DateTime?
+                                };
+                                admissionCards.Add(admissionCard);
+                            }
+                            return admissionCards;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            return null;
+        }
+        public void DischargePatient(int PatientID, int AdmissionID)
+        {
+            using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("DischargePatient", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    cmd.Parameters.AddWithValue("@AdmissionID", AdmissionID);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

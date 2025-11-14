@@ -31,16 +31,6 @@
             panel1 = new Panel();
             labelTitle = new Label();
             panel2 = new Panel();
-            txtNurses = new TextBox();
-            txtDoctors = new TextBox();
-            label17 = new Label();
-            label16 = new Label();
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            label12 = new Label();
-            label13 = new Label();
-            panel4 = new Panel();
-            label15 = new Label();
-            label14 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             labelPatientID = new Label();
             labelDateRegistered = new Label();
@@ -52,12 +42,30 @@
             labelEmail = new Label();
             labelAddress = new Label();
             labelEmergencyContact = new Label();
+            panelRoomAndStaff = new Panel();
+            txtNurses = new TextBox();
+            panelRoom = new FlowLayoutPanel();
+            labelRoom = new Label();
+            labelBedNo = new Label();
+            panel4 = new Panel();
+            labelEndDate = new Label();
+            labelStartDate = new Label();
+            txtDoctors = new TextBox();
+            label16 = new Label();
+            label17 = new Label();
+            panelDischarged = new Panel();
+            lblDischarged = new Label();
             panel3 = new Panel();
+            btnAddMedicalRecord = new Button();
+            flowMedicalRecords = new FlowLayoutPanel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            flowLayoutPanel2.SuspendLayout();
-            panel4.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
+            panelRoomAndStaff.SuspendLayout();
+            panelRoom.SuspendLayout();
+            panel4.SuspendLayout();
+            panelDischarged.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -85,111 +93,17 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.Control;
-            panel2.Controls.Add(txtNurses);
-            panel2.Controls.Add(txtDoctors);
-            panel2.Controls.Add(label17);
-            panel2.Controls.Add(label16);
-            panel2.Controls.Add(flowLayoutPanel2);
             panel2.Controls.Add(flowLayoutPanel1);
+            panel2.Controls.Add(panelRoomAndStaff);
+            panel2.Controls.Add(panelDischarged);
             panel2.Location = new Point(60, 120);
             panel2.Name = "panel2";
             panel2.Size = new Size(695, 830);
             panel2.TabIndex = 99;
             // 
-            // txtNurses
-            // 
-            txtNurses.Location = new Point(362, 615);
-            txtNurses.Multiline = true;
-            txtNurses.Name = "txtNurses";
-            txtNurses.ReadOnly = true;
-            txtNurses.Size = new Size(320, 202);
-            txtNurses.TabIndex = 7;
-            // 
-            // txtDoctors
-            // 
-            txtDoctors.Location = new Point(19, 615);
-            txtDoctors.Multiline = true;
-            txtDoctors.Name = "txtDoctors";
-            txtDoctors.ReadOnly = true;
-            txtDoctors.Size = new Size(320, 202);
-            txtDoctors.TabIndex = 6;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Location = new Point(362, 576);
-            label17.Name = "label17";
-            label17.Size = new Size(113, 36);
-            label17.TabIndex = 5;
-            label17.Text = "Nurses:";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new Point(16, 576);
-            label16.Name = "label16";
-            label16.Size = new Size(125, 36);
-            label16.TabIndex = 4;
-            label16.Text = "Doctors:";
-            // 
-            // flowLayoutPanel2
-            // 
-            flowLayoutPanel2.Controls.Add(label12);
-            flowLayoutPanel2.Controls.Add(label13);
-            flowLayoutPanel2.Controls.Add(panel4);
-            flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel2.Location = new Point(13, 459);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(669, 114);
-            flowLayoutPanel2.TabIndex = 1;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(3, 0);
-            label12.Name = "label12";
-            label12.Size = new Size(207, 36);
-            label12.TabIndex = 4;
-            label12.Text = "Current Room:";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(3, 36);
-            label13.Name = "label13";
-            label13.Size = new Size(189, 36);
-            label13.TabIndex = 5;
-            label13.Text = "Bed Number:";
-            // 
-            // panel4
-            // 
-            panel4.Controls.Add(label15);
-            panel4.Controls.Add(label14);
-            panel4.Location = new Point(3, 75);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(666, 36);
-            panel4.TabIndex = 6;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(296, 2);
-            label15.Name = "label15";
-            label15.Size = new Size(140, 36);
-            label15.TabIndex = 5;
-            label15.Text = "End Date:";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(0, 0);
-            label14.Name = "label14";
-            label14.Size = new Size(151, 36);
-            label14.TabIndex = 4;
-            label14.Text = "Start Date:";
-            // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanel1.Controls.Add(labelPatientID);
             flowLayoutPanel1.Controls.Add(labelDateRegistered);
             flowLayoutPanel1.Controls.Add(labelFullName);
@@ -296,19 +210,166 @@
             labelEmergencyContact.TabIndex = 8;
             labelEmergencyContact.Text = "Emergency Contact:";
             // 
+            // panelRoomAndStaff
+            // 
+            panelRoomAndStaff.BorderStyle = BorderStyle.FixedSingle;
+            panelRoomAndStaff.Controls.Add(txtNurses);
+            panelRoomAndStaff.Controls.Add(panelRoom);
+            panelRoomAndStaff.Controls.Add(txtDoctors);
+            panelRoomAndStaff.Controls.Add(label16);
+            panelRoomAndStaff.Controls.Add(label17);
+            panelRoomAndStaff.Location = new Point(13, 459);
+            panelRoomAndStaff.Name = "panelRoomAndStaff";
+            panelRoomAndStaff.Size = new Size(669, 358);
+            panelRoomAndStaff.TabIndex = 2;
+            // 
+            // txtNurses
+            // 
+            txtNurses.Location = new Point(349, 156);
+            txtNurses.Multiline = true;
+            txtNurses.Name = "txtNurses";
+            txtNurses.ReadOnly = true;
+            txtNurses.Size = new Size(320, 202);
+            txtNurses.TabIndex = 7;
+            // 
+            // panelRoom
+            // 
+            panelRoom.Controls.Add(labelRoom);
+            panelRoom.Controls.Add(labelBedNo);
+            panelRoom.Controls.Add(panel4);
+            panelRoom.FlowDirection = FlowDirection.TopDown;
+            panelRoom.Location = new Point(0, 0);
+            panelRoom.Name = "panelRoom";
+            panelRoom.Size = new Size(669, 114);
+            panelRoom.TabIndex = 1;
+            // 
+            // labelRoom
+            // 
+            labelRoom.AutoSize = true;
+            labelRoom.Location = new Point(3, 0);
+            labelRoom.Name = "labelRoom";
+            labelRoom.Size = new Size(207, 36);
+            labelRoom.TabIndex = 4;
+            labelRoom.Text = "Current Room:";
+            // 
+            // labelBedNo
+            // 
+            labelBedNo.AutoSize = true;
+            labelBedNo.Location = new Point(3, 36);
+            labelBedNo.Name = "labelBedNo";
+            labelBedNo.Size = new Size(189, 36);
+            labelBedNo.TabIndex = 5;
+            labelBedNo.Text = "Bed Number:";
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(labelEndDate);
+            panel4.Controls.Add(labelStartDate);
+            panel4.Location = new Point(3, 75);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(666, 36);
+            panel4.TabIndex = 6;
+            // 
+            // labelEndDate
+            // 
+            labelEndDate.AutoSize = true;
+            labelEndDate.Location = new Point(346, 0);
+            labelEndDate.Name = "labelEndDate";
+            labelEndDate.Size = new Size(140, 36);
+            labelEndDate.TabIndex = 5;
+            labelEndDate.Text = "End Date:";
+            // 
+            // labelStartDate
+            // 
+            labelStartDate.AutoSize = true;
+            labelStartDate.Location = new Point(0, 0);
+            labelStartDate.Name = "labelStartDate";
+            labelStartDate.Size = new Size(151, 36);
+            labelStartDate.TabIndex = 4;
+            labelStartDate.Text = "Start Date:";
+            // 
+            // txtDoctors
+            // 
+            txtDoctors.Location = new Point(6, 156);
+            txtDoctors.Multiline = true;
+            txtDoctors.Name = "txtDoctors";
+            txtDoctors.ReadOnly = true;
+            txtDoctors.Size = new Size(320, 202);
+            txtDoctors.TabIndex = 6;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(3, 117);
+            label16.Name = "label16";
+            label16.Size = new Size(125, 36);
+            label16.TabIndex = 4;
+            label16.Text = "Doctors:";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(349, 117);
+            label17.Name = "label17";
+            label17.Size = new Size(113, 36);
+            label17.TabIndex = 5;
+            label17.Text = "Nurses:";
+            // 
+            // panelDischarged
+            // 
+            panelDischarged.BorderStyle = BorderStyle.FixedSingle;
+            panelDischarged.Controls.Add(lblDischarged);
+            panelDischarged.Location = new Point(11, 459);
+            panelDischarged.Name = "panelDischarged";
+            panelDischarged.Size = new Size(671, 358);
+            panelDischarged.TabIndex = 1;
+            panelDischarged.Visible = false;
+            // 
+            // lblDischarged
+            // 
+            lblDischarged.AutoSize = true;
+            lblDischarged.Location = new Point(190, 161);
+            lblDischarged.Name = "lblDischarged";
+            lblDischarged.Size = new Size(290, 36);
+            lblDischarged.TabIndex = 0;
+            lblDischarged.Text = "Patient is Discharged";
+            lblDischarged.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // panel3
             // 
             panel3.BackColor = SystemColors.Control;
+            panel3.Controls.Add(btnAddMedicalRecord);
             panel3.Location = new Point(765, 120);
             panel3.Name = "panel3";
             panel3.Size = new Size(695, 830);
             panel3.TabIndex = 100;
+            // 
+            // btnAddMedicalRecord
+            // 
+            btnAddMedicalRecord.Location = new Point(375, 775);
+            btnAddMedicalRecord.Name = "btnAddMedicalRecord";
+            btnAddMedicalRecord.Size = new Size(308, 42);
+            btnAddMedicalRecord.TabIndex = 0;
+            btnAddMedicalRecord.Text = "Add Medical Record";
+            btnAddMedicalRecord.UseVisualStyleBackColor = true;
+            btnAddMedicalRecord.Click += btnAddMedicalRecord_Click;
+            // 
+            // flowMedicalRecords
+            // 
+            flowMedicalRecords.AutoScroll = true;
+            flowMedicalRecords.BackColor = SystemColors.Control;
+            flowMedicalRecords.FlowDirection = FlowDirection.TopDown;
+            flowMedicalRecords.Location = new Point(765, 117);
+            flowMedicalRecords.Name = "flowMedicalRecords";
+            flowMedicalRecords.Size = new Size(695, 741);
+            flowMedicalRecords.TabIndex = 0;
             // 
             // PatientRecord
             // 
             AutoScaleDimensions = new SizeF(16F, 35F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSeaGreen;
+            Controls.Add(flowMedicalRecords);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -319,13 +380,17 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            flowLayoutPanel2.ResumeLayout(false);
-            flowLayoutPanel2.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
+            panelRoomAndStaff.ResumeLayout(false);
+            panelRoomAndStaff.PerformLayout();
+            panelRoom.ResumeLayout(false);
+            panelRoom.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            panelDischarged.ResumeLayout(false);
+            panelDischarged.PerformLayout();
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -346,15 +411,20 @@
         private Label labelAddress;
         private Label labelEmergencyContact;
         private Label labelDateRegistered;
-        private FlowLayoutPanel flowLayoutPanel2;
-        private Label label12;
-        private Label label13;
+        private FlowLayoutPanel panelRoom;
+        private Label labelRoom;
+        private Label labelBedNo;
         private Panel panel4;
-        private Label label14;
+        private Label labelStartDate;
         private TextBox txtNurses;
         private TextBox txtDoctors;
         private Label label17;
         private Label label16;
-        private Label label15;
+        private Label labelEndDate;
+        private Panel panelDischarged;
+        private Label lblDischarged;
+        private Panel panelRoomAndStaff;
+        private FlowLayoutPanel flowMedicalRecords;
+        private Button btnAddMedicalRecord;
     }
 }

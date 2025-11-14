@@ -64,6 +64,7 @@
             lblID = new Label();
             btnAddRoom = new Button();
             label1 = new Label();
+            button1 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -444,6 +445,7 @@
             btnAddRoom.TabIndex = 78;
             btnAddRoom.Text = "Room";
             btnAddRoom.UseVisualStyleBackColor = true;
+            btnAddRoom.Click += btnAddRoom_Click;
             // 
             // label1
             // 
@@ -456,6 +458,16 @@
             label1.TabIndex = 100;
             label1.Text = "Assign:";
             // 
+            // button1
+            // 
+            button1.Font = new Font("Tahoma", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(65, 898);
+            button1.Name = "button1";
+            button1.Size = new Size(263, 54);
+            button1.TabIndex = 101;
+            button1.Text = "Admission History";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // Admission
             // 
             AutoScaleDimensions = new SizeF(14F, 29F);
@@ -463,6 +475,7 @@
             BackColor = Color.LightSeaGreen;
             BackgroundImage = Properties.Resources.Untitled_design__1__removebg_preview;
             BackgroundImageLayout = ImageLayout.Center;
+            Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(btnAddRoom);
             Controls.Add(lblID);
@@ -547,5 +560,6 @@
         private Label lblID;
         private Button btnAddRoom;
         private Label label1;
+        private Button button1;
     }
 }
