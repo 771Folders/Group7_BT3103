@@ -98,9 +98,9 @@
             label3.ForeColor = SystemColors.Control;
             label3.Location = new Point(10, 15);
             label3.Name = "label3";
-            label3.Size = new Size(168, 30);
+            label3.Size = new Size(212, 30);
             label3.TabIndex = 0;
-            label3.Text = "Select Patient";
+            label3.Text = "Discharge Patient";
             // 
             // FormDischargePatient
             // 

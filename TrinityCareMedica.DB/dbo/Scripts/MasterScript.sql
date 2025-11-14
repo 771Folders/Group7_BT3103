@@ -17,3 +17,6 @@ Post-Deployment Script Template
 :r .\StaffAssignmentScript.sql
 :r .\RoomScript.sql
 :r .\RoomAssignmentScript.sql
+:r .\MedicalRecordScript.sql
+:r .\TreatmentScript.sql
+:r .\MedicationScript.sql

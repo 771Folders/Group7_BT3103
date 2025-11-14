@@ -386,24 +386,56 @@ namespace TrinityCareMedica.UI.UserControls
                 {
                     int selected = Convert.ToInt32(dataPatients.CurrentRow.Cells["PatientID"].Value);
                     GlobalVariables.selectedPatientID = selected;
-                    List<int> assignedStaffIDs = staffController.GetAssignedStaff(selected);
-                    foreach (int id in assignedStaffIDs)
-                    {
-                        GlobalVariables.assignedStaff.Add(staffController.GetStaffByID(id));
-                    }
-                    GlobalVariables.assignedRoom = roomController.GetCurrentRoom(selected);
+                    GoToBilling?.Invoke(this, EventArgs.Empty);
                 }
-                GlobalVariables.admissionAction = "Edit";
-                GoToBilling?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error during edit: " + ex.Message);
+                MessageBox.Show("Please select a patient.");
             }
         }
         private void btnDischarge_Click(object sender, EventArgs e)
         {
-            GoToDischarge?.Invoke(this, EventArgs.Empty);
+            try
+            {
+                if (dataPatients.CurrentRow != null)
+                {
+                    int selected = Convert.ToInt32(dataPatients.CurrentRow.Cells["PatientID"].Value);
+                    GlobalVariables.selectedPatientID = selected;
+                    PatientModel patient = patientController.GetPatientByID(GlobalVariables.selectedPatientID);
+                    if (patient.Status.Equals("Discharged"))
+                    {
+                        MessageBox.Show("This Patient has already been Discharged", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    DialogResult res = MessageBox.Show("Are you sure you want to discharge this patient?", "Confirm Discharge", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (res == DialogResult.Yes)
+                    {
+                        List<int> admissionIDs = patientController.GetPatientAdmissionIDs(GlobalVariables.selectedPatientID);
+                        List<AdmissionHistoryModel> admissions = patientController.GetAllAdmissionCards();
+                        int selectedAdmissionID = 0;
+                        foreach (AdmissionHistoryModel admission in admissions)
+                        {
+                            if (admission.PatientID == GlobalVariables.selectedPatientID)
+                                selectedAdmissionID = admission.AdmissionID;
+                        }
+                        patientController.DischargePatient(GlobalVariables.selectedPatientID, selectedAdmissionID);
+                        GoToDischarge?.Invoke(this, EventArgs.Empty);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cancelled Discharging Patient", "Discharge Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a patient.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void btnView_Click(object sender, EventArgs e)
         {

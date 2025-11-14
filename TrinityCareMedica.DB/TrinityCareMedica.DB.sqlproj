@@ -119,6 +119,9 @@
     <None Include="dbo\Scripts\RoomScript.sql" />
     <None Include="dbo\Scripts\RoomAssignmentScript.sql" />
     <None Include="dbo\Scripts\AdmissionHistoryScript.sql" />
+    <None Include="dbo\Scripts\MedicalRecordScript.sql" />
+    <None Include="dbo\Scripts\TreatmentScript.sql" />
+    <None Include="dbo\Scripts\MedicationScript.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\MasterScript.sql" />

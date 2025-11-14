@@ -206,6 +206,7 @@ namespace TrinityCareMedica.UI
         private void btnDischarge_Click(object sender, EventArgs e)
         {
             FormDischargePatient form = new FormDischargePatient();
+            form.GoToDischarge += (s, e) => ShowControl(new Discharge());
             form.ShowDialog();
             if (form.DialogResult == DialogResult.OK)
             {

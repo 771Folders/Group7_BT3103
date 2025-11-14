@@ -38,8 +38,6 @@ namespace TrinityCareMedica.UI.UserControls
             {
                 GrandTotal += detail.Total;
             }
-            billingDetails.Add(new BillingDetailsModel());
-            billingDetails.Add(new BillingDetailsModel());
             billingDetails.Add(new BillingDetailsModel()
             {
                 Total = GrandTotal
@@ -110,6 +108,17 @@ namespace TrinityCareMedica.UI.UserControls
             BillPayment form = new BillPayment(admissionIDs[0]);
             form.GoToBillingSummary += (s, e) => GoToBillingSummary?.Invoke(this, EventArgs.Empty);
             form.ShowDialog();
+        }
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.Value != null && (e.Value is int || e.Value is decimal))
+            {
+                if (Convert.ToDecimal(e.Value) == 0)
+                {
+                    e.Value = "";
+                    e.FormattingApplied = true;
+                }
+            }
         }
     }
 }

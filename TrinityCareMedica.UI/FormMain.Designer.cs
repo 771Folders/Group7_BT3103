@@ -97,7 +97,6 @@
             // 
             btnDashboard.BackColor = Color.White;
             btnDashboard.FlatStyle = FlatStyle.Popup;
-            btnDashboard.Image = Properties.Resources._1000065903;
             btnDashboard.ImageAlign = ContentAlignment.MiddleLeft;
             btnDashboard.Location = new Point(3, 3);
             btnDashboard.Name = "btnDashboard";
@@ -110,7 +109,6 @@
             // btnPatientInfo
             // 
             btnPatientInfo.FlatStyle = FlatStyle.Popup;
-            btnPatientInfo.Image = Properties.Resources._1000065901;
             btnPatientInfo.ImageAlign = ContentAlignment.MiddleLeft;
             btnPatientInfo.Location = new Point(3, 120);
             btnPatientInfo.Name = "btnPatientInfo";
@@ -123,7 +121,6 @@
             // btnAdmission
             // 
             btnAdmission.FlatStyle = FlatStyle.Popup;
-            btnAdmission.Image = Properties.Resources._1000065902;
             btnAdmission.ImageAlign = ContentAlignment.MiddleLeft;
             btnAdmission.Location = new Point(3, 237);
             btnAdmission.Name = "btnAdmission";
@@ -161,7 +158,6 @@
             // btnBilling
             // 
             btnBilling.FlatStyle = FlatStyle.Popup;
-            btnBilling.Image = Properties.Resources._1000065900;
             btnBilling.ImageAlign = ContentAlignment.MiddleLeft;
             btnBilling.Location = new Point(3, 588);
             btnBilling.Name = "btnBilling";

@@ -17,7 +17,15 @@ namespace TrinityCareMedica.UI.UserControls
             PatientModel patient = patientController.GetPatientByID(GlobalVariables.selectedPatientID);
             List<int> admissionIDs = patientController.GetPatientAdmissionIDs(GlobalVariables.selectedPatientID);
             List<AdmissionHistoryModel> admissionHistory = patientController.GetAllAdmissionCards();
-            AdmissionHistoryModel admission = admissionHistory[0];
+            AdmissionHistoryModel admission = new AdmissionHistoryModel();
+            foreach (AdmissionHistoryModel admissionModel in  admissionHistory)
+            {
+                if (admissionModel.PatientID == GlobalVariables.selectedPatientID)
+                {
+                    admission = admissionModel;
+                    break;
+                }
+            }
             lblPatientName.Text = admission.PatientName;
             lblPatientID.Text = admission.PatientID.ToString();
             lblAdmissionDate.Text = admission.AdmissionDate.ToShortDateString();
