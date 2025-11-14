@@ -66,7 +66,7 @@ namespace TrinityCareMedica.UI
                 else throw new Exception("Invalid Credentials");
             }
             catch (Exception EX)
-            {
+            { 
                 MessageBox.Show(EX.Message);
             }
         }
