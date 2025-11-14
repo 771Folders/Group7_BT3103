@@ -16,6 +16,7 @@ namespace TrinityCareMedica.UI.PopupForms
     {
         PatientController patientController;
         List<PatientModel> patients;
+        public event EventHandler GoToDischarge;
         public FormDischargePatient()
         {
             InitializeComponent();
@@ -38,8 +39,27 @@ namespace TrinityCareMedica.UI.PopupForms
         }
         private void btnDischarge_Click(object sender, EventArgs e)
         {
-            List<int> admissionIDs = patientController.GetPatientAdmissionIDs(GlobalVariables.selectedPatientID);
-            patientController.DischargePatient(GlobalVariables.selectedPatientID, admissionIDs[0]);
+            PatientModel patient = patientController.SearchPatients(txtPatientName.Text).First();
+            GlobalVariables.selectedPatientID = patient.PatientID;
+            DialogResult res = MessageBox.Show("Are you sure you want to discharge this patient?", "Confirm Discharge", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                List<int> admissionIDs = patientController.GetPatientAdmissionIDs(GlobalVariables.selectedPatientID);
+                List<AdmissionHistoryModel> admissions = patientController.GetAllAdmissionCards();
+                int selectedAdmissionID = 0;
+                foreach (AdmissionHistoryModel admission in admissions)
+                {
+                    if (admission.PatientID == GlobalVariables.selectedPatientID)
+                        selectedAdmissionID = admission.AdmissionID;
+                }
+                patientController.DischargePatient(GlobalVariables.selectedPatientID, selectedAdmissionID);
+                GoToDischarge?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                MessageBox.Show("Cancelled Discharging Patient", "Discharge Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            DialogResult = DialogResult.OK;
             Close();
         }
     }
