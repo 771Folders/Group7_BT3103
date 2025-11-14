@@ -46,6 +46,8 @@
             label1 = new Label();
             button2 = new Button();
             button3 = new Button();
+            printDialog1 = new PrintDialog();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -237,6 +239,16 @@
             button3.TabIndex = 101;
             button3.Text = "Print Billing ";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // printDialog1
+            // 
+            printDialog1.UseEXDialog = true;
+            // 
+            // printDocument1
+            // 
+            printDocument1.DocumentName = "w";
+            printDocument1.PrintPage += printDocument1_PrintPage;
             // 
             // Billing
             // 
@@ -279,5 +291,7 @@
         private TextBox textBox1;
         private Button button2;
         private Button button3;
+        private PrintDialog printDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
