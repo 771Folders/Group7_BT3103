@@ -29,6 +29,10 @@ namespace TrinityCareMedica.UI.UserControls
             patient = patientController.GetPatientByID(selectedPatientID);
             assignedRoom = GlobalVariables.assignedRoom;
             assignedStaff = GlobalVariables.assignedStaff;
+            if (FormLogin.LoggedUser.Role == "Nurse")
+            {
+                btnAddMedicalRecord.Visible = false;
+            }
 
             CheckDischargeStatus();
             LoadPatientData();

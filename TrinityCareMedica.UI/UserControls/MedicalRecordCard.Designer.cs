@@ -109,7 +109,6 @@
             // 
             // txtDiagnosis
             // 
-            txtDiagnosis.Enabled = false;
             txtDiagnosis.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold);
             txtDiagnosis.Location = new Point(35, 61);
             txtDiagnosis.Multiline = true;
@@ -117,10 +116,11 @@
             txtDiagnosis.ReadOnly = true;
             txtDiagnosis.Size = new Size(250, 100);
             txtDiagnosis.TabIndex = 9;
+            txtDiagnosis.TabStop = false;
+            txtDiagnosis.Enter += removeFocus;
             // 
             // txtNotes
             // 
-            txtNotes.Enabled = false;
             txtNotes.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold);
             txtNotes.Location = new Point(334, 201);
             txtNotes.Multiline = true;
@@ -128,10 +128,11 @@
             txtNotes.ReadOnly = true;
             txtNotes.Size = new Size(250, 100);
             txtNotes.TabIndex = 10;
+            txtNotes.TabStop = false;
+            txtNotes.Enter += removeFocus;
             // 
             // txtTreatment
             // 
-            txtTreatment.Enabled = false;
             txtTreatment.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold);
             txtTreatment.Location = new Point(334, 61);
             txtTreatment.Multiline = true;
@@ -139,10 +140,11 @@
             txtTreatment.ReadOnly = true;
             txtTreatment.Size = new Size(250, 100);
             txtTreatment.TabIndex = 11;
+            txtTreatment.TabStop = false;
+            txtTreatment.Enter += removeFocus;
             // 
             // txtMedication
             // 
-            txtMedication.Enabled = false;
             txtMedication.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold);
             txtMedication.Location = new Point(35, 201);
             txtMedication.Multiline = true;
@@ -150,6 +152,8 @@
             txtMedication.ReadOnly = true;
             txtMedication.Size = new Size(250, 100);
             txtMedication.TabIndex = 12;
+            txtMedication.TabStop = false;
+            txtMedication.Enter += removeFocus;
             // 
             // btnDelete
             // 

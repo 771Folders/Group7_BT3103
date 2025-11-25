@@ -1,4 +1,5 @@
-﻿using TrinityCareMedica.Businesslogic.Controller;
+﻿using System.Windows.Forms;
+using TrinityCareMedica.Businesslogic.Controller;
 using TrinityCareMedica.Model;
 
 namespace TrinityCareMedica.UI.UserControls
@@ -28,26 +29,47 @@ namespace TrinityCareMedica.UI.UserControls
         {
             List<int> admissionIDs = patientController.GetPatientAdmissionIDs(GlobalVariables.selectedPatientID);
             List<BillingDetailsModel> billingDetails = new List<BillingDetailsModel>();
+            BillingModel billing = billingController.GenerateBilling(admissionIDs[0]);
             decimal GrandTotal = 0;
             foreach (int admissionID in admissionIDs)
             {
                 List<BillingDetailsModel> details = billingController.GetBillingDetails(admissionID);
                 billingDetails.AddRange(details);
             }
+            billingDetails.RemoveAll(b => string.IsNullOrEmpty(b.Service));
             foreach (var detail in billingDetails)
             {
                 GrandTotal += detail.Total;
             }
             billingDetails.Add(new BillingDetailsModel()
             {
+                Service = "Grand Total",
                 Total = GrandTotal
+            });
+            billingDetails.Add(new BillingDetailsModel()
+            {
+                Service = "Amount Paid",
+                Total = billing.AmountPaid
+            });
+            billingDetails.Add(new BillingDetailsModel()
+            {
+                Service = "Balance",
+                Total = billing.Balance
             });
             dataGridView1.DataSource = billingDetails;
             dataGridView1.Columns["AdmissionID"].Visible = false;
         }
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            printPreviewDialog1.ShowDialog();
+            PrintPreviewDialog previewDialog = new PrintPreviewDialog();
+            previewDialog.Document = printDocument1;
+            previewDialog.Shown += (sender, e) =>
+            {
+                Form previewForm = (Form)previewDialog;
+                previewForm.WindowState = FormWindowState.Maximized;
+            };
+
+            previewDialog.ShowDialog();
         }
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
@@ -105,19 +127,57 @@ namespace TrinityCareMedica.UI.UserControls
         private void btnPayment_Click(object sender, EventArgs e)
         {
             List<int> admissionIDs = patientController.GetPatientAdmissionIDs(GlobalVariables.selectedPatientID);
-            BillPayment form = new BillPayment(admissionIDs[0]);
-            form.GoToBillingSummary += (s, e) => GoToBillingSummary?.Invoke(this, EventArgs.Empty);
-            form.ShowDialog();
+            List<AdmissionHistoryModel> admissions = patientController.GetAllAdmissionCards();
+            AdmissionHistoryModel selectedAdmission = new AdmissionHistoryModel();
+            foreach (AdmissionHistoryModel admission in admissions)
+            {
+                if (admission.PatientID == GlobalVariables.selectedPatientID)
+                {
+                    selectedAdmission = admission; 
+                    break;
+                }
+            }
+            BillingModel billing = billingController.GenerateBilling(selectedAdmission.AdmissionID);
+            if (billing.Balance <= 0)
+            {
+                MessageBox.Show("This patient is already paid in full", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                GoToBillingSummary?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                BillPayment form = new BillPayment(admissionIDs[0]);
+                form.GoToBillingSummary += (s, e) => GoToBillingSummary?.Invoke(this, EventArgs.Empty);
+                form.ShowDialog();
+            }
         }
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.Value != null && (e.Value is int || e.Value is decimal))
+            if (e.ColumnIndex == 2)
             {
-                if (Convert.ToDecimal(e.Value) == 0)
+                if (Convert.ToInt32(e.Value) <= 0)
                 {
                     e.Value = "";
-                    e.FormattingApplied = true;
                 }
+            }
+            if (e.Value != null && (e.Value is decimal))
+            {
+                if (Convert.ToDecimal(e.Value) <= 0)
+                {
+                    e.Value = "0.00";
+                }
+                if (Convert.ToDecimal(e.Value) == 0 && !(e.RowIndex == dataGridView1.RowCount - 2 && e.ColumnIndex == dataGridView1.ColumnCount - 1))
+                {
+                    e.Value = "";
+                    return;
+                }
+                e.Value = Convert.ToDecimal(e.Value).ToString("C2");
+                e.FormattingApplied = true;
+            }
+            if (e.RowIndex == dataGridView1.RowCount - 3 ||
+                e.RowIndex == dataGridView1.RowCount - 2 ||
+                e.RowIndex == dataGridView1.RowCount - 1)
+            {
+                e.CellStyle.Font = new Font(dataGridView1.Font, FontStyle.Bold);
             }
         }
     }

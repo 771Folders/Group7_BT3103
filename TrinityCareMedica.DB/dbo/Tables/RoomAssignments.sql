@@ -9,5 +9,5 @@
     [EndDate] DATETIME NULL,
     FOREIGN KEY (RoomID) REFERENCES Rooms(RoomID),
     FOREIGN KEY (PatientID) REFERENCES Patients(PatientID),
-    FOREIGN KEY (AdmissionID) REFERENCES AdmissionHistory(AdmissionID)
+    FOREIGN KEY (AdmissionID) REFERENCES AdmissionHistory(AdmissionID) ON DELETE CASCADE
 )

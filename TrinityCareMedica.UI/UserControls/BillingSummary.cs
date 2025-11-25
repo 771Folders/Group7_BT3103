@@ -34,11 +34,25 @@ namespace TrinityCareMedica.UI.UserControls
             {
                 GrandTotal += detail.Total;
             }
-            billingDetails.Add(new BillingDetailsModel());
-            billingDetails.Add(new BillingDetailsModel());
             billingDetails.Add(new BillingDetailsModel()
             {
+                Service = "Total Amount:",
                 Total = GrandTotal
+            });
+            billingDetails.Add(new BillingDetailsModel()
+            {
+                Service = "Balance Paid:",
+                Total = billingSummary.AmountPaid
+            });
+            billingDetails.Add(new BillingDetailsModel()
+            {
+                Service = "Change:",
+                Total = (billingSummary.AmountPaid - billingSummary.TotalAmount) < 0 ? 0 : billingSummary.AmountPaid - billingSummary.TotalAmount,
+            });
+            billingDetails.Add(new BillingDetailsModel()
+            {
+                Service = "Balance Due:",
+                Total = billingSummary.Balance < 0 ? 0 : billingSummary.Balance
             });
             dataSummary.DataSource = billingDetails;
             dataSummary.Columns["AdmissionID"].Visible = false;
@@ -49,7 +63,15 @@ namespace TrinityCareMedica.UI.UserControls
         }
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            printPreviewDialog1.ShowDialog();
+            PrintPreviewDialog previewDialog = new PrintPreviewDialog();
+            previewDialog.Document = printDocument1;
+            previewDialog.Shown += (sender, e) =>
+            {
+                Form previewForm = (Form)previewDialog;
+                previewForm.WindowState = FormWindowState.Maximized;
+            };
+
+            previewDialog.ShowDialog();
             GoToDashboard?.Invoke(this, EventArgs.Empty);
         }
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -100,11 +122,24 @@ namespace TrinityCareMedica.UI.UserControls
             g.DrawString("Total Amount:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, y + 30));
             g.DrawString("Payment Received:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, y + 60));
             g.DrawString("Remaining Balance:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, y + 90));
-            g.DrawString("Remarks:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, y + 120));
             g.DrawString("₱" + billingSummary.TotalAmount.ToString(), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 30));
             g.DrawString("₱" + billingSummary.AmountPaid.ToString(), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 60));
-            g.DrawString("₱" + billingSummary.Balance.ToString(), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 90));
-            g.DrawString(billingSummary.Remarks, new Font("Arial", 14), Brushes.Black, new PointF(100, y + 150));
+            g.DrawString("₱" + (billingSummary.Balance < 0 ? 0 : billingSummary.Balance), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 90));
+        }
+        private void dataSummary_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dataSummary.ColumnCount - 1)
+            {
+                return;
+            }
+            if (e.Value != null && (e.Value is int || e.Value is decimal))
+            {
+                if (Convert.ToDecimal(e.Value) == 0)
+                {
+                    e.Value = "";
+                    e.FormattingApplied = true;
+                }
+            }
         }
     }
 }

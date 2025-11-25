@@ -40,9 +40,9 @@
             btnDelete = new Button();
             btnEdit = new Button();
             flowPatientInfoButtons = new FlowLayoutPanel();
-            btnView = new Button();
-            btnBilling = new Button();
             btnDischarge = new Button();
+            btnBilling = new Button();
+            btnView = new Button();
             ((System.ComponentModel.ISupportInitialize)dataPatients).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnRefresh).BeginInit();
@@ -55,7 +55,8 @@
             dataPatients.AllowUserToDeleteRows = false;
             dataPatients.AllowUserToResizeRows = false;
             dataPatients.Anchor = AnchorStyles.None;
-            dataPatients.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataPatients.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataPatients.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
@@ -195,16 +196,16 @@
             flowPatientInfoButtons.Size = new Size(1120, 69);
             flowPatientInfoButtons.TabIndex = 5;
             // 
-            // btnView
+            // btnDischarge
             // 
-            btnView.Font = new Font("Microsoft JhengHei UI", 14F);
-            btnView.Location = new Point(565, 3);
-            btnView.Name = "btnView";
-            btnView.Size = new Size(180, 60);
-            btnView.TabIndex = 7;
-            btnView.Text = "View";
-            btnView.UseVisualStyleBackColor = true;
-            btnView.Click += btnView_Click;
+            btnDischarge.Font = new Font("Microsoft JhengHei UI", 14F);
+            btnDischarge.Location = new Point(937, 3);
+            btnDischarge.Name = "btnDischarge";
+            btnDischarge.Size = new Size(180, 60);
+            btnDischarge.TabIndex = 5;
+            btnDischarge.Text = "Discharge";
+            btnDischarge.UseVisualStyleBackColor = true;
+            btnDischarge.Click += btnDischarge_Click;
             // 
             // btnBilling
             // 
@@ -217,16 +218,16 @@
             btnBilling.UseVisualStyleBackColor = true;
             btnBilling.Click += btnBilling_Click;
             // 
-            // btnDischarge
+            // btnView
             // 
-            btnDischarge.Font = new Font("Microsoft JhengHei UI", 14F);
-            btnDischarge.Location = new Point(937, 3);
-            btnDischarge.Name = "btnDischarge";
-            btnDischarge.Size = new Size(180, 60);
-            btnDischarge.TabIndex = 5;
-            btnDischarge.Text = "Discharge";
-            btnDischarge.UseVisualStyleBackColor = true;
-            btnDischarge.Click += btnDischarge_Click;
+            btnView.Font = new Font("Microsoft JhengHei UI", 14F);
+            btnView.Location = new Point(565, 3);
+            btnView.Name = "btnView";
+            btnView.Size = new Size(180, 60);
+            btnView.TabIndex = 7;
+            btnView.Text = "View";
+            btnView.UseVisualStyleBackColor = true;
+            btnView.Click += btnView_Click;
             // 
             // PatientInformationMaintenance
             // 

@@ -363,6 +363,7 @@
             flowMedicalRecords.Name = "flowMedicalRecords";
             flowMedicalRecords.Size = new Size(695, 741);
             flowMedicalRecords.TabIndex = 0;
+            flowMedicalRecords.WrapContents = false;
             // 
             // PatientRecord
             // 

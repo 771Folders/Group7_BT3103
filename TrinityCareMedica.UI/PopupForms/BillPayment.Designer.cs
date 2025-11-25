@@ -53,13 +53,13 @@
             // 
             // txtBalance
             // 
-            txtBalance.Enabled = false;
             txtBalance.Font = new Font("Microsoft JhengHei UI", 14F);
             txtBalance.Location = new Point(28, 123);
             txtBalance.Name = "txtBalance";
             txtBalance.ReadOnly = true;
             txtBalance.Size = new Size(254, 37);
             txtBalance.TabIndex = 1;
+            txtBalance.Enter += txtBalance_Enter;
             // 
             // label2
             // 
@@ -78,6 +78,7 @@
             txtPayment.Name = "txtPayment";
             txtPayment.Size = new Size(254, 37);
             txtPayment.TabIndex = 4;
+            txtPayment.KeyPress += txtPayment_KeyPress;
             // 
             // btnPay
             // 
@@ -146,6 +147,7 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "BillPayment";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Billing2";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

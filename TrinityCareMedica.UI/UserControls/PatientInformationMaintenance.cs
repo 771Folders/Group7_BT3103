@@ -9,11 +9,13 @@ namespace TrinityCareMedica.UI.UserControls
         PatientController patientController;
         StaffController staffController;
         RoomController roomController;
+        BillingController billingController;
         public event EventHandler GoToDashboard;
         public event EventHandler GoToAddPatient;
         public event EventHandler GoToEditPatient;
         public event EventHandler GoToPatientRecord;
         public event EventHandler GoToBilling;
+        public event EventHandler GoToBillingSummary;
         public event EventHandler GoToDischarge;
         private bool isMultiSelectMode = false;
         private List<string> selectedIds = new List<string>();
@@ -23,6 +25,7 @@ namespace TrinityCareMedica.UI.UserControls
             patientController = new PatientController();
             staffController = new StaffController();
             roomController = new RoomController();
+            billingController = new BillingController();
             GlobalVariables.assignedStaff.Clear();
             GlobalVariables.assignedRoom = new AssignedRoomModel();
             InitializeComponent();
@@ -61,7 +64,6 @@ namespace TrinityCareMedica.UI.UserControls
                 case "Receptionist":
                     dataPatients.CellDoubleClick -= dataPatients_CellDoubleClick;
                     btnBilling.Visible = false;
-                    btnDischarge.Visible = false;
                     btnView.Visible = false;
                     break;
                 case "Cashier":
@@ -70,6 +72,7 @@ namespace TrinityCareMedica.UI.UserControls
                     btnEdit.Visible = false;
                     btnDelete.Visible = false;
                     btnView.Visible = false;
+                    btnDischarge.Visible = false;
                     break;
             }
         }
@@ -104,6 +107,16 @@ namespace TrinityCareMedica.UI.UserControls
                     }
                 }
             }
+            dataPatients.Columns["PatientID"].HeaderText = "ID";
+            dataPatients.Columns["FirstName"].HeaderText = "First Name";
+            dataPatients.Columns["MiddleName"].HeaderText = "Middle Name";
+            dataPatients.Columns["LastName"].HeaderText = "Last Name";
+            dataPatients.Columns["DateOfBirth"].Visible = false;
+            dataPatients.Columns["Address"].Visible = false;
+            dataPatients.Columns["Phone"].Visible = false;
+            dataPatients.Columns["Email"].Visible = false;
+            dataPatients.Columns["EmergencyContact"].Visible = false;
+            dataPatients.Columns["EmergencyContactPhone"].Visible = false;
         }
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -191,12 +204,9 @@ namespace TrinityCareMedica.UI.UserControls
             {
                 isMultiSelectMode = true;
                 dataPatients.MultiSelect = true;
-                dataPatients.DefaultCellStyle.SelectionBackColor = dataPatients.DefaultCellStyle.BackColor;
-                dataPatients.DefaultCellStyle.SelectionForeColor = dataPatients.DefaultCellStyle.ForeColor;
                 dataPatients.CellDoubleClick -= dataPatients_CellDoubleClick;
                 dataPatients.CellClick += dataPatients_CellClick;
                 selectedIds.Clear();
-                btnAdd.Enabled = false;
                 btnEdit.Enabled = false;
                 btnView.Enabled = false;
                 btnBilling.Enabled = false;
@@ -222,12 +232,9 @@ namespace TrinityCareMedica.UI.UserControls
             {
                 isMultiSelectMode = false;
                 dataPatients.MultiSelect = false;
-                dataPatients.DefaultCellStyle.SelectionBackColor = SystemColors.Highlight;
-                dataPatients.DefaultCellStyle.SelectionForeColor = SystemColors.HighlightText;
                 dataPatients.CellDoubleClick += dataPatients_CellDoubleClick;
                 dataPatients.CellClick -= dataPatients_CellClick;
                 selectedIds.Clear();
-                btnAdd.Enabled = true;
                 btnEdit.Enabled = true;
                 btnView.Enabled = true;
                 btnBilling.Enabled = true;
@@ -322,7 +329,6 @@ namespace TrinityCareMedica.UI.UserControls
                         DialogResult confirmResult = MessageBox.Show("Are you sure to delete this patient?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (confirmResult == DialogResult.Yes)
                         {
-                            staffController.DeleteStaffAssignments(patientId);
                             patientController.DeletePatient(patientId);
                             txtSearch.Clear();
                             LoadData();
@@ -386,7 +392,25 @@ namespace TrinityCareMedica.UI.UserControls
                 {
                     int selected = Convert.ToInt32(dataPatients.CurrentRow.Cells["PatientID"].Value);
                     GlobalVariables.selectedPatientID = selected;
-                    GoToBilling?.Invoke(this, EventArgs.Empty);
+                    PatientModel patient = patientController.GetPatientByID(selected);
+                    List<int> admissionIDs = patientController.GetPatientAdmissionIDs(selected);
+                    List<AdmissionHistoryModel> admissions = patientController.GetAllAdmissionCards();
+                    int admissionID = 0;
+                    foreach (AdmissionHistoryModel admission in admissions)
+                    {
+                        if (admission.PatientID == selected)
+                        {
+                            admissionID = admission.AdmissionID;
+                        }
+                    }
+                    BillingModel billing = billingController.GenerateBilling(admissionID);
+                    if (billing.Balance <= 0)
+                    {
+                        MessageBox.Show("This patient is already paid in full.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        GoToBillingSummary?.Invoke(this, EventArgs.Empty);
+                    }
+                    else 
+                        GoToBilling?.Invoke(this, EventArgs.Empty);
                 }
             }
             catch (Exception ex)

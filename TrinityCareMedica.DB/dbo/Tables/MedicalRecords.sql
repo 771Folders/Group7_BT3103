@@ -6,6 +6,6 @@
     [RecordDate] DATETIME NOT NULL,
     [Diagnosis] VARCHAR(50) NOT NULL, 
     [Notes] VARCHAR(MAX) NOT NULL,
-    FOREIGN KEY (AdmissionID) REFERENCES AdmissionHistory(AdmissionID),
+    FOREIGN KEY (AdmissionID) REFERENCES AdmissionHistory(AdmissionID) ON DELETE CASCADE,
     FOREIGN KEY (PatientID) REFERENCES Patients(PatientID)
 )

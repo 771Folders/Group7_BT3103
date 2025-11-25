@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Discharge));
             panel1 = new Panel();
             labelTitle = new Label();
             panel2 = new Panel();
@@ -41,6 +42,9 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            btnPrint = new Button();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            printPreviewDialog1 = new PrintPreviewDialog();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -61,9 +65,9 @@
             labelTitle.ForeColor = Color.White;
             labelTitle.Location = new Point(13, 7);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(194, 47);
+            labelTitle.Size = new Size(368, 47);
             labelTitle.TabIndex = 0;
-            labelTitle.Text = "Discharge";
+            labelTitle.Text = "Discharge Summary";
             // 
             // panel2
             // 
@@ -86,59 +90,59 @@
             // 
             // lblDiagnosis
             // 
-            lblDiagnosis.AutoSize = true;
             lblDiagnosis.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDiagnosis.Location = new Point(1014, 447);
+            lblDiagnosis.Location = new Point(859, 632);
             lblDiagnosis.Name = "lblDiagnosis";
-            lblDiagnosis.Size = new Size(43, 38);
+            lblDiagnosis.Size = new Size(460, 38);
             lblDiagnosis.TabIndex = 109;
             lblDiagnosis.Text = "--";
+            lblDiagnosis.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblDischargeDate
             // 
-            lblDischargeDate.AutoSize = true;
             lblDischargeDate.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDischargeDate.Location = new Point(1014, 347);
+            lblDischargeDate.Location = new Point(859, 492);
             lblDischargeDate.Name = "lblDischargeDate";
-            lblDischargeDate.Size = new Size(43, 38);
+            lblDischargeDate.Size = new Size(460, 38);
             lblDischargeDate.TabIndex = 108;
             lblDischargeDate.Text = "--";
+            lblDischargeDate.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblAdmissionDate
             // 
-            lblAdmissionDate.AutoSize = true;
             lblAdmissionDate.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblAdmissionDate.Location = new Point(1014, 247);
+            lblAdmissionDate.Location = new Point(859, 352);
             lblAdmissionDate.Name = "lblAdmissionDate";
-            lblAdmissionDate.Size = new Size(43, 38);
+            lblAdmissionDate.Size = new Size(460, 38);
             lblAdmissionDate.TabIndex = 107;
             lblAdmissionDate.Text = "--";
+            lblAdmissionDate.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblPatientID
             // 
-            lblPatientID.AutoSize = true;
             lblPatientID.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPatientID.Location = new Point(1014, 147);
+            lblPatientID.Location = new Point(859, 212);
             lblPatientID.Name = "lblPatientID";
-            lblPatientID.Size = new Size(43, 38);
+            lblPatientID.Size = new Size(460, 38);
             lblPatientID.TabIndex = 106;
             lblPatientID.Text = "--";
+            lblPatientID.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblPatientName
             // 
-            lblPatientName.AutoSize = true;
             lblPatientName.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPatientName.Location = new Point(1014, 47);
+            lblPatientName.Location = new Point(859, 72);
             lblPatientName.Name = "lblPatientName";
-            lblPatientName.Size = new Size(43, 38);
+            lblPatientName.Size = new Size(460, 38);
             lblPatientName.TabIndex = 105;
             lblPatientName.Text = "--";
+            lblPatientName.TextAlign = ContentAlignment.MiddleRight;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(78, 452);
+            label5.Location = new Point(78, 632);
             label5.Name = "label5";
             label5.Size = new Size(163, 38);
             label5.TabIndex = 103;
@@ -148,7 +152,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(78, 352);
+            label4.Location = new Point(78, 492);
             label4.Name = "label4";
             label4.Size = new Size(240, 38);
             label4.TabIndex = 102;
@@ -158,7 +162,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(78, 252);
+            label3.Location = new Point(78, 352);
             label3.Name = "label3";
             label3.Size = new Size(248, 38);
             label3.TabIndex = 101;
@@ -168,7 +172,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(78, 152);
+            label2.Location = new Point(78, 212);
             label2.Name = "label2";
             label2.Size = new Size(163, 38);
             label2.TabIndex = 100;
@@ -178,17 +182,45 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(78, 52);
+            label1.Location = new Point(78, 72);
             label1.Name = "label1";
             label1.Size = new Size(109, 38);
             label1.TabIndex = 99;
             label1.Text = "Name:";
+            // 
+            // btnPrint
+            // 
+            btnPrint.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPrint.Location = new Point(1113, 918);
+            btnPrint.Name = "btnPrint";
+            btnPrint.Size = new Size(347, 45);
+            btnPrint.TabIndex = 102;
+            btnPrint.Text = "Print Discharge Summary";
+            btnPrint.UseVisualStyleBackColor = true;
+            btnPrint.Click += btnPrint_Click;
+            // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.ShowIcon = false;
+            printPreviewDialog1.Visible = false;
             // 
             // Discharge
             // 
             AutoScaleDimensions = new SizeF(14F, 29F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSeaGreen;
+            Controls.Add(btnPrint);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Microsoft JhengHei UI", 14F);
@@ -217,5 +249,8 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private Button btnPrint;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private PrintPreviewDialog printPreviewDialog1;
     }
 }
