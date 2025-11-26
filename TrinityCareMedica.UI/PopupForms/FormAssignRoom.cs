@@ -68,6 +68,21 @@ namespace TrinityCareMedica.UI.AssignmentForms
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            if (comboBoxRoomType.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a room type", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (comboBoxRoomNo.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a room number", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (comboBoxBedNo.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a bed number", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             GlobalVariables.assignedRoom = new AssignedRoomModel
             {
                 RoomType = comboBoxRoomType.SelectedItem.ToString(),

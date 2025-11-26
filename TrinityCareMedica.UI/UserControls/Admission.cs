@@ -76,7 +76,6 @@ namespace TrinityCareMedica.UI.UserControls
             txtGuardianPhone.Clear();
             txtAddress.Clear();
             checkboxTandC.Checked = false;
-            dateAdmissionDate.Value = DateTime.Today;
             GlobalVariables.assignedStaff.Clear();
             GlobalVariables.assignedRoom = new AssignedRoomModel();
         }
@@ -121,6 +120,7 @@ namespace TrinityCareMedica.UI.UserControls
                     else
                     {
                         MessageBox.Show("Please agree to the terms and conditions.", "Terms and Conditions", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
                     }
                 }
                 else if (action.Equals("Edit"))

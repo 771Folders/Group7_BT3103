@@ -18,6 +18,11 @@ namespace TrinityCareMedica.UI.AssignmentForms
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtTreatment.Text))
+            {
+                MessageBox.Show("Please enter the treatment type.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             GlobalVariables.treatment = new TreatmentModel()
             {
                 RecordID = medicalRecordController.GetNextMedicalRecordID(),

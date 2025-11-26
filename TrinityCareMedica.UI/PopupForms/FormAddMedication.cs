@@ -18,6 +18,11 @@ namespace TrinityCareMedica.UI.AssignmentForms
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtMedicationName.Text))
+            {
+                MessageBox.Show("Please enter the medication name.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             GlobalVariables.medication = new MedicationModel()
             {
                 RecordID = medicalRecordController.GetNextMedicalRecordID(),

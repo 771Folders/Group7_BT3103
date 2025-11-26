@@ -36,6 +36,12 @@ namespace TrinityCareMedica.UI.UserControls
                 return;
             }
 
+            if (Convert.ToDecimal(txtPayment.Text) < (Convert.ToDecimal(txtBalance.Text) * Convert.ToDecimal(0.3)))
+            {
+                MessageBox.Show($"Payment must be at least 30% of the balance or {Convert.ToDecimal(txtBalance.Text) * Convert.ToDecimal(0.3)}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             int billingID = billing.BillingID;
             decimal payment = Convert.ToDecimal(txtPayment.Text);
             GlobalVariables.billingSummary = billingController.ConfirmPayment(billingID, payment);

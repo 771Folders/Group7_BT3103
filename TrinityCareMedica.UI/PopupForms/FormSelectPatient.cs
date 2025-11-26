@@ -22,6 +22,16 @@ namespace TrinityCareMedica.UI.AssignmentForms
         }
         private void btnSelect_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtPatientName.Text))
+            {
+                MessageBox.Show("Please enter the patient name.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (patientController.SearchPatients(txtPatientName.Text).Count <= 0)
+            {
+                MessageBox.Show("Patient not found", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             List<PatientModel> searchResult = patientController.SearchPatients(txtPatientName.Text);
             GlobalVariables.selectedPatientID = searchResult[0].PatientID;
             DialogResult = DialogResult.OK;

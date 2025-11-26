@@ -93,8 +93,6 @@ namespace TrinityCareMedica.UI
             {
                 btnDashboard.BackColor = Color.White;
                 dashboard.GoToPatients += (s, e) => ShowControl(new PatientInformationMaintenance());
-                dashboard.GoToStaff += (s, e) => ShowControl(new StaffList());
-                dashboard.GoToRooms += (s, e) => ShowControl(new Rooms());
             }
             else if (control is PatientInformationMaintenance pim)
             {
@@ -175,11 +173,9 @@ namespace TrinityCareMedica.UI
         }
         private void btnStaff_Click(object sender, EventArgs e)
         {
-            ShowControl(new StaffList());
         }
         private void btnRooms_Click(object sender, EventArgs e)
         {
-            ShowControl(new Rooms());
         }
         private void btnDischarge_Click(object sender, EventArgs e)
         {

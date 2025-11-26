@@ -39,8 +39,6 @@
             label22 = new Label();
             btnSubmit = new Button();
             btnReset = new Button();
-            dateAdmissionDate = new DateTimePicker();
-            label21 = new Label();
             label5 = new Label();
             checkboxTandC = new CheckBox();
             label6 = new Label();
@@ -184,27 +182,6 @@
             btnReset.Text = "RESET";
             btnReset.UseVisualStyleBackColor = true;
             btnReset.Click += btnReset_Click;
-            // 
-            // dateAdmissionDate
-            // 
-            dateAdmissionDate.CustomFormat = "MM/dd/yyyy hh:mm tt";
-            dateAdmissionDate.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateAdmissionDate.Format = DateTimePickerFormat.Custom;
-            dateAdmissionDate.Location = new Point(1081, 833);
-            dateAdmissionDate.Name = "dateAdmissionDate";
-            dateAdmissionDate.Size = new Size(374, 47);
-            dateAdmissionDate.TabIndex = 80;
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label21.ForeColor = Color.White;
-            label21.Location = new Point(1081, 794);
-            label21.Name = "label21";
-            label21.Size = new Size(228, 36);
-            label21.TabIndex = 94;
-            label21.Text = "Admission Date:";
             // 
             // label5
             // 
@@ -361,10 +338,11 @@
             dateBirth.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dateBirth.Format = DateTimePickerFormat.Short;
             dateBirth.Location = new Point(60, 451);
-            dateBirth.MaxDate = DateTime.Today;
+            dateBirth.MaxDate = new DateTime(2025, 11, 26, 0, 0, 0, 0);
             dateBirth.Name = "dateBirth";
             dateBirth.Size = new Size(284, 43);
             dateBirth.TabIndex = 70;
+            dateBirth.Value = new DateTime(2025, 11, 26, 0, 0, 0, 0);
             // 
             // txtAddress
             // 
@@ -480,8 +458,6 @@
             Controls.Add(label22);
             Controls.Add(btnSubmit);
             Controls.Add(btnReset);
-            Controls.Add(dateAdmissionDate);
-            Controls.Add(label21);
             Controls.Add(label5);
             Controls.Add(checkboxTandC);
             Controls.Add(label6);
@@ -526,8 +502,6 @@
         private Label label22;
         private Button btnSubmit;
         private Button btnReset;
-        private DateTimePicker dateAdmissionDate;
-        private Label label21;
         private Label label5;
         private CheckBox checkboxTandC;
         private Label label6;

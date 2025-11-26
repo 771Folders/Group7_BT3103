@@ -42,7 +42,6 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            btnPrint = new Button();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
             panel1.SuspendLayout();
@@ -188,17 +187,6 @@
             label1.TabIndex = 99;
             label1.Text = "Name:";
             // 
-            // btnPrint
-            // 
-            btnPrint.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPrint.Location = new Point(1113, 918);
-            btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(347, 45);
-            btnPrint.TabIndex = 102;
-            btnPrint.Text = "Print Discharge Summary";
-            btnPrint.UseVisualStyleBackColor = true;
-            btnPrint.Click += btnPrint_Click;
-            // 
             // printDocument1
             // 
             printDocument1.PrintPage += printDocument1_PrintPage;
@@ -220,7 +208,6 @@
             AutoScaleDimensions = new SizeF(14F, 29F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSeaGreen;
-            Controls.Add(btnPrint);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Microsoft JhengHei UI", 14F);
@@ -249,7 +236,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private Button btnPrint;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PrintPreviewDialog printPreviewDialog1;
     }

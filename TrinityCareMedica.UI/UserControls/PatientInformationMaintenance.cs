@@ -48,6 +48,7 @@ namespace TrinityCareMedica.UI.UserControls
             switch (FormLogin.LoggedUser.Role)
             {
                 case "Doctor":
+                    btnToggleSelect.Visible = false;
                     btnAdd.Visible = false;
                     btnEdit.Visible = false;
                     btnDelete.Visible = false;
@@ -55,6 +56,7 @@ namespace TrinityCareMedica.UI.UserControls
                     btnDischarge.Visible = false;
                     break;
                 case "Nurse":
+                    btnToggleSelect.Visible = false;
                     btnAdd.Visible = false;
                     btnEdit.Visible = false;
                     btnDelete.Visible = false;
@@ -68,6 +70,7 @@ namespace TrinityCareMedica.UI.UserControls
                     break;
                 case "Cashier":
                     dataPatients.CellDoubleClick -= dataPatients_CellDoubleClick;
+                    btnToggleSelect.Visible = false;
                     btnAdd.Visible = false;
                     btnEdit.Visible = false;
                     btnDelete.Visible = false;
