@@ -39,9 +39,19 @@ namespace TrinityCareMedica.UI.PopupForms
         }
         private void btnDischarge_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtPatientName.Text))
+            {
+                MessageBox.Show("Please enter the patient name.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (patientController.SearchPatients(txtPatientName.Text).Count <= 0)
+            {
+                MessageBox.Show("Patient not found", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             PatientModel patient = patientController.SearchPatients(txtPatientName.Text).First();
             GlobalVariables.selectedPatientID = patient.PatientID;
-            DialogResult res = MessageBox.Show("Are you sure you want to discharge this patient?", "Confirm Discharge", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult res = MessageBox.Show($"Are you sure you want to discharge {patient.FirstName} {patient.MiddleName} {patient.LastName}?", "Confirm Discharge", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
                 List<int> admissionIDs = patientController.GetPatientAdmissionIDs(GlobalVariables.selectedPatientID);
@@ -58,6 +68,7 @@ namespace TrinityCareMedica.UI.PopupForms
             else
             {
                 MessageBox.Show("Cancelled Discharging Patient", "Discharge Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
             DialogResult = DialogResult.OK;
             Close();

@@ -18,7 +18,7 @@ namespace TrinityCareMedica.UI.UserControls
             List<int> admissionIDs = patientController.GetPatientAdmissionIDs(GlobalVariables.selectedPatientID);
             List<AdmissionHistoryModel> admissionHistory = patientController.GetAllAdmissionCards();
             AdmissionHistoryModel admission = new AdmissionHistoryModel();
-            foreach (AdmissionHistoryModel admissionModel in  admissionHistory)
+            foreach (AdmissionHistoryModel admissionModel in admissionHistory)
             {
                 if (admissionModel.PatientID == GlobalVariables.selectedPatientID)
                 {
@@ -31,6 +31,24 @@ namespace TrinityCareMedica.UI.UserControls
             lblAdmissionDate.Text = admission.AdmissionDate.ToShortDateString();
             lblDischargeDate.Text = admission.DischargeDate.ToString();
             lblDiagnosis.Text = admission.Diagnosis;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            PrintPreviewDialog previewDialog = new PrintPreviewDialog();
+            previewDialog.Document = printDocument1;
+            previewDialog.Shown += (sender, e) =>
+            {
+                Form previewForm = (Form)previewDialog;
+                previewForm.WindowState = FormWindowState.Maximized;
+            };
+
+            previewDialog.ShowDialog();
         }
     }
 }

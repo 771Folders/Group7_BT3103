@@ -42,5 +42,9 @@ namespace TrinityCareMedica.UI.UserControls
             }
             LoadMedicalRecords?.Invoke(this, EventArgs.Empty);
         }
+        private void removeFocus(object sender, EventArgs e)
+        {
+            ActiveControl = null;
+        }
     }
 }

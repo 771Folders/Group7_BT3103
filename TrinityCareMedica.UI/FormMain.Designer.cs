@@ -34,8 +34,6 @@
             btnDashboard = new Button();
             btnPatientInfo = new Button();
             btnAdmission = new Button();
-            btnStaff = new Button();
-            btnRooms = new Button();
             btnBilling = new Button();
             btnDischarge = new Button();
             panelAppTitle = new Panel();
@@ -83,8 +81,6 @@
             flowPanelSideBar.Controls.Add(btnDashboard);
             flowPanelSideBar.Controls.Add(btnPatientInfo);
             flowPanelSideBar.Controls.Add(btnAdmission);
-            flowPanelSideBar.Controls.Add(btnStaff);
-            flowPanelSideBar.Controls.Add(btnRooms);
             flowPanelSideBar.Controls.Add(btnBilling);
             flowPanelSideBar.Controls.Add(btnDischarge);
             flowPanelSideBar.FlowDirection = FlowDirection.TopDown;
@@ -130,36 +126,11 @@
             btnAdmission.UseVisualStyleBackColor = true;
             btnAdmission.Click += btnAdmission_Click;
             // 
-            // btnStaff
-            // 
-            btnStaff.FlatStyle = FlatStyle.Popup;
-            btnStaff.ImageAlign = ContentAlignment.MiddleLeft;
-            btnStaff.Location = new Point(3, 354);
-            btnStaff.Name = "btnStaff";
-            btnStaff.Size = new Size(343, 111);
-            btnStaff.TabIndex = 4;
-            btnStaff.Text = "Doctors and Nurses List";
-            btnStaff.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnStaff.UseVisualStyleBackColor = true;
-            btnStaff.Click += btnStaff_Click;
-            // 
-            // btnRooms
-            // 
-            btnRooms.FlatStyle = FlatStyle.Popup;
-            btnRooms.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRooms.Location = new Point(3, 471);
-            btnRooms.Name = "btnRooms";
-            btnRooms.Size = new Size(343, 111);
-            btnRooms.TabIndex = 5;
-            btnRooms.Text = "Rooms";
-            btnRooms.UseVisualStyleBackColor = true;
-            btnRooms.Click += btnRooms_Click;
-            // 
             // btnBilling
             // 
             btnBilling.FlatStyle = FlatStyle.Popup;
             btnBilling.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBilling.Location = new Point(3, 588);
+            btnBilling.Location = new Point(3, 354);
             btnBilling.Name = "btnBilling";
             btnBilling.Size = new Size(343, 111);
             btnBilling.TabIndex = 3;
@@ -171,7 +142,7 @@
             // 
             btnDischarge.FlatStyle = FlatStyle.Popup;
             btnDischarge.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDischarge.Location = new Point(3, 705);
+            btnDischarge.Location = new Point(3, 471);
             btnDischarge.Name = "btnDischarge";
             btnDischarge.Size = new Size(343, 111);
             btnDischarge.TabIndex = 6;
@@ -238,8 +209,6 @@
         private Button btnPatientInfo;
         private Button btnAdmission;
         private Button btnBilling;
-        private Button btnStaff;
-        private Button btnRooms;
         private Button btnDischarge;
     }
 }

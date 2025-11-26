@@ -13,6 +13,11 @@ namespace TrinityCareMedica.UI.AssignmentForms
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtDiagnosis.Text))
+            {
+                MessageBox.Show("Please enter the diagnosis.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             GlobalVariables.medicalRecord = new MedicalRecordModel()
             {
                 RecordID = medicalRecordController.GetNextMedicalRecordID(),

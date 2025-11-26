@@ -54,38 +54,28 @@ namespace TrinityCareMedica.UI
             {
                 case "Admin":
                     btnAdmission.Visible = true;
-                    btnStaff.Visible = true;
-                    btnRooms.Visible = true;
                     btnBilling.Visible = true;
                     btnDischarge.Visible = true;
                     break;
                 case "Doctor":
                     btnAdmission.Visible = false;
-                    btnStaff.Visible = true;
-                    btnRooms.Visible = true;
                     btnBilling.Visible = false;
                     btnDischarge.Visible = false;
                     break;
                 case "Nurse":
                     btnAdmission.Visible = false;
-                    btnStaff.Visible = true;
-                    btnRooms.Visible = true;
                     btnBilling.Visible = false;
                     btnDischarge.Visible = false;
                     break;
                 case "Receptionist":
                     btnAdmission.Visible = true;
-                    btnStaff.Visible = true;
-                    btnRooms.Visible = true;
                     btnBilling.Visible = false;
-                    btnDischarge.Visible = false;
+                    btnDischarge.Visible = true;
                     break;
                 case "Cashier":
                     btnAdmission.Visible = false;
-                    btnStaff.Visible = false;
-                    btnRooms.Visible = false;
                     btnBilling.Visible = true;
-                    btnDischarge.Visible = true;
+                    btnDischarge.Visible = false;
                     break;
             }
         }
@@ -94,8 +84,6 @@ namespace TrinityCareMedica.UI
             btnDashboard.BackColor = Color.Transparent;
             btnPatientInfo.BackColor = Color.Transparent;
             btnAdmission.BackColor = Color.Transparent;
-            btnStaff.BackColor = Color.Transparent;
-            btnRooms.BackColor = Color.Transparent;
             btnPatientInfo.BackColor = Color.Transparent;
             btnBilling.BackColor = Color.Transparent;
             btnDischarge.BackColor = Color.Transparent;
@@ -105,8 +93,6 @@ namespace TrinityCareMedica.UI
             {
                 btnDashboard.BackColor = Color.White;
                 dashboard.GoToPatients += (s, e) => ShowControl(new PatientInformationMaintenance());
-                dashboard.GoToStaff += (s, e) => ShowControl(new StaffList());
-                dashboard.GoToRooms += (s, e) => ShowControl(new Rooms());
             }
             else if (control is PatientInformationMaintenance pim)
             {
@@ -125,6 +111,7 @@ namespace TrinityCareMedica.UI
                 pim.GoToPatientRecord += (s, e) => ShowControl(new PatientRecord());
                 pim.GoToDischarge += (s, e) => ShowControl(new Discharge());
                 pim.GoToBilling += (s, e) => ShowControl(new Billing());
+                pim.GoToBillingSummary += (s, e) => ShowControl(new BillingSummary());
             }
             else if (control is Admission admission)
             {
@@ -148,14 +135,6 @@ namespace TrinityCareMedica.UI
                 btnBilling.BackColor = Color.White;
                 billing.GoToBillingSummary += (s, e) => ShowControl(new BillingSummary());
             }
-            else if (control is StaffList staffList)
-            {
-                btnStaff.BackColor = Color.White;
-            }
-            else if (control is Rooms rooms)
-            {
-                btnRooms.BackColor = Color.White;
-            }
             else if (control is Discharge discharge)
             {
                 btnDischarge.BackColor = Color.White;
@@ -174,18 +153,15 @@ namespace TrinityCareMedica.UI
         {
             ShowControl(new Dashboard());
         }
-
         private void btnPatientInfo_Click(object sender, EventArgs e)
         {
             ShowControl(new PatientInformationMaintenance());
         }
-
         private void btnAdmission_Click(object sender, EventArgs e)
         {
             GlobalVariables.admissionAction = "Add";
             ShowControl(new Admission());
         }
-
         private void btnBilling_Click(object sender, EventArgs e)
         {
             FormSelectPatient form = new FormSelectPatient();
@@ -197,11 +173,9 @@ namespace TrinityCareMedica.UI
         }
         private void btnStaff_Click(object sender, EventArgs e)
         {
-            ShowControl(new StaffList());
         }
         private void btnRooms_Click(object sender, EventArgs e)
         {
-            ShowControl(new Rooms());
         }
         private void btnDischarge_Click(object sender, EventArgs e)
         {

@@ -39,8 +39,6 @@
             label22 = new Label();
             btnSubmit = new Button();
             btnReset = new Button();
-            dateAdmissionDate = new DateTimePicker();
-            label21 = new Label();
             label5 = new Label();
             checkboxTandC = new CheckBox();
             label6 = new Label();
@@ -64,7 +62,6 @@
             lblID = new Label();
             btnAddRoom = new Button();
             label1 = new Label();
-            button1 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -160,9 +157,9 @@
             label22.ForeColor = Color.White;
             label22.Location = new Point(536, 281);
             label22.Name = "label22";
-            label22.Size = new Size(163, 36);
+            label22.Size = new Size(176, 36);
             label22.TabIndex = 95;
-            label22.Text = "First Name:";
+            label22.Text = "First Name:*";
             // 
             // btnSubmit
             // 
@@ -185,27 +182,6 @@
             btnReset.Text = "RESET";
             btnReset.UseVisualStyleBackColor = true;
             btnReset.Click += btnReset_Click;
-            // 
-            // dateAdmissionDate
-            // 
-            dateAdmissionDate.CustomFormat = "MM/dd/yyyy hh:mm tt";
-            dateAdmissionDate.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateAdmissionDate.Format = DateTimePickerFormat.Custom;
-            dateAdmissionDate.Location = new Point(1081, 833);
-            dateAdmissionDate.Name = "dateAdmissionDate";
-            dateAdmissionDate.Size = new Size(374, 47);
-            dateAdmissionDate.TabIndex = 80;
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label21.ForeColor = Color.White;
-            label21.Location = new Point(1081, 794);
-            label21.Name = "label21";
-            label21.Size = new Size(228, 36);
-            label21.TabIndex = 94;
-            label21.Text = "Admission Date:";
             // 
             // label5
             // 
@@ -250,9 +226,9 @@
             label7.ForeColor = Color.White;
             label7.Location = new Point(60, 281);
             label7.Name = "label7";
-            label7.Size = new Size(160, 36);
+            label7.Size = new Size(173, 36);
             label7.TabIndex = 84;
-            label7.Text = "Last Name:";
+            label7.Text = "Last Name:*";
             // 
             // label20
             // 
@@ -273,9 +249,9 @@
             label8.ForeColor = Color.White;
             label8.Location = new Point(655, 412);
             label8.Name = "label8";
-            label8.Size = new Size(223, 36);
+            label8.Size = new Size(236, 36);
             label8.TabIndex = 85;
-            label8.Text = "Phone Number:";
+            label8.Text = "Phone Number:*";
             // 
             // label9
             // 
@@ -306,9 +282,9 @@
             label10.ForeColor = Color.White;
             label10.Location = new Point(58, 412);
             label10.Name = "label10";
-            label10.Size = new Size(185, 36);
+            label10.Size = new Size(198, 36);
             label10.TabIndex = 87;
-            label10.Text = "Date of Birth:";
+            label10.Text = "Date of Birth:*";
             // 
             // label11
             // 
@@ -318,9 +294,9 @@
             label11.ForeColor = Color.White;
             label11.Location = new Point(357, 412);
             label11.Name = "label11";
-            label11.Size = new Size(119, 36);
+            label11.Size = new Size(132, 36);
             label11.TabIndex = 88;
-            label11.Text = "Gender:";
+            label11.Text = "Gender:*";
             // 
             // txtGuardianPhone
             // 
@@ -330,6 +306,7 @@
             txtGuardianPhone.Name = "txtGuardianPhone";
             txtGuardianPhone.Size = new Size(374, 43);
             txtGuardianPhone.TabIndex = 76;
+            txtGuardianPhone.KeyPress += txtPhone_KeyPress;
             // 
             // drpdownGender
             // 
@@ -361,9 +338,11 @@
             dateBirth.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dateBirth.Format = DateTimePickerFormat.Short;
             dateBirth.Location = new Point(60, 451);
+            dateBirth.MaxDate = new DateTime(2025, 11, 26, 0, 0, 0, 0);
             dateBirth.Name = "dateBirth";
             dateBirth.Size = new Size(284, 43);
             dateBirth.TabIndex = 70;
+            dateBirth.Value = new DateTime(2025, 11, 26, 0, 0, 0, 0);
             // 
             // txtAddress
             // 
@@ -424,6 +403,7 @@
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(324, 43);
             txtPhone.TabIndex = 72;
+            txtPhone.KeyPress += txtPhone_KeyPress;
             // 
             // lblID
             // 
@@ -458,16 +438,6 @@
             label1.TabIndex = 100;
             label1.Text = "Assign:";
             // 
-            // button1
-            // 
-            button1.Font = new Font("Tahoma", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(65, 898);
-            button1.Name = "button1";
-            button1.Size = new Size(263, 54);
-            button1.TabIndex = 101;
-            button1.Text = "Admission History";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // Admission
             // 
             AutoScaleDimensions = new SizeF(14F, 29F);
@@ -475,7 +445,6 @@
             BackColor = Color.LightSeaGreen;
             BackgroundImage = Properties.Resources.Untitled_design__1__removebg_preview;
             BackgroundImageLayout = ImageLayout.Center;
-            Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(btnAddRoom);
             Controls.Add(lblID);
@@ -489,8 +458,6 @@
             Controls.Add(label22);
             Controls.Add(btnSubmit);
             Controls.Add(btnReset);
-            Controls.Add(dateAdmissionDate);
-            Controls.Add(label21);
             Controls.Add(label5);
             Controls.Add(checkboxTandC);
             Controls.Add(label6);
@@ -535,8 +502,6 @@
         private Label label22;
         private Button btnSubmit;
         private Button btnReset;
-        private DateTimePicker dateAdmissionDate;
-        private Label label21;
         private Label label5;
         private CheckBox checkboxTandC;
         private Label label6;
@@ -560,6 +525,5 @@
         private Label lblID;
         private Button btnAddRoom;
         private Label label1;
-        private Button button1;
     }
 }

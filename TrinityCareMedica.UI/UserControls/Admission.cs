@@ -76,7 +76,6 @@ namespace TrinityCareMedica.UI.UserControls
             txtGuardianPhone.Clear();
             txtAddress.Clear();
             checkboxTandC.Checked = false;
-            dateAdmissionDate.Value = DateTime.Today;
             GlobalVariables.assignedStaff.Clear();
             GlobalVariables.assignedRoom = new AssignedRoomModel();
         }
@@ -84,20 +83,32 @@ namespace TrinityCareMedica.UI.UserControls
         {
             try
             {
+                if (string.IsNullOrEmpty(txtFirstName.Text) || string.IsNullOrEmpty(txtLastName.Text)
+                    || string.IsNullOrEmpty(txtPhone.Text) || string.IsNullOrEmpty(drpdownGender.Text))
+                {
+                    MessageBox.Show("Please fill in the required fields.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (txtEmail.Text.Length > 0 && !txtEmail.Text.Contains("@") && !txtEmail.Text.Contains("."))
+                {
+                    MessageBox.Show("Please enter a valid email address.", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 PatientModel patient = new PatientModel()
                 {
                     PatientID = int.Parse(lblID.Text),
-                    FirstName = txtFirstName.Text,
-                    LastName = txtLastName.Text,
-                    MiddleName = txtMiddleName.Text,
+                    FirstName = txtFirstName.Text.Trim(),
+                    LastName = txtLastName.Text.Trim(),
+                    MiddleName = txtMiddleName.Text.Trim(),
                     DateOfBirth = dateBirth.Value.Date,
                     Age = calculateAge(),
-                    Gender = drpdownGender.Text,
-                    Address = txtAddress.Text,
-                    Phone = txtPhone.Text,
-                    Email = txtEmail.Text,
-                    EmergencyContact = txtGuardian.Text,
-                    EmergencyContactPhone = txtGuardianPhone.Text
+                    Gender = drpdownGender.Text.Trim(),
+                    Address = txtAddress.Text.Trim(),
+                    Phone = txtPhone.Text.Trim(),
+                    Email = txtEmail.Text.Trim(),
+                    EmergencyContact = txtGuardian.Text.Trim(),
+                    EmergencyContactPhone = txtGuardianPhone.Text.Trim()
                 };
                 if (action.Equals("Add"))
                 {
@@ -109,6 +120,7 @@ namespace TrinityCareMedica.UI.UserControls
                     else
                     {
                         MessageBox.Show("Please agree to the terms and conditions.", "Terms and Conditions", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
                     }
                 }
                 else if (action.Equals("Edit"))
@@ -187,6 +199,13 @@ namespace TrinityCareMedica.UI.UserControls
         {
             FormAssignRoom form = new FormAssignRoom();
             form.ShowDialog();
+        }
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != '+' && e.KeyChar != '(' && e.KeyChar != ')')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

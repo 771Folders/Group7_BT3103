@@ -7,5 +7,5 @@
 	[FrequencyInterval] INT NOT NULL,
 	[Duration] INT NOT NULL,
 	[Price] DECIMAL(10,2) NOT NULL,
-	FOREIGN KEY (RecordID) REFERENCES MedicalRecords(RecordID)
+	FOREIGN KEY (RecordID) REFERENCES MedicalRecords(RecordID) ON DELETE CASCADE
 )

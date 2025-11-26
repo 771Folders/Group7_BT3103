@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillingSummary));
             panel1 = new Panel();
             panel2 = new Panel();
@@ -87,13 +89,42 @@
             // 
             // dataSummary
             // 
+            dataSummary.AllowUserToAddRows = false;
+            dataSummary.AllowUserToDeleteRows = false;
+            dataSummary.AllowUserToResizeRows = false;
+            dataSummary.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataSummary.BackgroundColor = Color.White;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataSummary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataSummary.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Window;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataSummary.DefaultCellStyle = dataGridViewCellStyle2;
+            dataSummary.EnableHeadersVisualStyles = false;
+            dataSummary.GridColor = Color.White;
             dataSummary.Location = new Point(60, 135);
+            dataSummary.MultiSelect = false;
             dataSummary.Name = "dataSummary";
+            dataSummary.ReadOnly = true;
+            dataSummary.RowHeadersVisible = false;
             dataSummary.RowHeadersWidth = 51;
+            dataSummary.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataSummary.ShowCellErrors = false;
+            dataSummary.ShowCellToolTips = false;
             dataSummary.Size = new Size(1400, 747);
             dataSummary.TabIndex = 112;
+            dataSummary.CellFormatting += dataSummary_CellFormatting;
             // 
             // btnExit
             // 

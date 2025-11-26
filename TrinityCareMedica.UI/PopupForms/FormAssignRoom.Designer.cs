@@ -182,6 +182,7 @@
             dateEndDate.Format = DateTimePickerFormat.Short;
             dateEndDate.Location = new Point(519, 178);
             dateEndDate.Name = "dateEndDate";
+            dateEndDate.MinDate = DateTime.Today;
             dateEndDate.ShowCheckBox = true;
             dateEndDate.Size = new Size(270, 37);
             dateEndDate.TabIndex = 21;

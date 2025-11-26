@@ -33,7 +33,6 @@
             panel2 = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             labelPatientID = new Label();
-            labelDateRegistered = new Label();
             labelFullName = new Label();
             labelDateOfBirth = new Label();
             labelAge = new Label();
@@ -105,7 +104,6 @@
             // 
             flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanel1.Controls.Add(labelPatientID);
-            flowLayoutPanel1.Controls.Add(labelDateRegistered);
             flowLayoutPanel1.Controls.Add(labelFullName);
             flowLayoutPanel1.Controls.Add(labelDateOfBirth);
             flowLayoutPanel1.Controls.Add(labelAge);
@@ -129,19 +127,10 @@
             labelPatientID.TabIndex = 0;
             labelPatientID.Text = "Patient ID:";
             // 
-            // labelDateRegistered
-            // 
-            labelDateRegistered.AutoSize = true;
-            labelDateRegistered.Location = new Point(3, 36);
-            labelDateRegistered.Name = "labelDateRegistered";
-            labelDateRegistered.Size = new Size(232, 36);
-            labelDateRegistered.TabIndex = 10;
-            labelDateRegistered.Text = "Date Registered:";
-            // 
             // labelFullName
             // 
             labelFullName.AutoSize = true;
-            labelFullName.Location = new Point(3, 72);
+            labelFullName.Location = new Point(3, 36);
             labelFullName.Name = "labelFullName";
             labelFullName.Size = new Size(154, 36);
             labelFullName.TabIndex = 1;
@@ -150,7 +139,7 @@
             // labelDateOfBirth
             // 
             labelDateOfBirth.AutoSize = true;
-            labelDateOfBirth.Location = new Point(3, 108);
+            labelDateOfBirth.Location = new Point(3, 72);
             labelDateOfBirth.Name = "labelDateOfBirth";
             labelDateOfBirth.Size = new Size(185, 36);
             labelDateOfBirth.TabIndex = 2;
@@ -159,7 +148,7 @@
             // labelAge
             // 
             labelAge.AutoSize = true;
-            labelAge.Location = new Point(3, 144);
+            labelAge.Location = new Point(3, 108);
             labelAge.Name = "labelAge";
             labelAge.Size = new Size(74, 36);
             labelAge.TabIndex = 3;
@@ -168,7 +157,7 @@
             // labelGender
             // 
             labelGender.AutoSize = true;
-            labelGender.Location = new Point(3, 180);
+            labelGender.Location = new Point(3, 144);
             labelGender.Name = "labelGender";
             labelGender.Size = new Size(119, 36);
             labelGender.TabIndex = 4;
@@ -177,7 +166,7 @@
             // labelPhone
             // 
             labelPhone.AutoSize = true;
-            labelPhone.Location = new Point(3, 216);
+            labelPhone.Location = new Point(3, 180);
             labelPhone.Name = "labelPhone";
             labelPhone.Size = new Size(106, 36);
             labelPhone.TabIndex = 5;
@@ -186,7 +175,7 @@
             // labelEmail
             // 
             labelEmail.AutoSize = true;
-            labelEmail.Location = new Point(3, 252);
+            labelEmail.Location = new Point(3, 216);
             labelEmail.Name = "labelEmail";
             labelEmail.Size = new Size(91, 36);
             labelEmail.TabIndex = 6;
@@ -195,7 +184,7 @@
             // labelAddress
             // 
             labelAddress.AutoSize = true;
-            labelAddress.Location = new Point(3, 288);
+            labelAddress.Location = new Point(3, 252);
             labelAddress.Name = "labelAddress";
             labelAddress.Size = new Size(128, 36);
             labelAddress.TabIndex = 7;
@@ -204,7 +193,7 @@
             // labelEmergencyContact
             // 
             labelEmergencyContact.AutoSize = true;
-            labelEmergencyContact.Location = new Point(3, 324);
+            labelEmergencyContact.Location = new Point(3, 288);
             labelEmergencyContact.Name = "labelEmergencyContact";
             labelEmergencyContact.Size = new Size(278, 36);
             labelEmergencyContact.TabIndex = 8;
@@ -363,6 +352,7 @@
             flowMedicalRecords.Name = "flowMedicalRecords";
             flowMedicalRecords.Size = new Size(695, 741);
             flowMedicalRecords.TabIndex = 0;
+            flowMedicalRecords.WrapContents = false;
             // 
             // PatientRecord
             // 
@@ -410,7 +400,6 @@
         private Label labelEmail;
         private Label labelAddress;
         private Label labelEmergencyContact;
-        private Label labelDateRegistered;
         private FlowLayoutPanel panelRoom;
         private Label labelRoom;
         private Label labelBedNo;

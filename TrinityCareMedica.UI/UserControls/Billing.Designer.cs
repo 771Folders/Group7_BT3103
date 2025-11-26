@@ -80,7 +80,7 @@
             panel2.Controls.Add(lblPatientID);
             panel2.Controls.Add(lblPatientName);
             panel2.Controls.Add(label1);
-            panel2.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            panel2.Font = new Font("Segoe UI", 9F);
             panel2.Location = new Point(61, 143);
             panel2.Name = "panel2";
             panel2.Size = new Size(1406, 770);
@@ -95,7 +95,7 @@
             dataGridView1.BackgroundColor = Color.White;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Control;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
@@ -104,7 +104,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Window;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlText;
@@ -199,11 +199,11 @@
             // btnPrint
             // 
             btnPrint.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPrint.Location = new Point(972, 940);
+            btnPrint.Location = new Point(935, 940);
             btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(255, 45);
+            btnPrint.Size = new Size(292, 45);
             btnPrint.TabIndex = 101;
-            btnPrint.Text = "Print Billing ";
+            btnPrint.Text = "Print Billing Statement";
             btnPrint.UseVisualStyleBackColor = true;
             btnPrint.Click += btnPrint_Click;
             // 

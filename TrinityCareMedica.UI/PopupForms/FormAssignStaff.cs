@@ -56,7 +56,7 @@ namespace TrinityCareMedica.UI
                 cb.Items.Add(string.Empty);
                 foreach (StaffModel doctor in doctorList)
                 {
-                    cb.Items.Add($"{doctor.FirstName} {doctor.LastName} ({doctor.Department})");
+                    cb.Items.Add($"{doctor.FirstName} {doctor.LastName}");
                 }
             }
 
@@ -66,7 +66,7 @@ namespace TrinityCareMedica.UI
                 cb.Items.Add(string.Empty);
                 foreach (StaffModel nurse in nurseList)
                 {
-                    cb.Items.Add($"{nurse.FirstName} {nurse.LastName} ({nurse.Department})");
+                    cb.Items.Add($"{nurse.FirstName} {nurse.LastName}");
                 }
             }
 
@@ -88,14 +88,14 @@ namespace TrinityCareMedica.UI
             {
                 StaffModel doctor = assignedDoctors[i];
                 ComboBox cb = doctorBoxes[i];
-                cb.SelectedIndex = cb.Items.IndexOf($"{doctor.FirstName} {doctor.LastName} ({doctor.Department})");
+                cb.SelectedIndex = cb.Items.IndexOf($"{doctor.FirstName} {doctor.LastName}");
             }
 
             for (int i = 0; i < assignedNurses.Count; i++)
             {
                 StaffModel nurse = assignedNurses[i];
                 ComboBox cb = nurseBoxes[i];
-                cb.SelectedIndex = cb.Items.IndexOf($"{nurse.FirstName} {nurse.LastName} ({nurse.Department})");
+                cb.SelectedIndex = cb.Items.IndexOf($"{nurse.FirstName} {nurse.LastName}");
             }
         }
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -111,7 +111,7 @@ namespace TrinityCareMedica.UI
             {
                 if (cb.SelectedIndex > 0)
                 {
-                    doctors.Add(staff.First(staff => $"{staff.FirstName} {staff.LastName} ({staff.Department})" == cb.SelectedItem.ToString()));
+                    doctors.Add(staff.First(staff => $"{staff.FirstName} {staff.LastName}" == cb.SelectedItem.ToString()));
                 }
             }
 
@@ -119,7 +119,7 @@ namespace TrinityCareMedica.UI
             {
                 if (cb.SelectedIndex > 0)
                 {
-                    nurses.Add(staff.First(staff => $"{staff.FirstName} {staff.LastName} ({staff.Department})" == cb.SelectedItem.ToString()));
+                    nurses.Add(staff.First(staff => $"{staff.FirstName} {staff.LastName}" == cb.SelectedItem.ToString()));
                 }
             }
 

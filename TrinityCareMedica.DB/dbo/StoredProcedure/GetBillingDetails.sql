@@ -7,9 +7,9 @@ BEGIN
     SELECT 
         RA.AdmissionID,
         R.RoomType + ' #' + CAST(R.RoomNumber AS VARCHAR(10)) AS Service,
-        DATEDIFF(DAY, RA.StartDate, ISNULL(RA.EndDate, GETDATE())) AS Quantity,
+        DATEDIFF(DAY, RA.StartDate, ISNULL(RA.EndDate, GETDATE())) + 1 AS Quantity,
         R.RatePerDay AS Price,
-        DATEDIFF(DAY, RA.StartDate, ISNULL(RA.EndDate, GETDATE())) * R.RatePerDay AS Total
+        (DATEDIFF(DAY, RA.StartDate, ISNULL(RA.EndDate, GETDATE())) + 1) * R.RatePerDay AS Total
     FROM RoomAssignments RA
     INNER JOIN Rooms R ON RA.RoomID = R.RoomID
     WHERE RA.AdmissionID = @AdmissionID
@@ -36,6 +36,20 @@ BEGIN
         T.Price AS Total
     FROM Treatments T
     INNER JOIN MedicalRecords MR ON T.RecordID = MR.RecordID
-    WHERE MR.AdmissionID = @AdmissionID;
+    WHERE MR.AdmissionID = @AdmissionID
+
+    UNION ALL
+
+    SELECT
+        A.AdmissionID,
+        CONCAT('Dr. ', S.LastName) AS Service,
+        1 AS Quantity,
+        800 AS Price,
+        800 AS Total
+    FROM StaffAssignments SA
+    INNER JOIN Staff S ON SA.StaffID = S.StaffID
+    INNER JOIN AdmissionHistory A ON SA.PatientID = A.PatientID
+    WHERE S.Role = 'Doctor'
+      AND A.AdmissionID = @AdmissionID;
 END;
 GO
