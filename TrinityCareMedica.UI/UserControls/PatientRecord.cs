@@ -110,11 +110,13 @@ namespace TrinityCareMedica.UI.UserControls
             {
                 panelDischarged.Visible = true;
                 panelRoomAndStaff.Visible = false;
+                btnAddMedicalRecord.Visible = false;
             }
             else
             {
                 panelDischarged.Visible = false;
                 panelRoomAndStaff.Visible = true;
+                btnAddMedicalRecord.Visible = true;
             }
         }
         private void btnAddMedicalRecord_Click(object sender, EventArgs e)

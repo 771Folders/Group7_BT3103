@@ -68,7 +68,7 @@ namespace TrinityCareMedica.UI.UserControls
             txtLastName.Clear();
             txtFirstName.Clear();
             txtMiddleName.Clear();
-            dateBirth.Value = DateTime.Today;
+            dateBirth.Value = dateBirth.MaxDate;
             drpdownGender.SelectedIndex = -1;
             txtPhone.Clear();
             txtEmail.Clear();

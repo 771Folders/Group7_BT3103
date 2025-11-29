@@ -305,6 +305,12 @@ namespace TrinityCareMedica.UI.UserControls
                 {
                     int selected = Convert.ToInt32(dataPatients.CurrentRow.Cells["PatientID"].Value);
                     GlobalVariables.selectedPatientID = selected;
+                    PatientModel patient = patientController.GetPatientByID(selected);
+                    if (patient.Status.Equals("Discharged"))
+                    {
+                        MessageBox.Show("This patient is discharged and cannot be edited", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
                     List<int> assignedStaffIDs = staffController.GetAssignedStaff(selected);
                     foreach (int id in assignedStaffIDs)
                     {
