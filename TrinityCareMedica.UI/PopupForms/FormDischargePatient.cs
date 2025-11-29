@@ -50,6 +50,11 @@ namespace TrinityCareMedica.UI.PopupForms
                 return;
             }
             PatientModel patient = patientController.SearchPatients(txtPatientName.Text).First();
+            if (patient.Status.Equals("Discharged"))
+            {
+                MessageBox.Show($"{patient.FirstName} {patient.MiddleName} {patient.LastName} is already discharged", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             GlobalVariables.selectedPatientID = patient.PatientID;
             DialogResult res = MessageBox.Show($"Are you sure you want to discharge {patient.FirstName} {patient.MiddleName} {patient.LastName}?", "Confirm Discharge", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
